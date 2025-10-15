@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Cliente - webDevPR | Gestión de Proyectos y Colaboración</title>
+    <meta name="description" content="Accede a tu portal cliente de webDevPR para gestionar proyectos, comunicarte con el equipo, compartir archivos y hacer seguimiento del progreso en tiempo real." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fwebdevprp2754back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-surface">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-border z-50">
+        <nav class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold text-primary">webDevPR</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-colors">Inicio</a>
+                    <a href="services_hub.html" class="text-text-secondary hover:text-primary transition-colors">Servicios</a>
+                    <a href="portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors">Portfolio</a>
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
+                    <a href="contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a>
+                    <a href="client_portal.html" class="text-primary font-semibold">Portal Cliente</a>
+                </div>
+
+                <!-- User Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Usuario" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <span class="text-sm font-medium text-text-primary">Carlos Rodríguez</span>
+                    </div>
+                    <button class="text-text-secondary hover:text-primary transition-colors logout-button" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-md text-text-secondary hover:text-primary" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Inicio</a>
+                    <a href="services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Servicios</a>
+                    <a href="portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portfolio</a>
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
+                    <a href="contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Contacto</a>
+                    <a href="client_portal.html" class="block px-3 py-2 text-primary font-semibold">Portal Cliente</a>
+                    <div class="border-t border-border mt-2 pt-2">
+                        <div class="flex items-center px-3 py-2">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Usuario" class="w-6 h-6 rounded-full object-cover mr-2" loading="lazy" onerror="this.src='https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            <span class="text-sm text-text-primary">Carlos Rodríguez</span>
+                        </div>
+                        <button class="block w-full text-left px-3 py-2 text-text-secondary hover:text-primary" id="mobile-logout-btn">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Modal (Initially Hidden) -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="login-modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-8 relative">
+                <!-- Botón de cerrar -->
+                <button class="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors" id="close-login-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lock text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-text-primary mb-2">Acceso al Portal Cliente</h2>
+                    <p class="text-text-secondary">Ingresa tus credenciales para acceder a tu proyecto</p>
+                </div>
+
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-text-primary mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="input-field" placeholder="tu@email.com" required />
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-text-primary mb-2">Contraseña</label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" class="input-field pr-12" placeholder="••••••••" required />
+                            <button type="button" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-text-muted hover:text-text-primary" id="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary" />
+                            <span class="ml-2 text-sm text-text-secondary">Recordarme</span>
+                        </label>
+                        <a href="javascript:void(0)" class="text-sm text-primary hover:text-primary-700">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        Iniciar Sesión
+                    </button>
+                </form>
+
+                <div class="mt-6 p-4 bg-surface rounded-lg">
+                    <p class="text-sm text-text-muted mb-2">Credenciales de prueba:</p>
+                    <div class="space-y-1 text-xs text-text-secondary">
+                        <div>Admin: admin@webdevpr.com / admin123</div>
+                        <div>Cliente: client@empresa.com / client123</div>
+                        <div>Usuario: user@startup.com / user123</div>
+                    </div>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-text-secondary">
+                        ¿Necesitas ayuda? 
+                        <a href="contact_consultation.html" class="text-primary hover:text-primary-700">Contáctanos</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-16" id="main-content" style="display: none;">
+        <!-- Dashboard Header -->
+        <section class="bg-gradient-to-r from-primary to-secondary text-white py-12">
+            <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                    <div class="mb-6 lg:mb-0">
+                        <h1 class="text-3xl lg:text-4xl font-bold mb-2">Bienvenido, Carlos</h1>
+                        <p class="text-xl text-primary-100">Gestiona tus proyectos y colabora con nuestro equipo</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                                        <button class="btn-secondary" data-action="new-ticket">
+                            <i class="fas fa-plus mr-2"></i>
+                            Nuevo Ticket
+                        </button>
+                        <button class="btn-outline border-white text-white hover:bg-white hover:text-primary" data-action="download-files">
+                            <i class="fas fa-download mr-2"></i>
+                            Descargar Archivos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="py-8 bg-white border-b border-border">
+            <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1">2</div>
+                        <div class="text-sm text-text-muted">Proyectos Activos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-success mb-1">85%</div>
+                        <div class="text-sm text-text-muted">Progreso General</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-1">3</div>
+                        <div class="text-sm text-text-muted">Mensajes Nuevos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-secondary mb-1">7</div>
+                        <div class="text-sm text-text-muted">Días Restantes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Dashboard -->
+        <section class="section-padding">
+            <div class="container-max mx-auto">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Left Column - Projects & Timeline -->
+                    <div class="lg:col-span-2 space-y-8">
+                        <!-- Active Projects -->
+                        <div class="card">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-2xl font-bold text-text-primary">Proyectos Activos</h2>
+                                <button class="text-primary hover:text-primary-700">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+
+                            <div class="space-y-6">
+                                <!-- Project 1 -->
+                                <div class="border border-border rounded-lg p-6 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-text-primary mb-2 hover:text-primary cursor-pointer transition-colors" 
+                                                data-tooltip="Click para ver detalles completos">Sitio Web Corporativo</h3>
+                                            <p class="text-text-secondary text-sm">Desarrollo completo de sitio web con CMS</p>
+                                        </div>
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-success-100 text-success cursor-help"
+                                              data-tooltip="Proyecto en fase activa de desarrollo">
+                                            En Desarrollo
+                                        </span>
+                                    </div>
+
+                                    <!-- Progress Bar -->
+                                    <div class="mb-4">
+                                        <div class="flex justify-between text-sm mb-2">
+                                            <span class="text-text-secondary">Progreso</span>
+                                            <span class="text-text-primary font-medium progress-percentage" data-value="75">75%</span>
+                                        </div>
+                                        <div class="w-full bg-surface-200 rounded-full h-2 cursor-pointer hover:bg-surface-300 transition-colors" 
+                                             data-tooltip="Click para actualizar progreso">
+                                            <div class="bg-success h-2 rounded-full progress-bar transition-all duration-500 ease-out" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project Details -->
+                                    <div class="grid grid-cols-2 gap-4 text-sm">
+                                        <div class="hover:bg-surface p-2 rounded-lg transition-colors cursor-help" 
+                                             data-tooltip="Inicio del proyecto">
+                                            <span class="text-text-muted">Fecha de Inicio:</span>
+                                            <div class="text-text-primary font-medium">15 Sep 2025</div>
+                                        </div>
+                                        <div class="hover:bg-surface p-2 rounded-lg transition-colors cursor-help"
+                                             data-tooltip="Fecha estimada de entrega">
+                                            <span class="text-text-muted">Entrega Estimada:</span>
+                                            <div class="text-text-primary font-medium">30 Oct 2025</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="flex gap-3 mt-4">
+                                        <button class="btn-primary text-sm px-4 py-2 transform hover:scale-105 transition-transform"
+                                                data-tooltip="Ver todos los detalles del proyecto">
+                                            <i class="fas fa-eye mr-1"></i>Ver Detalles
+                                        </button>
+                                        <button class="btn-outline text-sm px-4 py-2 transform hover:scale-105 transition-transform relative comment-btn"
+                                                data-tooltip="3 comentarios nuevos">
+                                            <i class="fas fa-comments mr-1"></i>Comentarios
+                                            <span class="absolute -top-2 -right-2 bg-accent text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">3</span>
+                                        </button>
+                                        <button class="text-text-muted hover:text-primary transition-colors" 
+                                                data-tooltip="Añadir a favoritos">
+                                            <i class="far fa-star text-xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Project 2 -->
+                                <div class="border border-border rounded-lg p-6 hover:shadow-md transition-shadow">
+                                    <div class="flex items-start justify-between mb-4">
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-text-primary mb-2">Tienda Online</h3>
+                                            <p class="text-text-secondary text-sm">E-commerce con sistema de pagos</p>
+                                        </div>
+                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-100 text-accent">
+                                            Revisión
+                                        </span>
+                                    </div>
+
+                                    <!-- Progress Bar -->
+                                    <div class="mb-4">
+                                        <div class="flex justify-between text-sm mb-2">
+                                            <span class="text-text-secondary">Progreso</span>
+                                            <span class="text-text-primary font-medium">95%</span>
+                                        </div>
+                                        <div class="w-full bg-surface-200 rounded-full h-2">
+                                            <div class="bg-accent h-2 rounded-full" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project Details -->
+                                    <div class="grid grid-cols-2 gap-4 text-sm">
+                                        <div>
+                                            <span class="text-text-muted">Fecha de Inicio:</span>
+                                            <div class="text-text-primary font-medium">01 Ago 2025</div>
+                                        </div>
+                                        <div>
+                                            <span class="text-text-muted">Entrega Estimada:</span>
+                                            <div class="text-text-primary font-medium">15 Oct 2025</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="flex gap-3 mt-4">
+                                        <button class="btn-primary text-sm px-4 py-2">
+                                            <i class="fas fa-eye mr-1"></i>Ver Detalles
+                                        </button>
+                                        <button class="btn-outline text-sm px-4 py-2">
+                                            <i class="fas fa-comments mr-1"></i>Comentarios
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Timeline -->
+                        <div class="card">
+                            <h2 class="text-2xl font-bold text-text-primary mb-6">Timeline del Proyecto</h2>
+                            
+                            <div class="space-y-6">
+                                <!-- Timeline Item 1 -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-success rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="text-lg font-semibold text-text-primary">Diseño Aprobado</h3>
+                                            <span class="text-sm text-text-muted">Hace 2 días</span>
+                                        </div>
+                                        <p class="text-text-secondary">El diseño final ha sido aprobado y estamos procediendo con el desarrollo.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 2 -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                                        <i class="fas fa-code text-white text-sm"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="text-lg font-semibold text-text-primary">Desarrollo Frontend</h3>
+                                            <span class="text-sm text-text-muted">En progreso</span>
+                                        </div>
+                                        <p class="text-text-secondary">Implementación de las páginas principales y componentes interactivos.</p>
+                                        <div class="mt-2">
+                                            <div class="w-full bg-surface-200 rounded-full h-2">
+                                                <div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 3 -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-surface-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-server text-text-muted text-sm"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="text-lg font-semibold text-text-muted">Desarrollo Backend</h3>
+                                            <span class="text-sm text-text-muted">Próximo</span>
+                                        </div>
+                                        <p class="text-text-secondary">Configuración del servidor y base de datos.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 4 -->
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-surface-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-rocket text-text-muted text-sm"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h3 class="text-lg font-semibold text-text-muted">Lanzamiento</h3>
+                                            <span class="text-sm text-text-muted">30 Oct 2025</span>
+                                        </div>
+                                        <p class="text-text-secondary">Despliegue final y puesta en producción.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Messages & Files -->
+                    <div class="space-y-8">
+                        <!-- Messages -->
+                        <div class="card">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-bold text-text-primary">Mensajes Recientes</h2>
+                                <button class="text-primary hover:text-primary-700">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+
+                            <div class="space-y-4">
+                                <!-- Message 1 -->
+                                <div class="flex items-start space-x-3 p-3 bg-surface rounded-lg">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" alt="María González" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h4 class="text-sm font-semibold text-text-primary">María González</h4>
+                                            <span class="text-xs text-text-muted">Hace 1h</span>
+                                        </div>
+                                        <p class="text-sm text-text-secondary">El diseño se ve excelente. ¿Podemos revisar los colores del header?</p>
+                                    </div>
+                                </div>
+
+                                <!-- Message 2 -->
+                                <div class="flex items-start space-x-3 p-3 bg-surface rounded-lg">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Luis Martínez" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2017/06/26/02/47/man-2442565_1280.jpg'; this.onerror=null;" />
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h4 class="text-sm font-semibold text-text-primary">Luis Martínez</h4>
+                                            <span class="text-xs text-text-muted">Hace 3h</span>
+                                        </div>
+                                        <p class="text-sm text-text-secondary">He subido los nuevos archivos de contenido. Por favor revísenlos.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Message 3 -->
+                                <div class="flex items-start space-x-3 p-3 bg-primary-50 rounded-lg">
+                                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                        <span class="text-white font-bold text-xs">W</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <h4 class="text-sm font-semibold text-text-primary">Equipo webDevPR</h4>
+                                            <span class="text-xs text-text-muted">Ayer</span>
+                                        </div>
+                                        <p class="text-sm text-text-secondary">Hemos completado la integración del sistema de pagos. Listo para pruebas.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="w-full mt-4 text-center text-primary hover:text-primary-700 text-sm font-medium">
+                                Ver todos los mensajes
+                            </button>
+                        </div>
+
+                        <!-- File Manager -->
+                        <div class="card">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-bold text-text-primary">Archivos del Proyecto</h2>
+                                <button class="text-primary hover:text-primary-700">
+                                    <i class="fas fa-upload"></i>
+                                </button>
+                            </div>
+
+                            <div class="space-y-3">
+                                <!-- File 1 -->
+                                <div class="flex items-center justify-between p-3 bg-surface rounded-lg hover:bg-surface-100 transition-colors">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-error-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-file-pdf text-error"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-text-primary">Propuesta_Final.pdf</h4>
+                                            <p class="text-xs text-text-muted">2.4 MB • Hace 2 días</p>
+                                        </div>
+                                    </div>
+                                    <button class="text-text-muted hover:text-text-primary">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+
+                                <!-- File 2 -->
+                                <div class="flex items-center justify-between p-3 bg-surface rounded-lg hover:bg-surface-100 transition-colors">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-file-image text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-text-primary">Mockups_v3.zip</h4>
+                                            <p class="text-xs text-text-muted">15.7 MB • Hace 1 semana</p>
+                                        </div>
+                                    </div>
+                                    <button class="text-text-muted hover:text-text-primary">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+
+                                <!-- File 3 -->
+                                <div class="flex items-center justify-between p-3 bg-surface rounded-lg hover:bg-surface-100 transition-colors">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-success-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-file-excel text-success"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-text-primary">Contenido_Web.xlsx</h4>
+                                            <p class="text-xs text-text-muted">890 KB • Hace 3 días</p>
+                                        </div>
+                                    </div>
+                                    <button class="text-text-muted hover:text-text-primary">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="w-full mt-4 text-center text-primary hover:text-primary-700 text-sm font-medium">
+                                Ver todos los archivos
+                            </button>
+                        </div>
+
+                        <!-- Invoice & Payments -->
+                        <div class="card">
+                            <h2 class="text-xl font-bold text-text-primary mb-6">Facturación</h2>
+                            
+                            <div class="space-y-4">
+                                <!-- Invoice 1 -->
+                                <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-text-primary">Factura #001</h4>
+                                        <p class="text-xs text-text-muted">Pago inicial • 15 Sep 2025</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm font-semibold text-text-primary">$2,500.00</div>
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-success-100 text-success">
+                                            Pagado
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Invoice 2 -->
+                                <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-text-primary">Factura #002</h4>
+                                        <p class="text-xs text-text-muted">Pago intermedio • 30 Oct 2025</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm font-semibold text-text-primary">$2,500.00</div>
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-warning-100 text-warning">
+                                            Pendiente
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="w-full mt-4 btn-outline text-sm">
+                                <i class="fas fa-receipt mr-2"></i>
+                                Ver Historial Completo
+                            </button>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <h2 class="text-xl font-bold text-text-primary mb-6">Acciones Rápidas</h2>
+                            
+                            <div class="grid grid-cols-2 gap-3">
+                                <button class="p-4 text-center border border-border rounded-lg hover:bg-surface transition-colors" data-action="new-ticket">
+                                    <i class="fas fa-ticket-alt text-primary text-xl mb-2"></i>
+                                    <div class="text-sm font-medium text-text-primary">Nuevo Ticket</div>
+                                </button>
+                                <button class="p-4 text-center border border-border rounded-lg hover:bg-surface transition-colors" data-action="schedule-meeting">
+                                    <i class="fas fa-calendar text-secondary text-xl mb-2"></i>
+                                    <div class="text-sm font-medium text-text-primary">Agendar Reunión</div>
+                                </button>
+                                <button class="p-4 text-center border border-border rounded-lg hover:bg-surface transition-colors" data-action="give-feedback">
+                                    <i class="fas fa-star text-accent text-xl mb-2"></i>
+                                    <div class="text-sm font-medium text-text-primary">Dar Feedback</div>
+                                </button>
+                                <button class="p-4 text-center border border-border rounded-lg hover:bg-surface transition-colors" data-action="show-faq">
+                                    <i class="fas fa-question-circle text-success text-xl mb-2"></i>
+                                    <div class="text-sm font-medium text-text-primary">FAQ</div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Meeting Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="meeting-modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-8 relative">
+                <button class="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors" id="close-meeting-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar-alt text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-text-primary mb-2">Agendar Reunión</h2>
+                    <p class="text-text-secondary">Programa una reunión con nuestro equipo</p>
+                </div>
+
+                <form id="meeting-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Tipo de Reunión</label>
+                        <select class="input-field" required>
+                            <option value="">Seleccionar tipo</option>
+                            <option value="revision">Revisión de Proyecto</option>
+                            <option value="seguimiento">Seguimiento</option>
+                            <option value="consulta">Consulta Técnica</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Fecha</label>
+                        <input type="date" class="input-field" required min="${new Date().toISOString().split('T')[0]}">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Hora</label>
+                        <input type="time" class="input-field" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Participantes</label>
+                        <input type="text" class="input-field" placeholder="Correos separados por coma" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Notas</label>
+                        <textarea class="input-field min-h-[100px]" placeholder="Detalles o temas a tratar..."></textarea>
+                    </div>
+
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" class="btn-outline" id="cancel-meeting">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-calendar-check mr-2"></i>Agendar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="feedback-modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-8 relative">
+                <button class="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors" id="close-feedback-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-text-primary mb-2">Dar Feedback</h2>
+                    <p class="text-text-secondary">Tu opinión nos ayuda a mejorar</p>
+                </div>
+
+                <form id="feedback-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Proyecto</label>
+                        <select class="input-field" required>
+                            <option value="">Seleccionar proyecto</option>
+                            <option value="web-corp">Sitio Web Corporativo</option>
+                            <option value="ecommerce">Tienda Online</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Calificación</label>
+                        <div class="flex justify-center space-x-2" id="rating-stars">
+                            <i class="far fa-star text-2xl cursor-pointer text-warning hover:text-warning"></i>
+                            <i class="far fa-star text-2xl cursor-pointer text-warning hover:text-warning"></i>
+                            <i class="far fa-star text-2xl cursor-pointer text-warning hover:text-warning"></i>
+                            <i class="far fa-star text-2xl cursor-pointer text-warning hover:text-warning"></i>
+                            <i class="far fa-star text-2xl cursor-pointer text-warning hover:text-warning"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Comentarios</label>
+                        <textarea class="input-field min-h-[150px]" placeholder="Comparte tu experiencia con el proyecto..." required></textarea>
+                    </div>
+
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" class="btn-outline" id="cancel-feedback">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane mr-2"></i>Enviar Feedback
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="faq-modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full p-8 relative">
+                <button class="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors" id="close-faq-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-question-circle text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-text-primary mb-2">Preguntas Frecuentes</h2>
+                    <p class="text-text-secondary">Encuentra respuestas a las preguntas más comunes</p>
+                </div>
+
+                <div class="space-y-4" id="faq-accordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="border border-border rounded-lg">
+                        <button class="w-full flex items-center justify-between p-4 text-left hover:bg-surface transition-colors faq-toggle">
+                            <span class="font-medium text-text-primary">¿Cómo puedo actualizar mi información de contacto?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="p-4 border-t border-border hidden faq-content">
+                            <p class="text-text-secondary">
+                                Para actualizar tu información de contacto, ve a la sección de "Mi Perfil" en el menú superior derecho. 
+                                Allí encontrarás opciones para modificar tu correo, teléfono y otros datos importantes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="border border-border rounded-lg">
+                        <button class="w-full flex items-center justify-between p-4 text-left hover:bg-surface transition-colors faq-toggle">
+                            <span class="font-medium text-text-primary">¿Cómo reporto un problema técnico?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="p-4 border-t border-border hidden faq-content">
+                            <p class="text-text-secondary">
+                                Utiliza el botón "Nuevo Ticket" en la barra superior o en las acciones rápidas. 
+                                Selecciona la prioridad "Alta" y describe detalladamente el problema que estás experimentando.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="border border-border rounded-lg">
+                        <button class="w-full flex items-center justify-between p-4 text-left hover:bg-surface transition-colors faq-toggle">
+                            <span class="font-medium text-text-primary">¿Cuál es el tiempo de respuesta para los tickets?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="p-4 border-t border-border hidden faq-content">
+                            <p class="text-text-secondary">
+                                Nuestro tiempo de respuesta varía según la prioridad del ticket:
+                                <br>- Urgente: 2-4 horas
+                                <br>- Alta: 24 horas
+                                <br>- Media: 48 horas
+                                <br>- Baja: 72 horas
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="border border-border rounded-lg">
+                        <button class="w-full flex items-center justify-between p-4 text-left hover:bg-surface transition-colors faq-toggle">
+                            <span class="font-medium text-text-primary">¿Cómo puedo solicitar una reunión con el equipo?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="p-4 border-t border-border hidden faq-content">
+                            <p class="text-text-secondary">
+                                Usa el botón "Agendar Reunión" en las acciones rápidas. Selecciona la fecha y hora preferida,
+                                el tipo de reunión y añade los correos de los participantes que deseas incluir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <p class="text-text-secondary text-sm">
+                        ¿No encontraste lo que buscabas? 
+                        <button class="text-primary hover:text-primary-700" data-action="new-ticket">
+                            Crear un ticket de soporte
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Files Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="download-modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full p-8 relative">
+                <button class="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors" id="close-download-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-download text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-text-primary mb-2">Descargar Archivos</h2>
+                    <p class="text-text-secondary">Selecciona los archivos que deseas descargar</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300">
+                            <div>
+                                <h3 class="font-medium text-text-primary">Documentación del Proyecto</h3>
+                                <p class="text-sm text-text-secondary">Última actualización: 2 días atrás</p>
+                            </div>
+                        </div>
+                        <span class="text-sm text-text-muted">2.4 MB</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300">
+                            <div>
+                                <h3 class="font-medium text-text-primary">Recursos Gráficos</h3>
+                                <p class="text-sm text-text-secondary">Última actualización: 1 semana atrás</p>
+                            </div>
+                        </div>
+                        <span class="text-sm text-text-muted">15.7 MB</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300">
+                            <div>
+                                <h3 class="font-medium text-text-primary">Guía de Usuario</h3>
+                                <p class="text-sm text-text-secondary">Última actualización: 3 días atrás</p>
+                            </div>
+                        </div>
+                        <span class="text-sm text-text-muted">1.2 MB</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between items-center">
+                    <div class="text-sm text-text-secondary">
+                        <span class="font-medium">Total seleccionado:</span>
+                        <span id="selected-size">0 MB</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button class="btn-outline" id="cancel-download">
+                            Cancelar
+                        </button>
+                        <button class="btn-primary" id="confirm-download">
+                            <i class="fas fa-download mr-2"></i>Descargar Seleccionados
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Ticket Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="new-ticket-modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full p-8 relative">
+                <!-- Close button -->
+                <button class="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors" id="close-ticket-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-ticket-alt text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-text-primary mb-2">Crear Nuevo Ticket</h2>
+                    <p class="text-text-secondary">Describe tu solicitud o problema</p>
+                </div>
+
+                <form id="new-ticket-form" class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Proyecto</label>
+                            <select class="input-field" required>
+                                <option value="">Seleccionar proyecto</option>
+                                <option value="web-corp">Sitio Web Corporativo</option>
+                                <option value="ecommerce">Tienda Online</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Prioridad</label>
+                            <select class="input-field" required>
+                                <option value="">Seleccionar prioridad</option>
+                                <option value="baja">Baja</option>
+                                <option value="media">Media</option>
+                                <option value="alta">Alta</option>
+                                <option value="urgente">Urgente</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Asunto</label>
+                        <input type="text" class="input-field" placeholder="Título breve del ticket" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Descripción</label>
+                        <textarea class="input-field min-h-[150px]" placeholder="Describe detalladamente tu solicitud..." required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Archivos Adjuntos</label>
+                        <div class="border-2 border-dashed border-border rounded-lg p-4 text-center cursor-pointer hover:border-primary transition-colors" id="file-drop-zone">
+                            <i class="fas fa-cloud-upload-alt text-3xl text-text-muted mb-2"></i>
+                            <p class="text-text-secondary">Arrastra archivos aquí o <span class="text-primary">selecciona archivos</span></p>
+                            <p class="text-sm text-text-muted mt-1">Máximo 5 archivos (PDF, IMG, DOC, máx. 5MB c/u)</p>
+                            <input type="file" multiple class="hidden" id="file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                        </div>
+                        <div id="file-list" class="mt-2 space-y-2"></div>
+                    </div>
+
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" class="btn-outline" id="cancel-ticket">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane mr-2"></i>Enviar Ticket
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white">
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold">webDevPR</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Tu socio tecnológico de confianza en Puerto Rico. Desarrollamos más que sitios web, creamos experiencias digitales.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Servicios</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services_hub.html" class="text-gray-300 hover:text-white transition-colors">Desarrollo Web</a></li>
+                        <li><a href="services_hub.html" class="text-gray-300 hover:text-white transition-colors">E-commerce</a></li>
+                        <li><a href="services_hub.html" class="text-gray-300 hover:text-white transition-colors">SEO & Marketing</a></li>
+                        <li><a href="services_hub.html" class="text-gray-300 hover:text-white transition-colors">Apps Móviles</a></li>
+                        <li><a href="services_hub.html" class="text-gray-300 hover:text-white transition-colors">Mantenimiento</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Empresa</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about_us.html" class="text-gray-300 hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="portfolio_showcase.html" class="text-gray-300 hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="contact_consultation.html" class="text-gray-300 hover:text-white transition-colors">Contacto</a></li>
+                        <li><a href="client_portal.html" class="text-gray-300 hover:text-white transition-colors">Portal Cliente</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contacto</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            San Juan, Puerto Rico
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-phone mr-3"></i>
+                            +1 (787) 555-0123
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-envelope mr-3"></i>
+                            info@webdevpr.com
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-clock mr-3"></i>
+                            Lun - Vie: 9AM - 6PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-300">
+                    © 2025 webDevPR. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot -->
+    <script src="../js/ai-chatbot.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Check if user is logged in
+        let isLoggedIn = localStorage.getItem('clientPortalLoggedIn') === 'true';
+        
+        // Show login modal if not logged in
+        if (!isLoggedIn) {
+            document.getElementById('login-modal').classList.remove('hidden');
+        } else {
+            document.getElementById('main-content').style.display = 'block';
+        }
+
+        // Close login modal functionality
+        document.getElementById('close-login-modal').addEventListener('click', function() {
+            document.getElementById('login-modal').classList.add('hidden');
+            showNotification('Has cerrado el formulario de inicio de sesión', 'info');
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Password toggle
+        document.getElementById('toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Login form submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Mock authentication
+            const validCredentials = [
+                { email: 'admin@webdevpr.com', password: 'admin123' },
+                { email: 'client@empresa.com', password: 'client123' },
+                { email: 'user@startup.com', password: 'user123' }
+            ];
+            
+            const isValid = validCredentials.some(cred => 
+                cred.email === email && cred.password === password
+            );
+            
+            if (isValid) {
+                localStorage.setItem('clientPortalLoggedIn', 'true');
+                document.getElementById('login-modal').classList.add('hidden');
+                document.getElementById('main-content').style.display = 'block';
+                
+                // Show success message
+                showNotification('¡Bienvenido al Portal Cliente!', 'success');
+            } else {
+                showNotification('Credenciales incorrectas. Intenta de nuevo.', 'error');
+            }
+        });
+
+        // Logout functionality
+        function logout() {
+            if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+                showNotification('¡Hasta pronto! Has cerrado sesión correctamente.', 'info');
+                setTimeout(() => {
+                    localStorage.removeItem('clientPortalLoggedIn');
+                    location.reload();
+                }, 1500);
+            }
+        }
+
+        document.getElementById('logout-btn').addEventListener('click', logout);
+        document.getElementById('mobile-logout-btn').addEventListener('click', logout);
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 ${
+                type === 'success' ? 'bg-success text-white' : 
+                type === 'error' ? 'bg-error text-white' : 
+                'bg-primary text-white'
+            }`;
+            notification.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // File download simulation
+        document.querySelectorAll('.fa-download').forEach(button => {
+            button.parentElement.addEventListener('click', function(e) {
+                e.preventDefault();
+                const fileName = this.parentElement.querySelector('h4').textContent;
+                showNotification(`Descargando ${fileName}...`, 'info');
+            });
+        });
+
+        // Quick actions
+        document.querySelectorAll('.grid button').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.querySelector('div').textContent;
+                showNotification(`Función "${action}" próximamente disponible`, 'info');
+            });
+        });
+
+        // Auto-refresh data simulation
+        setInterval(() => {
+            // Simulate real-time updates
+            const progressBars = document.querySelectorAll('.bg-success, .bg-accent, .bg-primary');
+            progressBars.forEach(bar => {
+                const currentWidth = parseInt(bar.style.width) || 75;
+                if (currentWidth < 100) {
+                    bar.style.width = Math.min(currentWidth + Math.random() * 2, 100) + '%';
+                }
+            });
+        }, 30000);
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // New Ticket Modal Functionality
+        function openNewTicketModal() {
+            document.getElementById('new-ticket-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeNewTicketModal() {
+            document.getElementById('new-ticket-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+            document.getElementById('new-ticket-form').reset();
+            document.getElementById('file-list').innerHTML = '';
+        }
+
+        // File handling functions
+        function handleFiles(files) {
+            const fileList = document.getElementById('file-list');
+            const maxFiles = 5;
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            const allowedTypes = ['.pdf', '.doc', '.docx', '.jpg', '.jpeg', '.png'];
+
+            // Clear previous files
+            if (files.length > maxFiles) {
+                showNotification(`Máximo ${maxFiles} archivos permitidos`, 'error');
+                return;
+            }
+
+            Array.from(files).forEach(file => {
+                if (file.size > maxSize) {
+                    showNotification(`${file.name} excede el tamaño máximo de 5MB`, 'error');
+                    return;
+                }
+
+                const extension = '.' + file.name.split('.').pop().toLowerCase();
+                if (!allowedTypes.includes(extension)) {
+                    showNotification(`Tipo de archivo no permitido: ${file.name}`, 'error');
+                    return;
+                }
+
+                const fileItem = document.createElement('div');
+                fileItem.className = 'flex items-center justify-between bg-surface p-2 rounded-lg';
+                fileItem.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas ${
+                            extension === '.pdf' ? 'fa-file-pdf text-error' :
+                            ['.doc', '.docx'].includes(extension) ? 'fa-file-word text-primary' :
+                            'fa-file-image text-success'
+                        } mr-2"></i>
+                        <span class="text-sm text-text-primary">${file.name}</span>
+                        <span class="text-xs text-text-muted ml-2">${(file.size / 1024).toFixed(1)}KB</span>
+                    </div>
+                    <button type="button" class="text-text-muted hover:text-error transition-colors">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+
+                fileItem.querySelector('button').addEventListener('click', () => fileItem.remove());
+                fileList.appendChild(fileItem);
+            });
+        }
+
+        // Modal Management Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Meeting Modal Functions
+        function openMeetingModal() {
+            openModal('meeting-modal');
+        }
+
+        function closeMeetingModal() {
+            closeModal('meeting-modal');
+            document.getElementById('meeting-form').reset();
+        }
+
+        // Feedback Modal Functions
+        function openFeedbackModal() {
+            openModal('feedback-modal');
+        }
+
+        function closeFeedbackModal() {
+            closeModal('feedback-modal');
+            document.getElementById('feedback-form').reset();
+            // Reset stars
+            document.querySelectorAll('#rating-stars i').forEach(star => {
+                star.className = 'far fa-star text-2xl cursor-pointer text-warning hover:text-warning';
+            });
+        }
+
+        // FAQ Modal Functions
+        function openFaqModal() {
+            openModal('faq-modal');
+        }
+
+        function closeFaqModal() {
+            closeModal('faq-modal');
+            // Reset expanded items
+            document.querySelectorAll('.faq-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.querySelectorAll('.faq-toggle i').forEach(icon => {
+                icon.style.transform = '';
+            });
+        }
+
+        // Download Modal Functions
+        function openDownloadModal() {
+            openModal('download-modal');
+        }
+
+        function closeDownloadModal() {
+            closeModal('download-modal');
+            // Reset checkboxes and total
+            document.querySelectorAll('#download-modal input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+            });
+            updateSelectedSize();
+        }
+
+        // Initialize tooltips and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tooltips
+            const tooltipElements = document.querySelectorAll('[data-tooltip]');
+            tooltipElements.forEach(element => {
+                element.addEventListener('mouseenter', function(e) {
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'fixed bg-text-primary text-white px-3 py-2 rounded-lg text-sm z-50 shadow-lg';
+                    tooltip.textContent = this.getAttribute('data-tooltip');
+                    document.body.appendChild(tooltip);
+
+                    const rect = this.getBoundingClientRect();
+                    tooltip.style.top = rect.top - tooltip.offsetHeight - 5 + 'px';
+                    tooltip.style.left = rect.left + (rect.width - tooltip.offsetWidth) / 2 + 'px';
+                    tooltip.style.opacity = '0';
+                    tooltip.style.transform = 'translateY(5px)';
+                    
+                    requestAnimationFrame(() => {
+                        tooltip.style.transition = 'all 0.2s ease-out';
+                        tooltip.style.opacity = '1';
+                        tooltip.style.transform = 'translateY(0)';
+                    });
+                });
+
+                element.addEventListener('mouseleave', function() {
+                    const tooltips = document.querySelectorAll('.tooltip');
+                    tooltips.forEach(t => t.remove());
+                });
+            });
+
+            // Add hover effects to cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Progress bar interaction
+            document.querySelectorAll('.progress-bar').forEach(bar => {
+                const container = bar.parentElement;
+                const percentageElement = container.parentElement.querySelector('.progress-percentage');
+                
+                container.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const percentage = Math.round((x / rect.width) * 100);
+                    
+                    bar.style.width = percentage + '%';
+                    percentageElement.textContent = percentage + '%';
+                    percentageElement.setAttribute('data-value', percentage);
+                    
+                    showNotification('Progreso actualizado a ' + percentage + '%', 'success');
+                });
+            });
+
+            // Favorite button interaction
+            document.querySelectorAll('.fa-star').forEach(star => {
+                star.addEventListener('click', function() {
+                    this.classList.toggle('fas');
+                    this.classList.toggle('far');
+                    const isFavorite = this.classList.contains('fas');
+                    showNotification(
+                        isFavorite ? 'Proyecto añadido a favoritos' : 'Proyecto eliminado de favoritos',
+                        'info'
+                    );
+                });
+            });
+
+            // Comment button interaction
+            document.querySelectorAll('.comment-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const badge = this.querySelector('span');
+                    if (badge) {
+                        badge.style.display = 'none';
+                        showNotification('Comentarios marcados como leídos', 'success');
+                    }
+                });
+            });
+
+            // Modal Action Buttons
+            document.querySelectorAll('[data-action]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.getAttribute('data-action');
+                    switch(action) {
+                        case 'schedule-meeting':
+                            openMeetingModal();
+                            break;
+                        case 'give-feedback':
+                            openFeedbackModal();
+                            break;
+                        case 'show-faq':
+                            openFaqModal();
+                            break;
+                        case 'download-files':
+                            openDownloadModal();
+                            break;
+                    }
+                });
+            });
+
+            // Close Modal Buttons
+            document.getElementById('close-meeting-modal').addEventListener('click', closeMeetingModal);
+            document.getElementById('cancel-meeting').addEventListener('click', closeMeetingModal);
+            document.getElementById('close-feedback-modal').addEventListener('click', closeFeedbackModal);
+            document.getElementById('cancel-feedback').addEventListener('click', closeFeedbackModal);
+            document.getElementById('close-faq-modal').addEventListener('click', closeFaqModal);
+            document.getElementById('close-download-modal').addEventListener('click', closeDownloadModal);
+            document.getElementById('cancel-download').addEventListener('click', closeDownloadModal);
+
+            // Star Rating System
+            const ratingStars = document.querySelectorAll('#rating-stars i');
+            ratingStars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    ratingStars.forEach((s, i) => {
+                        s.className = i <= index 
+                            ? 'fas fa-star text-2xl cursor-pointer text-warning' 
+                            : 'far fa-star text-2xl cursor-pointer text-warning hover:text-warning';
+                    });
+                });
+            });
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    const isExpanded = !content.classList.contains('hidden');
+
+                    // Close all other items
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        if (c !== content) {
+                            c.classList.add('hidden');
+                            c.previousElementSibling.querySelector('i').style.transform = '';
+                        }
+                    });
+
+                    // Toggle current item
+                    content.classList.toggle('hidden');
+                    icon.style.transform = isExpanded ? '' : 'rotate(180deg)';
+                });
+            });
+
+            // Download Files Functionality
+            function updateSelectedSize() {
+                const checkboxes = document.querySelectorAll('#download-modal input[type="checkbox"]:checked');
+                let totalSize = 0;
+                
+                checkboxes.forEach(cb => {
+                    const sizeText = cb.closest('.flex').querySelector('.text-text-muted').textContent;
+                    totalSize += parseFloat(sizeText.split(' ')[0]);
+                });
+
+                document.getElementById('selected-size').textContent = totalSize.toFixed(1) + ' MB';
+            }
+
+            document.querySelectorAll('#download-modal input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', updateSelectedSize);
+            });
+
+            document.getElementById('confirm-download').addEventListener('click', function() {
+                const selectedFiles = document.querySelectorAll('#download-modal input[type="checkbox"]:checked');
+                if (selectedFiles.length === 0) {
+                    showNotification('Por favor selecciona al menos un archivo', 'error');
+                    return;
+                }
+
+                const fileNames = Array.from(selectedFiles).map(cb => 
+                    cb.closest('.flex').querySelector('.text-text-primary').textContent
+                );
+
+                showNotification(`Descargando ${fileNames.length} archivo(s)...`, 'info');
+                setTimeout(() => {
+                    showNotification('Archivos descargados exitosamente', 'success');
+                    closeDownloadModal();
+                }, 2000);
+            });
+
+            // Form Submissions
+            document.getElementById('meeting-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                console.log('Nueva reunión:', Object.fromEntries(formData));
+                showNotification('Reunión agendada exitosamente', 'success');
+                closeMeetingModal();
+            });
+
+            document.getElementById('feedback-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const rating = document.querySelectorAll('#rating-stars .fas').length;
+                console.log('Nuevo feedback:', {
+                    ...Object.fromEntries(formData),
+                    rating
+                });
+                showNotification('¡Gracias por tu feedback!', 'success');
+                closeFeedbackModal();
+            });
+
+            // New Ticket Modal Interactions
+            const newTicketButtons = document.querySelectorAll('[data-action="new-ticket"]');
+            newTicketButtons.forEach(btn => {
+                btn.addEventListener('click', openNewTicketModal);
+            });
+
+            document.getElementById('close-ticket-modal').addEventListener('click', closeNewTicketModal);
+            document.getElementById('cancel-ticket').addEventListener('click', closeNewTicketModal);
+
+            // File Drop Zone
+            const dropZone = document.getElementById('file-drop-zone');
+            const fileInput = document.getElementById('file-input');
+
+            dropZone.addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('border-primary');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('border-primary');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-primary');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            // New Ticket Form Submission
+            document.getElementById('new-ticket-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const ticketData = {
+                    project: formData.get('project'),
+                    priority: formData.get('priority'),
+                    subject: formData.get('subject'),
+                    description: formData.get('description'),
+                    files: Array.from(document.getElementById('file-list').children).map(item => ({
+                        name: item.querySelector('.text-text-primary').textContent,
+                        size: item.querySelector('.text-text-muted').textContent
+                    }))
+                };
+
+                // Aquí normalmente enviarías los datos al servidor
+                console.log('Nuevo ticket:', ticketData);
+                
+                showNotification('Ticket creado exitosamente', 'success');
+                closeNewTicketModal();
+            });
+        });
+    </script>
+    <script src="../js/auth-manager.js"></script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

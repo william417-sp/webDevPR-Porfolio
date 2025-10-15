@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administración - Chatbot webDevPR</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .login-box p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e4e8;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+        }
+
+        .admin-container {
+            display: none;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 24px;
+        }
+
+        .header .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-logout {
+            padding: 8px 20px;
+            background: #f0f2f5;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            background: #e1e4e8;
+        }
+
+        .content {
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .stat-card .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card .icon.blue { background: #e3f2fd; color: #1976d2; }
+        .stat-card .icon.green { background: #e8f5e9; color: #388e3c; }
+        .stat-card .icon.purple { background: #f3e5f5; color: #7b1fa2; }
+        .stat-card .icon.orange { background: #fff3e0; color: #f57c00; }
+
+        .stat-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .conversation-item {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .conversation-item:last-child {
+            border-bottom: none;
+        }
+
+        .conversation-item .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .conversation-item .avatar.user {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .conversation-item .avatar.bot {
+            background: #f0f2f5;
+            color: #667eea;
+        }
+
+        .conversation-item .message {
+            flex: 1;
+        }
+
+        .conversation-item .time {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .conversation-item .text {
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            color: #666;
+            transition: all 0.3s;
+            margin-bottom: -2px;
+        }
+
+        .tab:hover {
+            color: #667eea;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state i {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .btn-clear {
+            padding: 10px 20px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-clear:hover {
+            background: #cc0000;
+        }
+
+        .settings-group {
+            margin-bottom: 30px;
+        }
+
+        .settings-group h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .setting-item label {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: #ccc;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle.active {
+            background: #667eea;
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: left 0.3s;
+        }
+
+        .toggle.active::after {
+            left: 26px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <h1>🔐 Panel Admin</h1>
+            <p>Ingresa tus credenciales</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" id="username" placeholder="admin" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+            </form>
+            <p style="margin-top: 20px; text-align: center; color: #999; font-size: 13px;">
+                Usuario: admin | Contraseña: admin123
+            </p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-screen" class="admin-container">
+        <div class="header">
+            <h1><i class="fas fa-chart-line"></i> Panel de Administración - Chatbot</h1>
+            <div class="user-info">
+                <span>👤 Admin</span>
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon blue">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="value" id="stat-total">0</div>
+                    <div class="label">Total Mensajes</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="icon green">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="value" id="stat-users">0</div>
+                    <div class="label">Mensajes de Usuarios</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="icon purple">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="value" id="stat-bot">0</div>
+                    <div class="label">Respuestas del Bot</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="icon orange">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="value" id="stat-today">0</div>
+                    <div class="label">Sesiones Hoy</div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('conversations')">
+                    <i class="fas fa-comments"></i> Conversaciones
+                </div>
+                <div class="tab" onclick="switchTab('analytics')">
+                    <i class="fas fa-chart-bar"></i> Análisis
+                </div>
+                <div class="tab" onclick="switchTab('settings')">
+                    <i class="fas fa-cog"></i> Configuración
+                </div>
+            </div>
+
+            <!-- Conversations Tab -->
+            <div id="conversations-tab" class="tab-content active">
+                <div class="section">
+                    <h2>
+                        <i class="fas fa-history"></i> Historial de Conversaciones
+                        <button class="btn-clear" onclick="clearConversations()" style="margin-left: auto;">
+                            <i class="fas fa-trash"></i> Limpiar Historial
+                        </button>
+                    </h2>
+                    <div id="conversations-list"></div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analytics-tab" class="tab-content">
+                <div class="section">
+                    <h2><i class="fas fa-chart-pie"></i> Preguntas Más Frecuentes</h2>
+                    <div id="analytics-content"></div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings-tab" class="tab-content">
+                <div class="section">
+                    <h2><i class="fas fa-sliders-h"></i> Configuración del Chatbot</h2>
+                    
+                    <div class="settings-group">
+                        <h3>Almacenamiento</h3>
+                        <div class="setting-item">
+                            <label>Guardar conversaciones</label>
+                            <div class="toggle active" onclick="toggleSetting(this)"></div>
+                        </div>
+                        <div class="setting-item">
+                            <label>Guardar estadísticas</label>
+                            <div class="toggle active" onclick="toggleSetting(this)"></div>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>Gestión de Datos</h3>
+                        <button class="btn-clear" onclick="exportData()">
+                            <i class="fas fa-download"></i> Exportar Datos
+                        </button>
+                        <button class="btn-clear" onclick="clearAllData()" style="margin-left: 10px;">
+                            <i class="fas fa-exclamation-triangle"></i> Borrar Todos los Datos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Login
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('admin-screen').style.display = 'block';
+                localStorage.setItem('admin_logged_in', 'true');
+                loadDashboard();
+            } else {
+                alert('Credenciales incorrectas');
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('admin_logged_in');
+            location.reload();
+        }
+
+        // Check if already logged in
+        if (localStorage.getItem('admin_logged_in') === 'true') {
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('admin-screen').style.display = 'block';
+            loadDashboard();
+        }
+
+        function loadDashboard() {
+            loadStats();
+            loadConversations();
+            loadAnalytics();
+        }
+
+        function loadStats() {
+            const stats = JSON.parse(localStorage.getItem('chatbot_stats') || '{"totalMessages":0,"userMessages":0,"botMessages":0,"sessionsToday":0}');
+            document.getElementById('stat-total').textContent = stats.totalMessages || 0;
+            document.getElementById('stat-users').textContent = stats.userMessages || 0;
+            document.getElementById('stat-bot').textContent = stats.botMessages || 0;
+            document.getElementById('stat-today').textContent = stats.sessionsToday || 0;
+        }
+
+        function loadConversations() {
+            const conversations = JSON.parse(localStorage.getItem('chatbot_conversations') || '[]');
+            const container = document.getElementById('conversations-list');
+
+            if (conversations.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-comments"></i>
+                        <p>No hay conversaciones registradas aún</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = conversations.reverse().map(conv => `
+                <div class="conversation-item">
+                    <div class="avatar ${conv.sender}">
+                        <i class="fas fa-${conv.sender === 'user' ? 'user' : 'robot'}"></i>
+                    </div>
+                    <div class="message">
+                        <div class="time">${conv.date} - ${conv.time}</div>
+                        <div class="text">${conv.message}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadAnalytics() {
+            const conversations = JSON.parse(localStorage.getItem('chatbot_conversations') || '[]');
+            const userMessages = conversations.filter(c => c.sender === 'user');
+            
+            const keywords = {};
+            userMessages.forEach(msg => {
+                const words = msg.message.toLowerCase().split(' ');
+                words.forEach(word => {
+                    if (word.length > 3) {
+                        keywords[word] = (keywords[word] || 0) + 1;
+                    }
+                });
+            });
+
+            const topKeywords = Object.entries(keywords)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+
+            const container = document.getElementById('analytics-content');
+            if (topKeywords.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>No hay datos suficientes para analizar</p></div>';
+                return;
+            }
+
+            container.innerHTML = topKeywords.map((kw, idx) => `
+                <div class="setting-item">
+                    <label>#${idx + 1} - "${kw[0]}"</label>
+                    <span style="color: #667eea; font-weight: bold;">${kw[1]} veces</span>
+                </div>
+            `).join('');
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+
+        function clearConversations() {
+            if (confirm('¿Seguro que quieres borrar todas las conversaciones?')) {
+                localStorage.removeItem('chatbot_conversations');
+                loadConversations();
+                loadStats();
+                alert('Conversaciones borradas');
+            }
+        }
+
+        function clearAllData() {
+            if (confirm('⚠️ Esto borrará TODOS los datos del chatbot. ¿Estás seguro?')) {
+                localStorage.removeItem('chatbot_conversations');
+                localStorage.removeItem('chatbot_stats');
+                loadDashboard();
+                alert('Todos los datos han sido borrados');
+            }
+        }
+
+        function exportData() {
+            const data = {
+                conversations: JSON.parse(localStorage.getItem('chatbot_conversations') || '[]'),
+                stats: JSON.parse(localStorage.getItem('chatbot_stats') || '{}'),
+                exportDate: new Date().toISOString()
+            };
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'chatbot-data-' + new Date().toISOString().split('T')[0] + '.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            alert('Datos exportados exitosamente');
+        }
+
+        function toggleSetting(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios - webDevPR | Soluciones Web Completas para tu Negocio</title>
+    <meta name="description" content="Descubre nuestros servicios de desarrollo web, e-commerce, SEO, aplicaciones móviles y más. Soluciones tecnológicas integrales con precios transparentes y resultados garantizados." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/services-calculator.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fwebdevprp2754back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 nav-glass z-50">
+        <nav class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2 glow-on-hover">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-glow">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold tech-heading">webDevPR</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-colors">Inicio</a>
+                    <a href="services_hub.html" class="text-primary font-semibold">Servicios</a>
+                    <a href="portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors">Portfolio</a>
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
+                    <a href="contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a>
+                    
+                    <div class="flex items-center space-x-2">
+                        <a href="login.html" class="btn-neon auth-button">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                        <a href="client_portal.html" class="btn-neon portal-button" style="display: none;">
+                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <button class="p-2 rounded-md text-text-secondary hover:text-primary" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Inicio</a>
+                    <a href="services_hub.html" class="block px-3 py-2 text-primary font-semibold">Servicios</a>
+                    <a href="portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portfolio</a>
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
+                    <a href="contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Contacto</a>
+                    <div class="flex flex-col space-y-2 px-3 py-2">
+                        <a href="login.html" class="btn-primary text-center auth-button">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                        <a href="client_portal.html" class="btn-primary text-center portal-button" style="display: none;">
+                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<!-- Hero Section -->
+<section class="pt-24 pb-16 tech-bg overflow-hidden relative">
+    <!-- Floating Elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto fade-in">
+            <div class="mb-6">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent-100 text-accent-600">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Startup Tecnológico Especializado en PYMES
+                </span>
+            </div>
+            
+            <h1 class="text-4xl lg:text-6xl font-bold tech-heading mb-6 leading-tight">
+                <span class="block">Soluciones Web para</span>
+                <span class="text-gradient">Pequeñas y Medianas Empresas</span>
+            </h1>
+            
+            <p class="text-xl tech-subheading mb-8 leading-relaxed max-w-3xl mx-auto">
+                Como empresa emergente, nos especializamos en brindar soluciones tecnológicas 
+                accesibles y efectivas para pequeñas y medianas empresas en Puerto Rico. 
+                Tu crecimiento es nuestro crecimiento.
+            </p>
+            
+            <!-- Quick Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="#services-calculator" class="btn-neon text-center" id="calculator-btn">
+                    <i class="fas fa-calculator mr-2"></i>
+                    Calcular Presupuesto
+                </a>
+                <a href="contact_consultation.html" class="glass-card text-center px-6 py-3 text-white hover:text-primary transition-colors font-semibold">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Consulta Gratuita
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Service Categories Filter -->
+    <section class="py-8 tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="service-filter active glass-card px-6 py-2 rounded-full text-white font-medium transition-all" data-filter="all">
+                    <i class="fas fa-th-large mr-2"></i>
+                    Todos los Servicios
+                </button>
+                <button class="service-filter glass-card px-6 py-2 rounded-full text-white hover:text-primary font-medium transition-all" data-filter="development">
+                    <i class="fas fa-code mr-2"></i>
+                    Desarrollo
+                </button>
+                <button class="service-filter glass-card px-6 py-2 rounded-full text-white hover:text-primary font-medium transition-all" data-filter="marketing">
+                    <i class="fas fa-chart-line mr-2"></i>
+                    Marketing
+                </button>
+                <button class="service-filter glass-card px-6 py-2 rounded-full text-white hover:text-primary font-medium transition-all" data-filter="support">
+                    <i class="fas fa-headset mr-2"></i>
+                    Soporte
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Services Grid -->
+    <section class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+                    Nuestros Servicios
+                </h2>
+                <p class="text-xl tech-subheading max-w-3xl mx-auto">
+                    Ofrecemos soluciones integrales de desarrollo web que cubren todas las necesidades de tu negocio digital
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Web Development Service -->
+                <div class="service-card development group fade-in" data-category="development">
+                    <div class="relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Desarrollo Web Profesional" class="w-full h-48 object-cover rounded-lg" loading="lazy" onerror="this.src='https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                                <i class="fas fa-code text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-success text-white px-3 py-1 rounded-full text-sm font-medium">Más Popular</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-3">Desarrollo Web</h3>
+                    <p class="text-text-secondary mb-4">
+                        Sitios web modernos, responsivos y optimizados para convertir visitantes en clientes. 
+                        Utilizamos las últimas tecnologías para garantizar rendimiento excepcional.
+                    </p>
+                    
+                    <!-- Features List -->
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Diseño responsivo y mobile-first
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Optimización SEO integrada
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Panel de administración intuitivo
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Integración con redes sociales
+                        </li>
+                    </ul>
+                    
+                    <!-- Pricing -->
+                    <div class="border-t border-border pt-4 mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-text-muted">Desde</span>
+                            <span class="text-2xl font-bold text-primary">$1,500</span>
+                        </div>
+                        <div class="text-sm text-text-muted">Proyecto completo</div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3">
+                        <a href="contact_consultation.html" class="btn-neon flex-1 text-center text-sm">
+                            Solicitar Cotización
+                        </a>
+                        <button class="glass-card px-4 py-2 text-sm text-white hover:text-primary transition-colors" onclick="openServiceModal('web-development')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- E-commerce Service -->
+                <div class="service-card development group fade-in" data-category="development" style="animation-delay: 0.1s;">
+                    <div class="relative mb-6">
+                        <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tienda Online E-commerce" class="w-full h-48 object-cover rounded-lg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
+                                <i class="fas fa-shopping-cart text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-3">E-commerce</h3>
+                    <p class="text-text-secondary mb-4">
+                        Tiendas online completas con sistemas de pago seguros, gestión de inventario 
+                        y herramientas de marketing integradas para maximizar tus ventas.
+                    </p>
+                    
+                    <!-- Features List -->
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Pasarelas de pago seguras
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Gestión de inventario automática
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Sistema de cupones y descuentos
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Reportes de ventas detallados
+                        </li>
+                    </ul>
+                    
+                    <!-- Pricing -->
+                    <div class="border-t border-border pt-4 mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-text-muted">Desde</span>
+                            <span class="text-2xl font-bold text-secondary">$2,500</span>
+                        </div>
+                        <div class="text-sm text-text-muted">Tienda completa</div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3">
+                        <a href="contact_consultation.html" class="btn-neon flex-1 text-center text-sm">
+                            Solicitar Cotización
+                        </a>
+                        <button class="glass-card px-4 py-2 text-sm text-white hover:text-primary transition-colors" onclick="openServiceModal('ecommerce')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SEO & Marketing Service -->
+                <div class="service-card marketing group fade-in" data-category="marketing" style="animation-delay: 0.2s;">
+                    <div class="relative mb-6">
+                        <img src="https://images.pixabay.com/photo/2017/01/31/13/05/web-2023781_1280.png" alt="SEO y Marketing Digital" class="w-full h-48 object-cover rounded-lg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?q=80&w=2274&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                                <i class="fas fa-search text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-3">SEO & Marketing</h3>
+                    <p class="text-text-secondary mb-4">
+                        Optimización para motores de búsqueda y estrategias de marketing digital 
+                        que aumentan tu visibilidad online y generan más leads calificados.
+                    </p>
+                    
+                    <!-- Features List -->
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Auditoría SEO completa
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Optimización de contenido
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Campañas en redes sociales
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Reportes mensuales detallados
+                        </li>
+                    </ul>
+                    
+                    <!-- Pricing -->
+                    <div class="border-t border-border pt-4 mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-text-muted">Desde</span>
+                            <span class="text-2xl font-bold text-accent">$800</span>
+                        </div>
+                        <div class="text-sm text-text-muted">Por mes</div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3">
+                        <a href="contact_consultation.html" class="btn-neon flex-1 text-center text-sm">
+                            Solicitar Cotización
+                        </a>
+                        <button class="glass-card px-4 py-2 text-sm text-white hover:text-primary transition-colors" onclick="openServiceModal('seo-marketing')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Maintenance Service -->
+                <div class="service-card support group fade-in" data-category="support" style="animation-delay: 0.4s;">
+                    <div class="relative mb-6">
+                        <img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mantenimiento y Soporte Web" class="w-full h-48 object-cover rounded-lg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <div class="w-12 h-12 bg-warning rounded-lg flex items-center justify-center">
+                                <i class="fas fa-tools text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-3">Mantenimiento</h3>
+                    <p class="text-text-secondary mb-4">
+                        Soporte técnico continuo y actualizaciones para mantener tu sitio seguro, 
+                        rápido y funcionando perfectamente las 24 horas del día.
+                    </p>
+                    
+                    <!-- Features List -->
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Actualizaciones de seguridad
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Backups automáticos diarios
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Monitoreo de rendimiento
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Soporte técnico prioritario
+                        </li>
+                    </ul>
+                    
+                    <!-- Pricing -->
+                    <div class="border-t border-border pt-4 mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-text-muted">Desde</span>
+                            <span class="text-2xl font-bold text-warning">$150</span>
+                        </div>
+                        <div class="text-sm text-text-muted">Por mes</div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3">
+                        <a href="contact_consultation.html" class="btn-neon flex-1 text-center text-sm">
+                            Solicitar Cotización
+                        </a>
+                        <button class="glass-card px-4 py-2 text-sm text-white hover:text-primary transition-colors" onclick="openServiceModal('maintenance')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analytics Service -->
+                <div class="service-card marketing group fade-in" data-category="marketing" style="animation-delay: 0.5s;">
+                    <div class="relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Analytics y Reportes" class="w-full h-48 object-cover rounded-lg" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2016/11/27/21/42/stock-1863880_1280.jpg'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <div class="w-12 h-12 bg-error rounded-lg flex items-center justify-center">
+                                <i class="fas fa-chart-line text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-3">Analytics</h3>
+                    <p class="text-text-secondary mb-4">
+                        Análisis de datos y reportes detallados para optimizar tu presencia digital 
+                        y tomar decisiones basadas en información real de tus usuarios.
+                    </p>
+                    
+                    <!-- Features List -->
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Google Analytics configuración
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Dashboards personalizados
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Reportes automatizados
+                        </li>
+                        <li class="flex items-center text-sm text-text-secondary">
+                            <i class="fas fa-check text-success mr-2"></i>
+                            Análisis de conversiones
+                        </li>
+                    </ul>
+                    
+                    <!-- Pricing -->
+                    <div class="border-t border-border pt-4 mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-text-muted">Desde</span>
+                            <span class="text-2xl font-bold text-error">$400</span>
+                        </div>
+                        <div class="text-sm text-text-muted">Por mes</div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3">
+                        <a href="contact_consultation.html" class="btn-neon flex-1 text-center text-sm">
+                            Solicitar Cotización
+                        </a>
+                        <button class="glass-card px-4 py-2 text-sm text-white hover:text-primary transition-colors" onclick="openServiceModal('analytics')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Process Timeline -->
+    <section class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+                    Nuestro Proceso de Trabajo
+                </h2>
+                <p class="text-xl tech-subheading max-w-3xl mx-auto">
+                    Un proceso probado que garantiza resultados excepcionales en cada proyecto
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-border hidden lg:block"></div>
+                
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col lg:flex-row items-center fade-in">
+                        <div class="lg:w-1/2 lg:pr-8 mb-6 lg:mb-0">
+                            <div class="text-right">
+                                <div class="inline-flex items-center justify-center w-12 h-12 bg-primary text-white rounded-full font-bold text-lg mb-4">1</div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Consulta y Análisis</h3>
+                                <p class="text-text-secondary">
+                                    Entendemos tus necesidades, objetivos y audiencia objetivo. 
+                                    Realizamos un análisis completo de tu mercado y competencia.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pl-8">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Consulta y Análisis" class="w-full h-64 object-cover rounded-lg shadow-lg" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center fade-in" style="animation-delay: 0.1s;">
+                        <div class="lg:w-1/2 lg:pl-8 mb-6 lg:mb-0">
+                            <div class="text-left">
+                                <div class="inline-flex items-center justify-center w-12 h-12 bg-secondary text-white rounded-full font-bold text-lg mb-4">2</div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Diseño y Planificación</h3>
+                                <p class="text-text-secondary">
+                                    Creamos wireframes, mockups y prototipos interactivos. 
+                                    Definimos la arquitectura técnica y el plan de desarrollo.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pr-8">
+                            <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Diseño y Planificación" class="w-full h-64 object-cover rounded-lg shadow-lg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="flex flex-col lg:flex-row items-center fade-in" style="animation-delay: 0.2s;">
+                        <div class="lg:w-1/2 lg:pr-8 mb-6 lg:mb-0">
+                            <div class="text-right">
+                                <div class="inline-flex items-center justify-center w-12 h-12 bg-accent text-white rounded-full font-bold text-lg mb-4">3</div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Desarrollo y Testing</h3>
+                                <p class="text-text-secondary">
+                                    Desarrollamos tu proyecto usando las mejores prácticas. 
+                                    Realizamos pruebas exhaustivas en múltiples dispositivos y navegadores.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pl-8">
+                            <img src="https://images.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg" alt="Desarrollo y Testing" class="w-full h-64 object-cover rounded-lg shadow-lg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center fade-in" style="animation-delay: 0.3s;">
+                        <div class="lg:w-1/2 lg:pl-8 mb-6 lg:mb-0">
+                            <div class="text-left">
+                                <div class="inline-flex items-center justify-center w-12 h-12 bg-success text-white rounded-full font-bold text-lg mb-4">4</div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Lanzamiento y Soporte</h3>
+                                <p class="text-text-secondary">
+                                    Lanzamos tu proyecto y proporcionamos capacitación completa. 
+                                    Ofrecemos soporte continuo y mantenimiento post-lanzamiento.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pr-8">
+                            <img src="https://images.unsplash.com/photo-1��-1640622300473-977435c38c04?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Lanzamiento y Soporte" class="w-full h-64 object-cover rounded-lg shadow-lg" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+                    Preguntas Frecuentes
+                </h2>
+                <p class="text-xl tech-subheading max-w-3xl mx-auto">
+                    Respuestas a las dudas más comunes sobre nuestros servicios
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="glass-card fade-in">
+                        <button class="faq-toggle w-full text-left flex items-center justify-between p-0" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-semibold text-white">¿Cuánto tiempo toma desarrollar un sitio web?</h3>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 pt-4 border-t border-border">
+                            <p class="text-text-secondary">
+                                El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web básico toma 4-6 semanas, 
+                                mientras que proyectos más complejos como e-commerce o aplicaciones web pueden tomar 8-12 semanas. 
+                                Ofrecemos opciones de desarrollo acelerado con costo adicional.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="glass-card fade-in" style="animation-delay: 0.1s;">
+                        <button class="faq-toggle w-full text-left flex items-center justify-between p-0" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-semibold text-white">¿Incluyen hosting y dominio en sus servicios?</h3>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 pt-4 border-t border-border">
+                            <p class="text-text-secondary">
+                                Sí, ofrecemos paquetes completos que incluyen hosting premium, dominio, certificado SSL y 
+                                configuración técnica completa. También podemos trabajar con tu hosting existente si prefieres 
+                                mantener tu configuración actual.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="glass-card fade-in" style="animation-delay: 0.2s;">
+                        <button class="faq-toggle w-full text-left flex items-center justify-between p-0" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-semibold text-white">¿Ofrecen garantía en sus trabajos?</h3>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 pt-4 border-t border-border">
+                            <p class="text-text-secondary">
+                                Absolutamente. Ofrecemos 90 días de garantía completa en todos nuestros desarrollos, 
+                                cubriendo cualquier error o problema técnico. Además, incluimos 30 días de soporte 
+                                gratuito post-lanzamiento para ajustes menores y capacitación.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="glass-card fade-in" style="animation-delay: 0.3s;">
+                        <button class="faq-toggle w-full text-left flex items-center justify-between p-0" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-semibold text-white">¿Pueden ayudar con el contenido y las imágenes?</h3>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 pt-4 border-t border-border">
+                            <p class="text-text-secondary">
+                                Sí, ofrecemos servicios completos de creación de contenido, incluyendo redacción SEO, 
+                                fotografía profesional, diseño gráfico y selección de imágenes de stock. 
+                                Podemos manejar todo el contenido o trabajar con el material que ya tengas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="glass-card fade-in" style="animation-delay: 0.4s;">
+                        <button class="faq-toggle w-full text-left flex items-center justify-between p-0" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-semibold text-white">¿Qué incluye el servicio de mantenimiento?</h3>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 pt-4 border-t border-border">
+                            <p class="text-text-secondary">
+                                Nuestro servicio de mantenimiento incluye actualizaciones de seguridad, backups automáticos diarios, 
+                                monitoreo de rendimiento 24/7, actualizaciones de contenido menores, soporte técnico prioritario 
+                                y reportes mensuales de rendimiento del sitio.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Calculator Section -->
+    <section id="services-calculator" class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            
+            <!-- Calculator will be inserted here by JavaScript -->
+            <div class="services-content"></div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container-max mx-auto text-center">
+            <div class="max-w-3xl mx-auto fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                    ¿Listo para Transformar tu Negocio?
+                </h2>
+                <p class="text-xl text-primary-100 mb-8">
+                    Agenda una consulta gratuita y descubre cómo podemos ayudarte a alcanzar tus objetivos digitales
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact_consultation.html" class="btn-neon">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Consulta Gratuita
+                    </a>
+                    <a href="portfolio_showcase.html" class="glass-card text-center px-6 py-3 text-white hover:text-primary transition-colors font-semibold">
+                        <i class="fas fa-eye mr-2"></i>
+                        Ver Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-50"></div>
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold">webDevPR</span>
+                    </div>
+                    <p class="text-gray-200 mb-6 font-medium">
+                        Tu socio tecnológico de confianza en Puerto Rico. Desarrollamos más que sitios web, creamos experiencias digitales.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors text-2xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors text-2xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors text-2xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors text-2xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 text-white">Servicios</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors font-medium">Desarrollo Web</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors font-medium">E-commerce</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors font-medium">SEO & Marketing</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors font-medium">Apps Móviles</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors font-medium">Mantenimiento</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 text-white">Empresa</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about_us.html" class="text-gray-200 hover:text-white transition-colors font-medium">Nosotros</a></li>
+                        <li><a href="portfolio_showcase.html" class="text-gray-200 hover:text-white transition-colors font-medium">Portfolio</a></li>
+                        <li><a href="contact_consultation.html" class="text-gray-200 hover:text-white transition-colors font-medium">Contacto</a></li>
+                        <li><a href="login.html" class="text-gray-200 hover:text-white transition-colors font-medium">Login</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors font-medium">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 text-white">Contacto</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary"></i>
+                            San Juan, Puerto Rico
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            +1 (787) 555-0123
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            info@webdevpr.com
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-clock mr-3 text-primary"></i>
+                            Lun - Vie: 9AM - 6PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-12 pt-8 text-center">
+                <p class="text-gray-200 font-medium">
+                    © 2025 webDevPR. Todos los derechos reservados.
+                </p>
+                <p class="text-gray-300 text-sm mt-2">
+                    <a href="../admin-panel.html" class="hover:text-white transition-colors font-medium" title="Panel de Administración" style="margin: 0 5px;">
+                        <i class="fas fa-shield-alt"></i> Admin
+                    </a>
+                    |
+                    <a href="../admin-chatbot.html" class="hover:text-white transition-colors font-medium" title="Panel Chatbot" style="margin: 0 5px;">
+                        <i class="fas fa-robot"></i> Chatbot
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 id="modal-title" class="text-2xl font-bold text-white"></h3>
+                        <button onclick="closeServiceModal()" class="text-text-muted hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div id="modal-content" class="space-y-4">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <a href="contact_consultation.html" class="btn-primary flex-1 text-center">
+                            Solicitar Cotización
+                        </a>
+                        <button onclick="closeServiceModal()" class="btn-outline px-6">
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot -->
+    <script src="../js/ai-chatbot.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Service filter functionality
+        document.querySelectorAll('.service-filter').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                
+                // Update active button
+                document.querySelectorAll('.service-filter').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter service cards
+                document.querySelectorAll('.service-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+
+        // FAQ toggle functionality
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Service modal functionality
+        const serviceDetails = {
+            'web-development': {
+                title: 'Desarrollo Web Profesional',
+                content: `
+                    <div class="space-y-6">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Desarrollo Web" class="w-full h-64 object-cover rounded-lg">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">¿Qué incluye?</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Diseño responsivo y mobile-first</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Optimización SEO integrada</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Panel de administración intuitivo</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Integración con redes sociales</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Formularios de contacto</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Google Analytics configurado</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Tecnologías utilizadas</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary-100 text-primary rounded-full text-sm">HTML5</span>
+                                <span class="px-3 py-1 bg-primary-100 text-primary rounded-full text-sm">CSS3</span>
+                                <span class="px-3 py-1 bg-primary-100 text-primary rounded-full text-sm">JavaScript</span>
+                                <span class="px-3 py-1 bg-primary-100 text-primary rounded-full text-sm">WordPress</span>
+                                <span class="px-3 py-1 bg-primary-100 text-primary rounded-full text-sm">React</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'ecommerce': {
+                title: 'Tienda Online E-commerce',
+                content: `
+                    <div class="space-y-6">
+                        <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="E-commerce" class="w-full h-64 object-cover rounded-lg">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Características principales</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Catálogo de productos ilimitado</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Carrito de compras avanzado</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Pasarelas de pago seguras (PayPal, Stripe)</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Gestión de inventario automática</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Sistema de cupones y descuentos</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Reportes de ventas detallados</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Plataformas</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-secondary-100 text-secondary rounded-full text-sm">WooCommerce</span>
+                                <span class="px-3 py-1 bg-secondary-100 text-secondary rounded-full text-sm">Shopify</span>
+                                <span class="px-3 py-1 bg-secondary-100 text-secondary rounded-full text-sm">Magento</span>
+                                <span class="px-3 py-1 bg-secondary-100 text-secondary rounded-full text-sm">Custom</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'seo-marketing': {
+                title: 'SEO & Marketing Digital',
+                content: `
+                    <div class="space-y-6">
+                        <img src="https://images.pixabay.com/photo/2017/01/31/13/05/web-2023781_1280.png" alt="SEO Marketing" class="w-full h-64 object-cover rounded-lg">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Servicios incluidos</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Auditoría SEO completa</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Investigación de palabras clave</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Optimización on-page y técnica</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Creación de contenido SEO</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Link building estratégico</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Campañas en redes sociales</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Herramientas</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-accent-100 text-accent rounded-full text-sm">Google Analytics</span>
+                                <span class="px-3 py-1 bg-accent-100 text-accent rounded-full text-sm">SEMrush</span>
+                                <span class="px-3 py-1 bg-accent-100 text-accent rounded-full text-sm">Ahrefs</span>
+                                <span class="px-3 py-1 bg-accent-100 text-accent rounded-full text-sm">Google Ads</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'mobile-apps': {
+                title: 'Aplicaciones Móviles',
+                content: `
+                    <div class="space-y-6">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Mobile Apps" class="w-full h-64 object-cover rounded-lg">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Tipos de aplicaciones</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Aplicaciones nativas iOS/Android</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Progressive Web Apps (PWA)</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Aplicaciones híbridas</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Integración con APIs</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Notificaciones push</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Publicación en App Stores</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Tecnologías</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-success-100 text-success rounded-full text-sm">React Native</span>
+                                <span class="px-3 py-1 bg-success-100 text-success rounded-full text-sm">Flutter</span>
+                                <span class="px-3 py-1 bg-success-100 text-success rounded-full text-sm">Swift</span>
+                                <span class="px-3 py-1 bg-success-100 text-success rounded-full text-sm">Kotlin</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'maintenance': {
+                title: 'Mantenimiento y Soporte',
+                content: `
+                    <div class="space-y-6">
+                        <img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mantenimiento" class="w-full h-64 object-cover rounded-lg">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Servicios de mantenimiento</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Actualizaciones de seguridad</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Backups automáticos diarios</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Monitoreo de rendimiento 24/7</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Actualizaciones de contenido</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Soporte técnico prioritario</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Reportes mensuales</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Planes disponibles</h4>
+                            <div class="space-y-2">
+                                <div class="p-3 border border-border rounded-lg">
+                                    <div class="font-semibold">Básico - $150/mes</div>
+                                    <div class="text-sm text-text-muted">Actualizaciones + Backups + Soporte</div>
+                                </div>
+                                <div class="p-3 border border-border rounded-lg">
+                                    <div class="font-semibold">Profesional - $300/mes</div>
+                                    <div class="text-sm text-text-muted">Todo lo anterior + Contenido + SEO</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'analytics': {
+                title: 'Analytics y Reportes',
+                content: `
+                    <div class="space-y-6">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Analytics" class="w-full h-64 object-cover rounded-lg">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Análisis incluidos</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Configuración Google Analytics 4</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Dashboards personalizados</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Seguimiento de conversiones</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Análisis de comportamiento</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Reportes automatizados</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mr-2 mt-1"></i>Recomendaciones de mejora</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-3">Métricas clave</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-3 bg-surface rounded-lg">
+                                    <div class="text-2xl font-bold text-error">+150%</div>
+                                    <div class="text-sm text-text-muted">Tráfico web</div>
+                                </div>
+                                <div class="text-center p-3 bg-surface rounded-lg">
+                                    <div class="text-2xl font-bold text-error">+85%</div>
+                                    <div class="text-sm text-text-muted">Conversiones</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function openServiceModal(serviceId) {
+            const modal = document.getElementById('service-modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            if (serviceDetails[serviceId]) {
+                title.textContent = serviceDetails[serviceId].title;
+                content.innerHTML = serviceDetails[serviceId].content;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('service-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('service-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeServiceModal();
+            }
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Add staggered animation for service cards
+                    if (entry.target.classList.contains('service-card')) {
+                        const cards = document.querySelectorAll('.service-card');
+                        const index = Array.from(cards).indexOf(entry.target);
+                        setTimeout(() => {
+                            entry.target.style.animationDelay = `${index * 0.1}s`;
+                        }, 100);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .service-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.05);
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top + scrolled;
+                const elementHeight = rect.height;
+                const windowHeight = window.innerHeight;
+                
+                // Only animate if element is in viewport
+                if (rect.bottom >= 0 && rect.top <= windowHeight) {
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+            });
+        });
+
+        // Mouse movement effect for all tech-bg sections
+        document.addEventListener('mousemove', (e) => {
+            const techSections = document.querySelectorAll('.tech-bg');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            techSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isInViewport) {
+                    section.style.background = `
+                        radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at ${(x + y) * 50}% ${(x - y) * 50}%, rgba(249, 115, 22, 0.1) 0%, transparent 50%)
+                    `;
+                }
+            });
+        });
+
+        // Initialize pricing calculator
+        updatePricing();
+
+        // Smooth scroll to calculator section
+        document.getElementById('calculator-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const calculatorSection = document.getElementById('services-calculator');
+            if (calculatorSection) {
+                calculatorSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Add a subtle highlight effect
+                calculatorSection.style.transition = 'box-shadow 0.3s ease';
+                calculatorSection.style.boxShadow = '0 0 20px rgba(59, 130, 246, 0.3)';
+                
+                setTimeout(() => {
+                    calculatorSection.style.boxShadow = '';
+                }, 2000);
+            }
+        });
+
+        // Handle URL hash navigation
+        if (window.location.hash === '#services-calculator') {
+            setTimeout(() => {
+                const calculatorSection = document.getElementById('services-calculator');
+                if (calculatorSection) {
+                    calculatorSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 500);
+        }
+    </script>
+    <script src="../js/offline-queue.js"></script>
+    <script src="../js/quotes-service.js"></script>
+    <script src="../js/services-calculator.js"></script>
+    <script src="../js/auth-manager.js"></script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+#clinicaCarousel {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#clinicaCarousel .carousel-inner {
+    height: 600px;
+}
+
+#clinicaCarousel .carousel-item {
+    height: 100%;
+    background: #fff;
+}
+
+#clinicaCarousel .carousel-item img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+    padding: 20px 20px 40px 20px;
+}
+
+#clinicaCarousel .carousel-caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    border-radius: 0 0 8px 8px;
+}
+
+#clinicaCarousel .carousel-caption h5 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#clinicaCarousel .carousel-caption p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+}
+
+/* Restaurante El Yunque Carousel Styles */
+#yunqueCarousel {
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+#yunqueCarousel .carousel-inner {
+    height: 100%;
+}
+
+#yunqueCarousel .carousel-item {
+    height: 100%;
+}
+
+#yunqueCarousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+    padding: 20px;
+    background: #fff;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#yunqueCarousel .carousel-caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    border-radius: 0 0 8px 8px;
+}
+
+#yunqueCarousel .carousel-caption h5 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#yunqueCarousel .carousel-caption p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+}
+
+#yunqueCarousel .carousel-control-prev,
+#yunqueCarousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+#yunqueCarousel .carousel-control-prev:hover,
+#yunqueCarousel .carousel-control-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+#yunqueCarousel .carousel-control-prev {
+    left: 20px;
+}
+
+#yunqueCarousel .carousel-control-next {
+    right: 20px;
+}
+
+#yunqueCarousel .carousel-indicators {
+    bottom: 10px;
+}
+
+#yunqueCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#yunqueCarousel .carousel-indicators button.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+#clinicaCarousel .carousel-control-prev,
+#clinicaCarousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+#clinicaCarousel .carousel-control-prev {
+    left: 20px;
+}
+
+#clinicaCarousel .carousel-control-next {
+    right: 20px;
+}
+
+#clinicaCarousel .carousel-control-prev:hover,
+#clinicaCarousel .carousel-control-next:hover {
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 1;
+}
+
+#clinicaCarousel .carousel-indicators {
+    margin-bottom: 1rem;
+}
+
+#clinicaCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#clinicaCarousel .carousel-indicators button.active {
+    background-color: white;
+}
+
+/* Estilos para el carrusel de Academia Digital PR */
+#academiaCarousel {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#academiaCarousel .carousel-inner {
+    height: 600px;
+}
+
+#academiaCarousel .carousel-item {
+    height: 100%;
+    background: #fff;
+}
+
+#academiaCarousel .carousel-item img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+    padding: 20px 20px 40px 20px;
+    background: #fff;
+}
+
+#academiaCarousel .carousel-caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    border-radius: 0 0 8px 8px;
+}
+
+#academiaCarousel .carousel-caption h5 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#academiaCarousel .carousel-caption p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+}
+
+#academiaCarousel .carousel-control-prev,
+#academiaCarousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+#academiaCarousel .carousel-control-prev {
+    left: 20px;
+}
+
+#academiaCarousel .carousel-control-next {
+    right: 20px;
+}
+
+#academiaCarousel .carousel-control-prev:hover,
+#academiaCarousel .carousel-control-next:hover {
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 1;
+}
+
+#academiaCarousel .carousel-indicators {
+    margin-bottom: 1rem;
+}
+
+#academiaCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#academiaCarousel .carousel-indicators button.active {
+    background-color: white;
+}
+
+/* Boutique Luna Carousel Styles */
+#boutiqueCarousel {
+    height: 500px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+#boutiqueCarousel .carousel-inner {
+    height: 100%;
+}
+
+#boutiqueCarousel .carousel-item {
+    height: 100%;
+}
+
+#boutiqueCarousel .carousel-item img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    padding: 20px;
+    background: white;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#boutiqueCarousel .carousel-caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    border-radius: 0 0 8px 8px;
+}
+
+#boutiqueCarousel .carousel-caption h5 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#boutiqueCarousel .carousel-caption p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+}
+
+#boutiqueCarousel .carousel-control-prev,
+#boutiqueCarousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+#boutiqueCarousel .carousel-control-prev {
+    left: 20px;
+}
+
+#boutiqueCarousel .carousel-control-next {
+    right: 20px;
+}
+
+#boutiqueCarousel .carousel-control-prev:hover,
+#boutiqueCarousel .carousel-control-next:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+#boutiqueCarousel .carousel-indicators {
+    bottom: 20px;
+    margin-bottom: 0;
+}
+
+#boutiqueCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#boutiqueCarousel .carousel-indicators button.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+}

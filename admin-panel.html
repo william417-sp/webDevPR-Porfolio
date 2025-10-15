@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - webDevPR</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/quotes-manager.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+
+        /* Login Screen */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 450px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-box .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+        }
+
+        .login-box h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .login-box p {
+            color: #666;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e1e4e8;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .login-hint {
+            margin-top: 25px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        /* Admin Dashboard */
+        .admin-container {
+            display: none;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 0;
+            overflow-y: auto;
+        }
+
+        .sidebar-logo {
+            padding: 0 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sidebar-logo .icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .sidebar-logo h2 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .sidebar-menu a.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: white;
+        }
+
+        .sidebar-menu i {
+            margin-right: 15px;
+            width: 20px;
+            font-size: 18px;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            min-height: 100vh;
+            background: #f5f7fa;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-title h1 {
+            color: #333;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .header-title p {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-logout {
+            padding: 10px 24px;
+            background: #f0f2f5;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .btn-logout:hover {
+            background: #e1e4e8;
+            transform: translateY(-1px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            border: 1px solid #e1e4e8;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .stat-card .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card .icon.blue { background: #e3f2fd; color: #1976d2; }
+        .stat-card .icon.green { background: #e8f5e9; color: #388e3c; }
+        .stat-card .icon.purple { background: #f3e5f5; color: #7b1fa2; }
+        .stat-card .icon.orange { background: #fff3e0; color: #f57c00; }
+        .stat-card .icon.red { background: #ffebee; color: #d32f2f; }
+        .stat-card .icon.teal { background: #e0f2f1; color: #00897b; }
+
+        .stat-card .value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
+            border: 1px solid #e1e4e8;
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+        }
+
+        .card h2 i {
+            color: #667eea;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .action-btn i {
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            background: #f8f9fa;
+        }
+
+        table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e1e4e8;
+        }
+
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge.success { background: #e8f5e9; color: #388e3c; }
+        .badge.warning { background: #fff3e0; color: #f57c00; }
+        .badge.danger { background: #ffebee; color: #d32f2f; }
+        .badge.info { background: #e3f2fd; color: #1976d2; }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e1e4e8;
+        }
+
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #d32f2f;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #999;
+        }
+
+        .empty-state i {
+            font-size: 72px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .empty-state h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .form-section {
+            max-width: 800px;
+        }
+
+        .form-row {
+            margin-bottom: 25px;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-row input,
+        .form-row textarea,
+        .form-row select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e4e8;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-row input:focus,
+        .form-row textarea:focus,
+        .form-row select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-row textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+                z-index: 100;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .header {
+                padding: 15px 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #333;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>Panel Admin</h1>
+            <p>Ingresa tus credenciales para continuar</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" id="username" placeholder="admin" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+            </form>
+            <div class="login-hint">
+                <i class="fas fa-info-circle"></i> Por defecto: admin / admin123
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-screen" class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <div class="icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2>webDevPR</h2>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#" class="menu-link active" data-section="dashboard">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" data-section="projects">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Proyectos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" data-section="quotes">
+                        <i class="fas fa-calculator"></i>
+                        <span>Cotizaciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" data-section="testimonials">
+                        <i class="fas fa-comments"></i>
+                        <span>Testimonios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" data-section="services">
+                        <i class="fas fa-tools"></i>
+                        <span>Servicios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" data-section="contacts">
+                        <i class="fas fa-address-book"></i>
+                        <span>Contactos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" data-section="analytics">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-chatbot.html" target="_blank">
+                        <i class="fas fa-robot"></i>
+                        <span>Chatbot Admin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <h1 id="page-title">Dashboard</h1>
+                    <p id="page-subtitle">Bienvenido al panel de administración</p>
+                </div>
+                <div class="header-actions">
+                    <div class="user-info">
+                        <div>
+                            <div style="font-weight: 600;" id="user-name">Administrador</div>
+                            <div style="font-size: 13px;" id="user-email">admin@webdevpr.com</div>
+                        </div>
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <button class="btn-logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </button>
+                </div>
+            </header>
+
+            <div class="content">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section" class="section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="icon blue">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="value" id="stat-total">0</div>
+                            <div class="label">Proyectos Completados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="icon green">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="value" id="stat-users">0</div>
+                            <div class="label">Clientes Activos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="icon purple">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="value" id="stat-today">0</div>
+                            <div class="label">Proyectos en Progreso</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="icon orange">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="value">$0K</div>
+                            <div class="label">Ingresos Totales</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="icon red">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="value">0</div>
+                            <div class="label">Mensajes Nuevos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="icon teal">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="value">0</div>
+                            <div class="label">Calificación Promedio</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="icon purple">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="value" id="quotes-count">0</div>
+                            <div class="label">Cotizaciones Pendientes</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2><i class="fas fa-rocket"></i> Acciones Rápidas</h2>
+                        <div class="quick-actions">
+                            <a href="#" class="action-btn" onclick="switchSection('projects'); return false;">
+                                <i class="fas fa-plus"></i>
+                                <div>
+                                    <div>Nuevo Proyecto</div>
+                                    <div style="font-size: 12px; opacity: 0.8;">Agregar al portfolio</div>
+                                </div>
+                            </a>
+                            <a href="#" class="action-btn" onclick="switchSection('quotes'); return false;">
+                                <i class="fas fa-calculator"></i>
+                                <div>
+                                    <div>Ver Cotizaciones</div>
+                                    <div style="font-size: 12px; opacity: 0.8;">Revisar cotizaciones pendientes</div>
+                                </div>
+                            </a>
+                            <a href="#" class="action-btn" onclick="switchSection('testimonials'); return false;">
+                                <i class="fas fa-comment-alt"></i>
+                                <div>
+                                    <div>Nuevo Testimonio</div>
+                                    <div style="font-size: 12px; opacity: 0.8;">Agregar reseña</div>
+                                </div>
+                            </a>
+                            <a href="#" class="action-btn" onclick="switchSection('contacts'); return false;">
+                                <i class="fas fa-envelope-open"></i>
+                                <div>
+                                    <div>Ver Mensajes</div>
+                                    <div style="font-size: 12px; opacity: 0.8;">15 sin leer</div>
+                                </div>
+                            </a>
+                            <a href="admin-chatbot.html" class="action-btn" target="_blank">
+                                <i class="fas fa-robot"></i>
+                                <div>
+                                    <div>Panel Chatbot</div>
+                                    <div style="font-size: 12px; opacity: 0.8;">Ver estadísticas</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2><i class="fas fa-tasks"></i> Proyectos Recientes</h2>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Proyecto</th>
+                                        <th>Cliente</th>
+                                        <th>Estado</th>
+                                        <th>Fecha</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>E-commerce TechStore</strong></td>
+                                        <td>Juan Pérez</td>
+                                        <td><span class="badge success">Completado</span></td>
+                                        <td>2 Oct 2025</td>
+                                        <td>
+                                            <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;">
+                                                <i class="fas fa-eye"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>App Móvil RestaurantPR</strong></td>
+                                        <td>María González</td>
+                                        <td><span class="badge warning">En Progreso</span></td>
+                                        <td>28 Sep 2025</td>
+                                        <td>
+                                            <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;">
+                                                <i class="fas fa-eye"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Web Portfolio Fotógrafo</strong></td>
+                                        <td>Luis Martínez</td>
+                                        <td><span class="badge success">Completado</span></td>
+                                        <td>25 Sep 2025</td>
+                                        <td>
+                                            <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;">
+                                                <i class="fas fa-eye"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div id="projects-section" class="section">
+                    <div class="card">
+                        <h2><i class="fas fa-briefcase"></i> Gestión de Proyectos</h2>
+                        <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button class="btn btn-primary btn-add-project">
+                                <i class="fas fa-plus"></i> Agregar Nuevo Proyecto
+                            </button>
+                            <input type="text" id="search-projects" placeholder="🔍 Buscar proyectos..." style="flex: 1; min-width: 250px; padding: 10px 15px; border: 2px solid #e1e4e8; border-radius: 8px;">
+                            <select id="filter-projects-status" style="padding: 10px 15px; border: 2px solid #e1e4e8; border-radius: 8px;">
+                                <option value="">Todos los estados</option>
+                                <option value="completed">Completados</option>
+                                <option value="in_progress">En Progreso</option>
+                                <option value="pending">Pendientes</option>
+                                <option value="cancelled">Cancelados</option>
+                            </select>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Proyecto</th>
+                                        <th>Cliente</th>
+                                        <th>Categoría</th>
+                                        <th>Estado</th>
+                                        <th>Presupuesto</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" style="text-align: center; padding: 40px;">
+                                            <i class="fas fa-spinner fa-spin" style="font-size: 48px; color: #ccc;"></i>
+                                            <p style="color: #999; margin-top: 10px;">Cargando proyectos...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quotes Section -->
+                <div id="quotes-section" class="section">
+                    <div class="card">
+                        <h2><i class="fas fa-calculator"></i> Gestión de Cotizaciones</h2>
+                        <div id="quotes-container" class="quotes-container">
+                            <!-- Quotes will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials Section -->
+                <div id="testimonials-section" class="section">
+                    <div class="card">
+                        <h2><i class="fas fa-comments"></i> Gestión de Testimonios</h2>
+                        <div style="margin-bottom: 20px;">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Agregar Testimonio
+                            </button>
+                        </div>
+                        <div class="empty-state">
+                            <i class="fas fa-comments"></i>
+                            <h3>Sin testimonios recientes</h3>
+                            <p>Agrega testimonios de tus clientes satisfechos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div id="services-section" class="section">
+                    <div class="card">
+                        <h2><i class="fas fa-tools"></i> Gestión de Servicios</h2>
+                        <div style="margin-bottom: 20px;">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Agregar Servicio
+                            </button>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="icon blue">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="value">6</div>
+                                <div class="label">Servicios Activos</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="icon green">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="value">$3.5K</div>
+                                <div class="label">Precio Promedio</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="icon purple">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="value">4.8</div>
+                                <div class="label">Calificación</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contacts Section -->
+                <div id="contacts-section" class="section">
+                    <div class="card">
+                        <h2><i class="fas fa-address-book"></i> Mensajes de Contacto</h2>
+                        <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <input type="text" id="search-contacts" placeholder="🔍 Buscar mensajes..." style="flex: 1; min-width: 250px; padding: 10px 15px; border: 2px solid #e1e4e8; border-radius: 8px;">
+                            <select id="filter-contacts-status" style="padding: 10px 15px; border: 2px solid #e1e4e8; border-radius: 8px;">
+                                <option value="">Todos los estados</option>
+                                <option value="new">Nuevos</option>
+                                <option value="in_progress">En Proceso</option>
+                                <option value="resolved">Resueltos</option>
+                            </select>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Asunto</th>
+                                        <th>Estado</th>
+                                        <th>Fecha</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Carlos Vega</strong></td>
+                                        <td>carlos@email.com</td>
+                                        <td>Consulta sobre servicios</td>
+                                        <td><span class="badge info">Nuevo</span></td>
+                                        <td>3 Oct 2025</td>
+                                        <td>
+                                            <button class="btn btn-primary" style="padding: 6px 12px; font-size: 13px;">
+                                                <i class="fas fa-reply"></i> Responder
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="analytics-section" class="section">
+                    <div class="card">
+                        <h2><i class="fas fa-chart-bar"></i> Análisis y Estadísticas</h2>
+                        
+                        <!-- Charts Grid -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 30px;">
+                            <!-- Projects by Status Chart -->
+                            <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e1e4e8;">
+                                <h3 style="margin-bottom: 20px; color: #333; font-size: 18px;">
+                                    <i class="fas fa-chart-pie"></i> Proyectos por Estado
+                                </h3>
+                                <canvas id="projectsChart" style="max-height: 300px;"></canvas>
+                            </div>
+
+                            <!-- Revenue by Month Chart -->
+                            <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e1e4e8;">
+                                <h3 style="margin-bottom: 20px; color: #333; font-size: 18px;">
+                                    <i class="fas fa-chart-line"></i> Ingresos por Categoría
+                                </h3>
+                                <canvas id="revenueChart" style="max-height: 300px;"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Testimonials Rating Distribution -->
+                        <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e1e4e8; margin-top: 30px;">
+                            <h3 style="margin-bottom: 20px; color: #333; font-size: 18px;">
+                                <i class="fas fa-star"></i> Distribución de Calificaciones
+                            </h3>
+                            <canvas id="ratingsChart" style="max-height: 250px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settings-section" class="section">
+                    <div class="card">
+                        <h2><i class="fas fa-cog"></i> Configuración General</h2>
+                        <div class="form-section">
+                            <div class="form-row">
+                                <label>Nombre del Sitio</label>
+                                <input type="text" name="siteName" placeholder="Nombre del sitio">
+                            </div>
+                            <div class="form-row">
+                                <label>Email de Contacto</label>
+                                <input type="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-row">
+                                <label>Teléfono</label>
+                                <input type="tel" name="phone" placeholder="Teléfono">
+                            </div>
+                            <div class="form-row">
+                                <label>Descripción del Sitio</label>
+                                <textarea name="description" placeholder="Descripción breve del sitio"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <button class="btn btn-primary" onclick="saveSettings()">
+                                    <i class="fas fa-save"></i> Guardar Cambios
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2><i class="fas fa-database"></i> Gestión de Datos</h2>
+                        <div class="form-section">
+                            <div class="form-row">
+                                <label>Importar Datos</label>
+                                <p style="color: #666; font-size: 14px; margin-bottom: 10px;">
+                                    Selecciona un archivo JSON exportado previamente para restaurar tus datos
+                                </p>
+                                <input type="file" id="import-file" accept=".json" style="padding: 10px; border: 2px solid #e1e4e8; border-radius: 8px; width: 100%;">
+                                <button class="btn btn-primary" onclick="importData()" style="margin-top: 10px;">
+                                    <i class="fas fa-upload"></i> Importar Datos
+                                </button>
+                            </div>
+                            <div class="form-row" style="margin-top: 20px;">
+                                <label>Exportar Datos</label>
+                                <p style="color: #666; font-size: 14px; margin-bottom: 10px;">
+                                    Descarga todos tus datos en formato JSON como backup
+                                </p>
+                                <button class="btn btn-primary" onclick="exportData()">
+                                    <i class="fas fa-download"></i> Exportar Datos
+                                </button>
+                            </div>
+                            <div class="form-row" style="margin-top: 20px;">
+                                <label style="color: #f44336;">Zona de Peligro</label>
+                                <p style="color: #666; font-size: 14px; margin-bottom: 10px;">
+                                    Esta acción eliminará TODOS los datos permanentemente
+                                </p>
+                                <button class="btn btn-danger" onclick="clearAllData()">
+                                    <i class="fas fa-exclamation-triangle"></i> Borrar Todos los Datos
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2><i class="fas fa-shield-alt"></i> Seguridad</h2>
+                        <div class="form-section">
+                            <div class="form-row">
+                                <label>Cambiar Contraseña</label>
+                                <input type="password" id="new-password" placeholder="Nueva contraseña">
+                            </div>
+                            <div class="form-row">
+                                <label>Confirmar Contraseña</label>
+                                <input type="password" id="confirm-password" placeholder="Confirmar contraseña">
+                            </div>
+                            <div class="form-row">
+                                <button class="btn btn-primary" onclick="changePassword()">
+                                    <i class="fas fa-key"></i> Actualizar Contraseña
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Login functionality
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('admin-screen').style.display = 'block';
+                localStorage.setItem('admin_panel_logged_in', 'true');
+            } else {
+                alert('❌ Credenciales incorrectas. Intenta con: admin / admin123');
+            }
+        });
+
+        function logout() {
+            if (confirm('¿Seguro que deseas cerrar sesión?')) {
+                localStorage.removeItem('admin_panel_logged_in');
+                location.reload();
+            }
+        }
+
+        // Check if already logged in
+        if (localStorage.getItem('admin_panel_logged_in') === 'true') {
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('admin-screen').style.display = 'block';
+        }
+
+        // Menu navigation
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.hasAttribute('data-section')) {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    switchSection(section);
+                    
+                    // Update active menu item
+                    document.querySelectorAll('.menu-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        function switchSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update page title
+            const titles = {
+                'dashboard': ['Dashboard', 'Bienvenido al panel de administración'],
+                'projects': ['Proyectos', 'Gestiona tu portfolio de proyectos'],
+                'quotes': ['Cotizaciones', 'Administra las cotizaciones de clientes'],
+                'testimonials': ['Testimonios', 'Administra las reseñas de clientes'],
+                'services': ['Servicios', 'Gestiona los servicios que ofreces'],
+                'contacts': ['Contactos', 'Revisa los mensajes de contacto'],
+                'analytics': ['Analytics', 'Visualiza las estadísticas del sitio'],
+                'settings': ['Configuración', 'Ajusta las preferencias del sistema']
+            };
+
+            if (titles[sectionName]) {
+                document.getElementById('page-title').textContent = titles[sectionName][0];
+                document.getElementById('page-subtitle').textContent = titles[sectionName][1];
+            }
+
+            // Update active menu
+            document.querySelectorAll('.menu-link').forEach(link => {
+                if (link.getAttribute('data-section') === sectionName) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('open');
+            });
+        }
+
+        // Save settings function
+        function saveSettings() {
+            const settings = {
+                siteName: document.querySelector('input[name="siteName"]').value,
+                email: document.querySelector('input[name="email"]').value,
+                phone: document.querySelector('input[name="phone"]').value,
+                description: document.querySelector('textarea[name="description"]').value
+            };
+            
+            if (window.dataManager) {
+                window.dataManager.saveSettings(settings);
+                if (window.adminUI) {
+                    window.adminUI.showNotification('Configuración guardada exitosamente', 'success');
+                } else {
+                    alert('Configuración guardada exitosamente');
+                }
+            }
+        }
+
+        // Export data function
+        function exportData() {
+            if (window.dataManager) {
+                const data = window.dataManager.exportAllData();
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `webdevpr-data-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+                
+                if (window.adminUI) {
+                    window.adminUI.showNotification('Datos exportados exitosamente', 'success');
+                } else {
+                    alert('Datos exportados exitosamente');
+                }
+            }
+        }
+
+        // Import data function
+        function importData() {
+            const fileInput = document.getElementById('import-file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Por favor selecciona un archivo JSON');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    if (confirm('¿Seguro que deseas importar estos datos? Esto sobrescribirá los datos actuales.')) {
+                        if (window.dataManager) {
+                            window.dataManager.importData(data);
+                            
+                            // Reload all views
+                            if (window.adminUI) {
+                                window.adminUI.loadDashboardStats();
+                                window.adminUI.loadProjects();
+                                window.adminUI.loadTestimonials();
+                                window.adminUI.loadServices();
+                                window.adminUI.loadContacts();
+                                window.adminUI.loadSettings();
+                                window.adminUI.showNotification('Datos importados exitosamente', 'success');
+                            }
+                            
+                            // Reload page after a short delay
+                            setTimeout(() => location.reload(), 2000);
+                        }
+                    }
+                } catch (error) {
+                    alert('Error al leer el archivo. Asegúrate que sea un archivo JSON válido.');
+                    console.error(error);
+                }
+            };
+            
+            reader.readAsText(file);
+        }
+
+        // Clear all data function
+        function clearAllData() {
+            if (confirm('⚠️ ADVERTENCIA: Esto eliminará TODOS los datos permanentemente. ¿Estás seguro?')) {
+                if (confirm('Esta acción no se puede deshacer. ¿Continuar?')) {
+                    localStorage.clear();
+                    
+                    if (window.adminUI) {
+                        window.adminUI.showNotification('Todos los datos han sido eliminados', 'warning');
+                    } else {
+                        alert('Todos los datos han sido eliminados');
+                    }
+                    
+                    setTimeout(() => location.reload(), 2000);
+                }
+            }
+        }
+
+        // Change password function
+        function changePassword() {
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (!newPassword || !confirmPassword) {
+                alert('Por favor completa ambos campos');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                alert('Las contraseñas no coinciden');
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                alert('La contraseña debe tener al menos 6 caracteres');
+                return;
+            }
+            
+            // In a real app, this would update the password in a secure backend
+            localStorage.setItem('admin_password', newPassword);
+            
+            if (window.adminUI) {
+                window.adminUI.showNotification('Contraseña actualizada exitosamente', 'success');
+            } else {
+                alert('Contraseña actualizada exitosamente');
+            }
+            
+            document.getElementById('new-password').value = '';
+            document.getElementById('confirm-password').value = '';
+        }
+
+    </script>
+
+    <!-- Admin Panel Functionality -->
+    <script src="js/quotes-service.js"></script>
+    <script src="js/quotes-manager.js"></script>
+    <script src="js/admin-panel.js"></script>
+<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+</body>
+</html>
+

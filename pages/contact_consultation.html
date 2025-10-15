@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto y Consulta - webDevPR | Tu Socio Tecnológico de Confianza</title>
+    <meta name="description" content="Contacta con webDevPR para una consulta gratuita. Múltiples formas de comunicación, programación de citas y soporte técnico especializado para tu proyecto web." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fwebdevprp2754back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-white">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 nav-glass z-50">
+        <nav class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2 glow-on-hover">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-glow">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold tech-heading">webDevPR</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-colors">Inicio</a>
+                    <a href="services_hub.html" class="text-text-secondary hover:text-primary transition-colors">Servicios</a>
+                    <a href="portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors">Portfolio</a>
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
+                    <a href="contact_consultation.html" class="text-primary font-semibold">Contacto</a>
+                    
+                    <div class="flex items-center space-x-2">
+                        <a href="login.html" class="btn-neon auth-button" style="display: none;">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                        <a href="client_portal.html" class="btn-neon portal-button">
+                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <button class="p-2 rounded-md text-text-secondary hover:text-primary" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Inicio</a>
+                    <a href="services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Servicios</a>
+                    <a href="portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portfolio</a>
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
+                    <a href="contact_consultation.html" class="block px-3 py-2 text-primary font-semibold">Contacto</a>
+                    <div class="flex flex-col space-y-2 px-3 py-2">
+                        <a href="login.html" class="btn-primary text-center auth-button" style="display: none;">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                        <a href="client_portal.html" class="btn-primary text-center portal-button">
+                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 tech-bg overflow-hidden relative">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto fade-in">
+                <div class="mb-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent-100 text-accent-600">
+                        <i class="fas fa-headset mr-2"></i>
+                        Consulta Gratuita Disponible
+                    </span>
+                </div>
+                
+                <h1 class="text-4xl lg:text-6xl font-bold tech-heading mb-6 leading-tight">
+                    <span class="block">Hablemos de tu</span>
+                    <span class="text-gradient">Proyecto Digital</span>
+                </h1>
+                
+                <p class="text-xl tech-subheading mb-8 leading-relaxed">
+                    Estamos aquí para convertir tus ideas en realidad digital. Programa una consulta gratuita 
+                    y descubre cómo podemos impulsar tu negocio con soluciones web innovadoras.
+                </p>
+                
+                <!-- Quick Contact Options -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <a href="#consultation-form" class="btn-neon text-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Programar Consulta
+                    </a>
+                    <a href="#contact-methods" class="glass-card text-center px-6 py-3 text-white hover:text-primary transition-colors font-semibold">
+                        <i class="fas fa-phone mr-2"></i>
+                        Contacto Directo
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="flex items-center justify-center space-x-6 text-sm text-text-muted">
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-success mr-2"></i>
+                        <span>Respuesta en 24h</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-success mr-2"></i>
+                        <span>Consulta Gratuita</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-handshake text-success mr-2"></i>
+                        <span>Sin Compromiso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods Section -->
+    <section id="contact-methods" class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+                    Múltiples Formas de Contactarnos
+                </h2>
+                <p class="text-xl tech-subheading max-w-3xl mx-auto">
+                    Elige la forma de comunicación que más te convenga. Estamos disponibles para ayudarte.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Phone Contact -->
+                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i class="fas fa-phone text-primary group-hover:text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Teléfono</h3>
+                    <p class="text-text-secondary mb-4">Llámanos directamente para consultas urgentes</p>
+                    <a href="tel:+17875550123" class="text-primary font-semibold hover:text-primary-700 transition-colors">
+                        +1 (787) 555-0123
+                    </a>
+                    <div class="mt-2 text-sm text-text-muted">
+                        <i class="fas fa-clock mr-1"></i>
+                        Lun - Vie: 9AM - 6PM AST
+                    </div>
+                </div>
+
+                <!-- Email Contact -->
+                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary group-hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-secondary group-hover:text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Email</h3>
+                    <p class="text-text-secondary mb-4">Envíanos un email detallado sobre tu proyecto</p>
+                    <a href="mailto:info@webdevpr.com" class="text-secondary font-semibold hover:text-secondary-600 transition-colors">
+                        info@webdevpr.com
+                    </a>
+                    <div class="mt-2 text-sm text-text-muted">
+                        <i class="fas fa-reply mr-1"></i>
+                        Respuesta en 24h
+                    </div>
+                </div>
+
+                <!-- WhatsApp Contact -->
+                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-success group-hover:text-white transition-colors">
+                        <i class="fab fa-whatsapp text-success group-hover:text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">WhatsApp</h3>
+                    <p class="text-text-secondary mb-4">Chat directo para consultas rápidas</p>
+                    <a href="https://wa.me/17875550123" class="text-success font-semibold hover:text-success transition-colors">
+                        Iniciar Chat
+                    </a>
+                    <div class="mt-2 text-sm text-text-muted">
+                        <i class="fas fa-circle text-success mr-1"></i>
+                        En línea ahora
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="bg-error-50 border border-error-100 rounded-lg p-6 text-center fade-in">
+                <div class="flex items-center justify-center mb-4">
+                    <i class="fas fa-exclamation-triangle text-error text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold text-error">Soporte de Emergencia</h3>
+                </div>
+                <p class="text-text-secondary mb-4">
+                    ¿Tu sitio web está caído? Contacta nuestro soporte de emergencia 24/7
+                </p>
+                <a href="tel:+17875550124" class="btn-neon bg-error hover:bg-error">
+                    <i class="fas fa-phone mr-2"></i>
+                    Emergencia: +1 (787) 555-0124
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Booking Form -->
+    <section id="consultation-form" class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+                        Programa tu Consulta Gratuita
+                    </h2>
+                    <p class="text-xl tech-subheading">
+                        Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
+                    </p>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <form id="consultation-form-element" class="space-y-8">
+                        <!-- Step Indicator -->
+                        <div class="flex items-center justify-center mb-8">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold step-indicator active" data-step="1">1</div>
+                                    <span class="ml-2 text-sm font-medium text-primary step-label active">Información Básica</span>
+                                </div>
+                                <div class="w-8 h-1 bg-border"></div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-border text-text-muted rounded-full flex items-center justify-center text-sm font-semibold step-indicator" data-step="2">2</div>
+                                    <span class="ml-2 text-sm font-medium text-text-muted step-label">Proyecto</span>
+                                </div>
+                                <div class="w-8 h-1 bg-border"></div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-border text-text-muted rounded-full flex items-center justify-center text-sm font-semibold step-indicator" data-step="3">3</div>
+                                    <span class="ml-2 text-sm font-medium text-text-muted step-label">Preferencias</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 1: Basic Information -->
+                        <div class="form-step active" data-step="1">
+                            <h3 class="text-2xl font-semibold text-white mb-6">Información de Contacto</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-white mb-2">
+                                        Nombre *
+                                    </label>
+                                    <input type="text" id="firstName" name="firstName" class="input-field" placeholder="Tu nombre" required />
+                                    <div class="error-message hidden text-error text-sm mt-1"></div>
+                                </div>
+                                
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-white mb-2">
+                                        Apellido *
+                                    </label>
+                                    <input type="text" id="lastName" name="lastName" class="input-field" placeholder="Tu apellido" required />
+                                    <div class="error-message hidden text-error text-sm mt-1"></div>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-white mb-2">
+                                        Email *
+                                    </label>
+                                    <input type="email" id="email" name="email" class="input-field" placeholder="tu@email.com" required />
+                                    <div class="error-message hidden text-error text-sm mt-1"></div>
+                                </div>
+                                
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-white mb-2">
+                                        Teléfono *
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" class="input-field" placeholder="+1 (787) 555-0123" required />
+                                    <div class="error-message hidden text-error text-sm mt-1"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-white mb-2">
+                                    Empresa/Organización
+                                </label>
+                                <input type="text" id="company" name="company" class="input-field" placeholder="Nombre de tu empresa (opcional)" />
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Project Details -->
+                        <div class="form-step hidden" data-step="2">
+                            <h3 class="text-2xl font-semibold text-white mb-6">Detalles del Proyecto</h3>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-4">
+                                    Tipo de Proyecto *
+                                </label>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <label class="project-type-option cursor-pointer">
+                                        <input type="radio" name="projectType" value="website" class="sr-only" required />
+                                        <div class="border-2 border-border rounded-lg p-4 hover:border-primary transition-colors">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-globe text-primary text-xl mr-3"></i>
+                                                <div>
+                                                    <h4 class="font-semibold text-white">Sitio Web Corporativo</h4>
+                                                    <p class="text-sm text-text-secondary">Presencia profesional online</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="project-type-option cursor-pointer">
+                                        <input type="radio" name="projectType" value="ecommerce" class="sr-only" />
+                                        <div class="border-2 border-border rounded-lg p-4 hover:border-primary transition-colors">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-shopping-cart text-secondary text-xl mr-3"></i>
+                                                <div>
+                                                    <h4 class="font-semibold text-white">Tienda Online</h4>
+                                                    <p class="text-sm text-text-secondary">E-commerce completo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="project-type-option cursor-pointer">
+                                        <input type="radio" name="projectType" value="app" class="sr-only" />
+                                        <div class="border-2 border-border rounded-lg p-4 hover:border-primary transition-colors">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-mobile-alt text-accent text-xl mr-3"></i>
+                                                <div>
+                                                    <h4 class="font-semibold text-white">App Móvil</h4>
+                                                    <p class="text-sm text-text-secondary">Aplicación nativa o web</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="project-type-option cursor-pointer">
+                                        <input type="radio" name="projectType" value="redesign" class="sr-only" />
+                                        <div class="border-2 border-border rounded-lg p-4 hover:border-primary transition-colors">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-sync-alt text-success text-xl mr-3"></i>
+                                                <div>
+                                                    <h4 class="font-semibold text-white">Rediseño</h4>
+                                                    <p class="text-sm text-text-secondary">Modernizar sitio existente</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="error-message hidden text-error text-sm mt-1"></div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-4">
+                                    Presupuesto Estimado (USD) *
+                                </label>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <label class="budget-option cursor-pointer">
+                                        <input type="radio" name="budget" value="1000-3000" class="sr-only" required />
+                                        <div class="border-2 border-border rounded-lg p-4 text-center hover:border-primary transition-colors">
+                                            <div class="text-lg font-semibold text-white">$1,000 - $3,000</div>
+                                            <div class="text-sm text-text-secondary">Sitio básico</div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="budget-option cursor-pointer">
+                                        <input type="radio" name="budget" value="3000-7000" class="sr-only" />
+                                        <div class="border-2 border-border rounded-lg p-4 text-center hover:border-primary transition-colors">
+                                            <div class="text-lg font-semibold text-white">$3,000 - $7,000</div>
+                                            <div class="text-sm text-text-secondary">Sitio profesional</div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="budget-option cursor-pointer">
+                                        <input type="radio" name="budget" value="7000-15000" class="sr-only" />
+                                        <div class="border-2 border-border rounded-lg p-4 text-center hover:border-primary transition-colors">
+                                            <div class="text-lg font-semibold text-white">$7,000 - $15,000</div>
+                                            <div class="text-sm text-text-secondary">Solución avanzada</div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="budget-option cursor-pointer">
+                                        <input type="radio" name="budget" value="15000+" class="sr-only" />
+                                        <div class="border-2 border-border rounded-lg p-4 text-center hover:border-primary transition-colors">
+                                            <div class="text-lg font-semibold text-white">$15,000+</div>
+                                            <div class="text-sm text-text-secondary">Proyecto empresarial</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="error-message hidden text-error text-sm mt-1"></div>
+                            </div>
+
+                            <div>
+                                <label for="timeline" class="block text-sm font-medium text-white mb-2">
+                                    Cronograma Deseado *
+                                </label>
+                                <select id="timeline" name="timeline" class="input-field" required>
+                                    <option value>Selecciona un cronograma</option>
+                                    <option value="asap">Lo antes posible</option>
+                                    <option value="1-2months">1-2 meses</option>
+                                    <option value="3-4months">3-4 meses</option>
+                                    <option value="6months+">6+ meses</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                                <div class="error-message hidden text-error text-sm mt-1"></div>
+                            </div>
+
+                            <div>
+                                <label for="projectDescription" class="block text-sm font-medium text-white mb-2">
+                                    Descripción del Proyecto
+                                </label>
+                                <textarea id="projectDescription" name="projectDescription" rows="4" class="input-field" placeholder="Cuéntanos más sobre tu proyecto, objetivos y necesidades específicas..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Preferences -->
+                        <div class="form-step hidden" data-step="3">
+                            <h3 class="text-2xl font-semibold text-white mb-6">Preferencias de Comunicación</h3>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-4">
+                                    Método de Comunicación Preferido *
+                                </label>
+                                <div class="space-y-3">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="communicationMethod" value="email" class="text-primary focus:ring-primary" required />
+                                        <span class="ml-3 flex items-center">
+                                            <i class="fas fa-envelope text-primary mr-2"></i>
+                                            Email
+                                        </span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="communicationMethod" value="phone" class="text-primary focus:ring-primary" />
+                                        <span class="ml-3 flex items-center">
+                                            <i class="fas fa-phone text-primary mr-2"></i>
+                                            Teléfono
+                                        </span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="communicationMethod" value="whatsapp" class="text-primary focus:ring-primary" />
+                                        <span class="ml-3 flex items-center">
+                                            <i class="fab fa-whatsapp text-primary mr-2"></i>
+                                            WhatsApp
+                                        </span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="communicationMethod" value="video" class="text-primary focus:ring-primary" />
+                                        <span class="ml-3 flex items-center">
+                                            <i class="fas fa-video text-primary mr-2"></i>
+                                            Videollamada
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="error-message hidden text-error text-sm mt-1"></div>
+                            </div>
+
+                            <div>
+                                <label for="preferredTime" class="block text-sm font-medium text-white mb-2">
+                                    Horario Preferido para Contacto
+                                </label>
+                                <select id="preferredTime" name="preferredTime" class="input-field">
+                                    <option value>Selecciona un horario</option>
+                                    <option value="morning">Mañana (9AM - 12PM)</option>
+                                    <option value="afternoon">Tarde (12PM - 5PM)</option>
+                                    <option value="evening">Noche (5PM - 8PM)</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-4">
+                                    Servicios Adicionales de Interés
+                                </label>
+                                <div class="space-y-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="additionalServices" value="seo" class="text-primary focus:ring-primary" />
+                                        <span class="ml-3">SEO y Marketing Digital</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="additionalServices" value="maintenance" class="text-primary focus:ring-primary" />
+                                        <span class="ml-3">Mantenimiento y Soporte</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="additionalServices" value="hosting" class="text-primary focus:ring-primary" />
+                                        <span class="ml-3">Hosting y Dominio</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="additionalServices" value="analytics" class="text-primary focus:ring-primary" />
+                                        <span class="ml-3">Analytics y Reportes</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="additionalComments" class="block text-sm font-medium text-white mb-2">
+                                    Comentarios Adicionales
+                                </label>
+                                <textarea id="additionalComments" name="additionalComments" rows="3" class="input-field" placeholder="¿Hay algo más que te gustaría que sepamos?"></textarea>
+                            </div>
+
+                            <!-- Privacy Policy -->
+                            <div class="bg-surface-100 rounded-lg p-4">
+                                <label class="flex items-start">
+                                    <input type="checkbox" name="privacyPolicy" class="text-primary focus:ring-primary mt-1" required />
+                                    <span class="ml-3 text-sm text-text-secondary">
+                                        Acepto la <a href="javascript:void(0)" class="text-primary hover:underline">política de privacidad</a> 
+                                        y autorizo el procesamiento de mis datos personales para fines de contacto y seguimiento del proyecto.
+                                    </span>
+                                </label>
+                                <div class="error-message hidden text-error text-sm mt-1"></div>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="flex justify-between pt-6 border-t border-border">
+                            <button type="button" id="prev-step" class="btn-outline hidden">
+                                <i class="fas fa-arrow-left mr-2"></i>
+                                Anterior
+                            </button>
+                            
+                            <div class="ml-auto">
+                                <button type="button" id="next-step" class="btn-neon">
+                                    Siguiente
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                                
+                                <button type="submit" id="submit-form" class="btn-neon hidden">
+                                    <i class="fas fa-paper-plane mr-2"></i>
+                                    Enviar Consulta
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ Section -->
+    <section class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+                    Preguntas Frecuentes
+                </h2>
+                <p class="text-xl tech-subheading max-w-3xl mx-auto">
+                    Respuestas a las preguntas más comunes sobre nuestros servicios y proceso de trabajo
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-4 fade-in">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item glass-card">
+                        <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-surface-50 transition-colors">
+                            <span class="text-lg font-semibold text-white">¿Cuánto tiempo toma desarrollar un sitio web?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web básico puede tomar 2-4 semanas, 
+                                mientras que proyectos más complejos como e-commerce pueden requerir 6-12 semanas. Durante la consulta inicial, 
+                                te proporcionaremos un cronograma detallado específico para tu proyecto.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item glass-card">
+                        <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-surface-50 transition-colors">
+                            <span class="text-lg font-semibold text-white">¿Ofrecen servicios de mantenimiento?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                Sí, ofrecemos planes de mantenimiento completos que incluyen actualizaciones de seguridad, 
+                                copias de seguridad regulares, monitoreo de rendimiento, y soporte técnico. Nuestros planes 
+                                van desde mantenimiento básico hasta soporte completo 24/7.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item glass-card">
+                        <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-surface-50 transition-colors">
+                            <span class="text-lg font-semibold text-white">¿Trabajan con clientes fuera de Puerto Rico?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                Absolutamente. Aunque estamos basados en Puerto Rico, trabajamos con clientes en toda América Latina 
+                                y Estados Unidos. Utilizamos herramientas de colaboración modernas que nos permiten trabajar 
+                                efectivamente con equipos remotos y mantener una comunicación fluida.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item glass-card">
+                        <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-surface-50 transition-colors">
+                            <span class="text-lg font-semibold text-white">¿Qué incluye la consulta gratuita?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                La consulta gratuita incluye una evaluación completa de tus necesidades, análisis de tu presencia 
+                                digital actual (si existe), recomendaciones estratégicas, estimación de costos y cronograma del proyecto. 
+                                También discutiremos las mejores tecnologías y enfoques para tu caso específico.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item glass-card">
+                        <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-surface-50 transition-colors">
+                            <span class="text-lg font-semibold text-white">¿Qué formas de pago aceptan?</span>
+                            <i class="fas fa-chevron-down text-text-muted transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                Aceptamos múltiples formas de pago incluyendo transferencias bancarias, PayPal, tarjetas de crédito/débito, 
+                                y para proyectos grandes, ofrecemos planes de pago flexibles. Típicamente requerimos un 50% al inicio 
+                                del proyecto y el resto al completar la entrega.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot will be loaded via JavaScript -->
+
+    <!-- Footer -->
+    <footer class="bg-surface text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-50"></div>
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold">webDevPR</span>
+                    </div>
+                    <p class="text-gray-200 font-medium mb-6">
+                        Tu socio tecnológico de confianza en Puerto Rico. Desarrollamos más que sitios web, creamos experiencias digitales.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-gray-200 font-medium hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 font-medium hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 font-medium hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 font-medium hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Servicios</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services_hub.html" class="text-gray-200 font-medium hover:text-white transition-colors">Desarrollo Web</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 font-medium hover:text-white transition-colors">E-commerce</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 font-medium hover:text-white transition-colors">SEO & Marketing</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 font-medium hover:text-white transition-colors">Apps Móviles</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 font-medium hover:text-white transition-colors">Mantenimiento</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Empresa</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about_us.html" class="text-gray-200 font-medium hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="portfolio_showcase.html" class="text-gray-200 font-medium hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="contact_consultation.html" class="text-gray-200 font-medium hover:text-white transition-colors">Contacto</a></li>
+                        <li><a href="client_portal.html" class="text-gray-200 font-medium hover:text-white transition-colors">Portal Cliente</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-200 font-medium hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contacto</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            San Juan, Puerto Rico
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-phone mr-3"></i>
+                            +1 (787) 555-0123
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-envelope mr-3"></i>
+                            info@webdevpr.com
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-clock mr-3"></i>
+                            Lun - Vie: 9AM - 6PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-200 font-medium">
+                    © 2025 webDevPR. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot -->
+    <script src="../js/ai-chatbot.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Multi-step form functionality
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function updateStepIndicators() {
+            document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+                const stepNumber = index + 1;
+                const label = indicator.parentElement.querySelector('.step-label');
+                
+                if (stepNumber <= currentStep) {
+                    indicator.classList.add('active');
+                    indicator.classList.remove('bg-border', 'text-text-muted');
+                    indicator.classList.add('bg-primary', 'text-white');
+                    label.classList.add('active');
+                    label.classList.remove('text-text-muted');
+                    label.classList.add('text-primary');
+                } else {
+                    indicator.classList.remove('active');
+                    indicator.classList.remove('bg-primary', 'text-white');
+                    indicator.classList.add('bg-border', 'text-text-muted');
+                    label.classList.remove('active');
+                    label.classList.remove('text-primary');
+                    label.classList.add('text-text-muted');
+                }
+            });
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.form-step').forEach((stepElement, index) => {
+                if (index + 1 === step) {
+                    stepElement.classList.remove('hidden');
+                    stepElement.classList.add('active');
+                } else {
+                    stepElement.classList.add('hidden');
+                    stepElement.classList.remove('active');
+                }
+            });
+
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prev-step');
+            const nextBtn = document.getElementById('next-step');
+            const submitBtn = document.getElementById('submit-form');
+
+            if (step === 1) {
+                prevBtn.classList.add('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+            }
+
+            if (step === totalSteps) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+
+            updateStepIndicators();
+        }
+
+        function validateStep(step) {
+            const stepElement = document.querySelector(`.form-step[data-step="${step}"]`);
+            const requiredFields = stepElement.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                const errorElement = field.parentElement.querySelector('.error-message');
+                
+                if (field.type === 'radio') {
+                    const radioGroup = stepElement.querySelectorAll(`[name="${field.name}"]`);
+                    const isChecked = Array.from(radioGroup).some(radio => radio.checked);
+                    
+                    if (!isChecked) {
+                        isValid = false;
+                        if (errorElement) {
+                            errorElement.textContent = 'Por favor selecciona una opción';
+                            errorElement.classList.remove('hidden');
+                        }
+                    } else {
+                        if (errorElement) {
+                            errorElement.classList.add('hidden');
+                        }
+                    }
+                } else if (field.type === 'checkbox') {
+                    if (!field.checked) {
+                        isValid = false;
+                        if (errorElement) {
+                            errorElement.textContent = 'Este campo es requerido';
+                            errorElement.classList.remove('hidden');
+                        }
+                    } else {
+                        if (errorElement) {
+                            errorElement.classList.add('hidden');
+                        }
+                    }
+                } else {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('border-error');
+                        if (errorElement) {
+                            errorElement.textContent = 'Este campo es requerido';
+                            errorElement.classList.remove('hidden');
+                        }
+                    } else {
+                        field.classList.remove('border-error');
+                        if (errorElement) {
+                            errorElement.classList.add('hidden');
+                        }
+                    }
+                }
+            });
+
+            return isValid;
+        }
+
+        // Next step button
+        document.getElementById('next-step').addEventListener('click', function() {
+            if (validateStep(currentStep)) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            }
+        });
+
+        // Previous step button
+        document.getElementById('prev-step').addEventListener('click', function() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
+
+        // Project type selection
+        document.querySelectorAll('.project-type-option input').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.project-type-option div').forEach(div => {
+                    div.classList.remove('border-primary', 'bg-primary-50');
+                    div.classList.add('border-border');
+                });
+                
+                if (this.checked) {
+                    const div = this.nextElementSibling;
+                    div.classList.remove('border-border');
+                    div.classList.add('border-primary', 'bg-primary-50');
+                }
+            });
+        });
+
+        // Budget selection
+        document.querySelectorAll('.budget-option input').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.budget-option div').forEach(div => {
+                    div.classList.remove('border-primary', 'bg-primary-50');
+                    div.classList.add('border-border');
+                });
+                
+                if (this.checked) {
+                    const div = this.nextElementSibling;
+                    div.classList.remove('border-border');
+                    div.classList.add('border-primary', 'bg-primary-50');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('consultation-form-element').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateStep(currentStep)) {
+                // Collect form data
+                const formData = new FormData(this);
+                const data = {};
+                
+                for (let [key, value] of formData.entries()) {
+                    if (data[key]) {
+                        if (Array.isArray(data[key])) {
+                            data[key].push(value);
+                        } else {
+                            data[key] = [data[key], value];
+                        }
+                    } else {
+                        data[key] = value;
+                    }
+                }
+                
+                // Simulate form submission
+                alert('¡Gracias por tu consulta! Nos pondremos en contacto contigo en menos de 24 horas.');
+                console.log('Form data:', data);
+                
+                // Reset form
+                this.reset();
+                currentStep = 1;
+                showStep(currentStep);
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = this.querySelector('i');
+                
+                // Close other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.querySelector('.faq-answer').classList.add('hidden');
+                        item.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+                
+                // Toggle current FAQ item
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.05);
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top + scrolled;
+                const elementHeight = rect.height;
+                const windowHeight = window.innerHeight;
+                
+                // Only animate if element is in viewport
+                if (rect.bottom >= 0 && rect.top <= windowHeight) {
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+            });
+        });
+
+        // Mouse movement effect for all tech-bg sections
+        document.addEventListener('mousemove', (e) => {
+            const techSections = document.querySelectorAll('.tech-bg');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            techSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isInViewport) {
+                    section.style.background = `
+                        radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at ${(x + y) * 50}% ${(x - y) * 50}%, rgba(249, 115, 22, 0.1) 0%, transparent 50%)
+                    `;
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize form
+        showStep(currentStep);
+    </script>
+    <script src="../js/auth-manager.js"></script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

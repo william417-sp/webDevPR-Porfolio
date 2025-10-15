@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - webDevPR | Portal de Cliente</title>
+    <meta name="description" content="Portal de cliente de webDevPR. Gestiona tus proyectos web, revisa el progreso y mantente en contacto con nuestro equipo." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-background">
+    <!-- Dashboard Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-border z-50">
+        <nav class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold text-primary">webDevPR</span>
+                    </a>
+                </div>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications -->
+                    <button class="relative p-2 text-text-secondary hover:text-primary transition-colors">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute top-0 right-0 w-2 h-2 bg-accent rounded-full"></span>
+                    </button>
+
+                    <!-- Messages -->
+                    <button class="relative p-2 text-text-secondary hover:text-primary transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                        <span class="absolute top-0 right-0 w-2 h-2 bg-accent rounded-full"></span>
+                    </button>
+
+                    <!-- User Dropdown -->
+                    <div class="relative" id="user-menu">
+                        <button class="flex items-center space-x-3 focus:outline-none" id="user-menu-button">
+                            <span class="text-text-primary" id="user-name">Cargando...</span>
+                            <img src="https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff" 
+                                alt="User avatar" 
+                                class="w-8 h-8 rounded-full"
+                                id="user-avatar" />
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 hidden" id="user-dropdown">
+                            <a href="#profile" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface hover:text-primary">
+                                <i class="fas fa-user mr-2"></i>Mi Perfil
+                            </a>
+                            <a href="#settings" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface hover:text-primary">
+                                <i class="fas fa-cog mr-2"></i>Configuración
+                            </a>
+                            <hr class="my-1 border-border">
+                            <button onclick="logout()" class="w-full text-left px-4 py-2 text-sm text-error hover:bg-surface">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Layout -->
+    <div class="flex min-h-screen pt-16">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-border">
+            <nav class="p-4 space-y-2">
+                <a href="#" id="nav-dashboard" class="nav-item active" onclick="showSection('dashboard')">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" id="nav-projects" class="nav-item" onclick="showSection('projects')">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Mis Proyectos</span>
+                </a>
+                <a href="#" id="nav-messages" class="nav-item" onclick="showSection('messages')">
+                    <i class="fas fa-comments"></i>
+                    <span>Mensajes</span>
+                </a>
+                <a href="#" id="nav-files" class="nav-item" onclick="showSection('files')">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Archivos</span>
+                </a>
+                <a href="#" id="nav-invoices" class="nav-item" onclick="showSection('invoices')">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Facturas</span>
+                </a>
+                <a href="#" id="nav-support" class="nav-item" onclick="showSection('support')">
+                    <i class="fas fa-headset"></i>
+                    <span>Soporte</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <!-- Dashboard Section -->
+            <section id="section-dashboard">
+                <!-- Welcome Section -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-text-primary mb-2" id="welcome-message">Bienvenido</h1>
+                    <p class="text-text-secondary">Aquí puedes gestionar tus proyectos y mantenerte en contacto con nuestro equipo.</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Projects Stat -->
+                    <div class="bg-white p-6 rounded-xl border border-border">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-project-diagram text-primary text-xl"></i>
+                            </div>
+                            <span class="text-sm text-text-muted">Proyectos</span>
+                        </div>
+                        <div class="text-2xl font-bold text-text-primary mb-1" id="projects-count">0</div>
+                        <div class="text-sm text-success">
+                            <i class="fas fa-arrow-up mr-1"></i>
+                            <span id="projects-status">Cargando...</span>
+                        </div>
+                    </div>
+
+                    <!-- Messages Stat -->
+                    <div class="bg-white p-6 rounded-xl border border-border">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comments text-secondary text-xl"></i>
+                            </div>
+                            <span class="text-sm text-text-muted">Mensajes</span>
+                        </div>
+                        <div class="text-2xl font-bold text-text-primary mb-1" id="messages-count">0</div>
+                        <div class="text-sm text-accent">
+                            <i class="fas fa-envelope mr-1"></i>
+                            <span id="messages-status">Cargando...</span>
+                        </div>
+                    </div>
+
+                    <!-- Files Stat -->
+                    <div class="bg-white p-6 rounded-xl border border-border">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-file-alt text-accent text-xl"></i>
+                            </div>
+                            <span class="text-sm text-text-muted">Archivos</span>
+                        </div>
+                        <div class="text-2xl font-bold text-text-primary mb-1" id="files-count">0</div>
+                        <div class="text-sm text-text-muted">
+                            <i class="fas fa-check mr-1"></i>
+                            <span id="files-status">Cargando...</span>
+                        </div>
+                    </div>
+
+                    <!-- Support Stat -->
+                    <div class="bg-white p-6 rounded-xl border border-border">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-headset text-success text-xl"></i>
+                            </div>
+                            <span class="text-sm text-text-muted">Soporte</span>
+                        </div>
+                        <div class="text-2xl font-bold text-text-primary mb-1" id="support-count">0</div>
+                        <div class="text-sm text-success">
+                            <i class="fas fa-check-circle mr-1"></i>
+                            <span id="support-status">Cargando...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <section class="mb-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-text-primary">Mis Proyectos</h2>
+                        <button class="btn-primary" onclick="openNewProjectModal()">
+                            <i class="fas fa-plus mr-2"></i>
+                            Nuevo Proyecto
+                        </button>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6" id="projects-grid"></div>
+                </section>
+
+                <!-- Recent Activity -->
+                <section>
+                    <h2 class="text-2xl font-bold text-text-primary mb-6">Actividad Reciente</h2>
+                    <div class="bg-white rounded-xl border border-border divide-y divide-border" id="activities-list"></div>
+                </section>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="section-projects" class="hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-text-primary">Mis Proyectos</h2>
+                    <button class="btn-primary" onclick="openNewProjectModal()">
+                        <i class="fas fa-plus mr-2"></i>
+                        Nuevo Proyecto
+                    </button>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6" id="projects-list"></div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="section-messages" class="hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-text-primary">Mensajes</h2>
+                    <button class="btn-primary" onclick="composeMessage()">
+                        <i class="fas fa-pen mr-2"></i>
+                        Nuevo Mensaje
+                    </button>
+                </div>
+                <div id="messages-list"></div>
+            </section>
+
+            <!-- Files Section -->
+            <section id="section-files" class="hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-text-primary">Archivos</h2>
+                    <button class="btn-primary" onclick="uploadFile()">
+                        <i class="fas fa-upload mr-2"></i>
+                        Subir Archivo
+                    </button>
+                </div>
+                <div id="files-list"></div>
+            </section>
+
+            <!-- Invoices Section -->
+            <section id="section-invoices" class="hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-text-primary">Facturas</h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="text-sm text-text-secondary">
+                            Total Pendiente: <span class="font-medium" id="total-pending">$0.00</span>
+                        </div>
+                        <button class="btn-primary" onclick="payAllInvoices()">
+                            <i class="fas fa-credit-card mr-2"></i>
+                            Pagar Todo
+                        </button>
+                    </div>
+                </div>
+                <div id="invoices-list"></div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="section-support" class="hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-text-primary">Soporte Técnico</h2>
+                    <button class="btn-primary" onclick="createTicket()">
+                        <i class="fas fa-plus mr-2"></i>
+                        Nuevo Ticket
+                    </button>
+                </div>
+                <div id="tickets-list"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- New Project Modal -->
+    <div id="new-project-modal" class="fixed inset-0 bg-black/50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl max-w-2xl w-full">
+                <div class="p-6 border-b border-border">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-2xl font-bold text-text-primary">Nuevo Proyecto</h3>
+                        <button onclick="closeNewProjectModal()" class="text-text-muted hover:text-text-primary">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <form id="new-project-form" class="p-6 space-y-6">
+                    <!-- Project Name -->
+                    <div>
+                        <label for="project-name" class="block text-sm font-medium text-text-primary mb-2">
+                            Nombre del Proyecto *
+                        </label>
+                        <input type="text" id="project-name" name="name" 
+                            class="input-field w-full" 
+                            placeholder="Ej: Sitio Web Corporativo"
+                            required />
+                    </div>
+
+                    <!-- Project Type -->
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">
+                            Tipo de Proyecto *
+                        </label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <label class="flex items-center p-4 border border-border rounded-lg cursor-pointer hover:border-primary">
+                                <input type="radio" name="type" value="website" class="mr-3" required />
+                                <div>
+                                    <div class="font-medium">Sitio Web</div>
+                                    <div class="text-sm text-text-muted">Desde $1,500</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-border rounded-lg cursor-pointer hover:border-primary">
+                                <input type="radio" name="type" value="ecommerce" class="mr-3" />
+                                <div>
+                                    <div class="font-medium">E-commerce</div>
+                                    <div class="text-sm text-text-muted">Desde $2,500</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Project Description -->
+                    <div>
+                        <label for="project-description" class="block text-sm font-medium text-text-primary mb-2">
+                            Descripción del Proyecto *
+                        </label>
+                        <textarea id="project-description" name="description" 
+                            class="input-field w-full" 
+                            rows="4"
+                            placeholder="Describe los objetivos y características principales del proyecto"
+                            required></textarea>
+                    </div>
+
+                    <!-- Project Features -->
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">
+                            Características
+                        </label>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="features" value="responsive" class="mr-3" />
+                                <span>Diseño Responsivo</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="features" value="cms" class="mr-3" />
+                                <span>Sistema de Gestión de Contenido</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="features" value="seo" class="mr-3" />
+                                <span>Optimización SEO</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="features" value="analytics" class="mr-3" />
+                                <span>Integración Analytics</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Due Date -->
+                    <div>
+                        <label for="project-due-date" class="block text-sm font-medium text-text-primary mb-2">
+                            Fecha de Entrega Deseada *
+                        </label>
+                        <input type="date" id="project-due-date" name="dueDate" 
+                            class="input-field w-full"
+                            required />
+                    </div>
+
+                    <!-- Budget Range -->
+                    <div>
+                        <label for="project-budget" class="block text-sm font-medium text-text-primary mb-2">
+                            Presupuesto Estimado *
+                        </label>
+                        <select id="project-budget" name="budget" class="input-field w-full" required>
+                            <option value="">Selecciona un rango</option>
+                            <option value="1000-3000">$1,000 - $3,000</option>
+                            <option value="3000-7000">$3,000 - $7,000</option>
+                            <option value="7000-15000">$7,000 - $15,000</option>
+                            <option value="15000+">$15,000+</option>
+                        </select>
+                    </div>
+                </form>
+
+                <div class="p-6 border-t border-border bg-surface">
+                    <div class="flex justify-end gap-4">
+                        <button onclick="closeNewProjectModal()" class="btn-outline">
+                            Cancelar
+                        </button>
+                        <button onclick="submitNewProject()" class="btn-primary">
+                            <i class="fas fa-plus mr-2"></i>
+                            Crear Proyecto
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <script src="../js/auth-service.js"></script>
+    <script src="../js/projects-service.js"></script>
+    <script src="../js/messages-service.js"></script>
+    <script src="../js/files-service.js"></script>
+    <script src="../js/invoices-service.js"></script>
+    <script src="../js/support-service.js"></script>
+
+    <style>
+        /* Input Fields */
+        .input-field {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            padding: 0.5rem 1rem;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-outline {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background-color: #f9fafb;
+        }
+
+        /* Project Card */
+        .project-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+        }
+        .project-card:hover {
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        /* Status Tags */
+        .status-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .status-tag.planning {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+        }
+        .status-tag.in-progress {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+        }
+        .status-tag.completed {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #059669;
+        }
+
+        /* Navigation */
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: #6b7280;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+        .nav-item:hover {
+            background-color: rgba(37, 99, 235, 0.05);
+            color: #2563eb;
+        }
+        .nav-item.active {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        // Check authentication
+        if (!window.authService.checkAuth()) {
+            window.location.href = 'login.html';
+        }
+
+        // Get current user
+        const currentUser = window.authService.getCurrentUser();
+        
+        // Update UI with user info
+        document.getElementById('user-name').textContent = currentUser.firstName + ' ' + currentUser.lastName;
+        document.getElementById('welcome-message').textContent = '¡Bienvenido, ' + currentUser.firstName + '!';
+        document.getElementById('user-avatar').src = `https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}&background=0D8ABC&color=fff`;
+
+        // Load all user data
+        const userProjects = window.projectsService.getUserProjects(currentUser.id);
+        const recentActivities = window.projectsService.getUserActivities(currentUser.id);
+        const userMessages = window.messagesService.getUserMessages(currentUser.id);
+        const userFiles = window.filesService.getUserFiles(currentUser.id);
+        const userTickets = window.supportService.getUserTickets(currentUser.id);
+        const userInvoices = window.invoicesService.getUserInvoices(currentUser.id);
+
+        // Get statistics
+        const unreadMessages = window.messagesService.getUnreadMessagesCount(currentUser.id);
+        const unreadNotifications = window.messagesService.getUnreadNotificationsCount(currentUser.id);
+        const fileStats = window.filesService.getFileStats(currentUser.id);
+        const ticketStats = window.supportService.getTicketStats(currentUser.id);
+        const invoiceStats = window.invoicesService.getInvoiceStats(currentUser.id);
+
+        // Update dashboard stats
+        document.getElementById('projects-count').textContent = userProjects.length;
+        document.getElementById('projects-status').textContent = 
+            userProjects.filter(p => p.status === 'in_progress').length + ' En Progreso';
+
+        document.getElementById('messages-count').textContent = unreadMessages;
+        document.getElementById('messages-status').textContent = 'Sin Leer';
+
+        document.getElementById('files-count').textContent = fileStats.totalFiles;
+        document.getElementById('files-status').textContent = 'Archivos';
+
+        document.getElementById('support-count').textContent = userTickets.filter(t => t.status === 'open').length;
+        document.getElementById('support-status').textContent = 
+            ticketStats.resolutionRate.toFixed(0) + '% Resueltos';
+
+        // Modal Functions
+        function openNewProjectModal() {
+            document.getElementById('new-project-modal').classList.remove('hidden');
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('project-due-date').min = today;
+        }
+
+        function closeNewProjectModal() {
+            document.getElementById('new-project-modal').classList.add('hidden');
+            document.getElementById('new-project-form').reset();
+        }
+
+        function submitNewProject() {
+            const form = document.getElementById('new-project-form');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Validar campos requeridos
+            const name = document.getElementById('project-name').value.trim();
+            const description = document.getElementById('project-description').value.trim();
+            const type = form.querySelector('input[name="type"]:checked')?.value;
+            const dueDate = document.getElementById('project-due-date').value;
+            const budget = document.getElementById('project-budget').value;
+
+            if (!name || !description || !type || !dueDate || !budget) {
+                alert('Por favor completa todos los campos requeridos');
+                return;
+            }
+
+            // Validar fecha de entrega
+            const today = new Date();
+            const selectedDate = new Date(dueDate);
+            if (selectedDate < today) {
+                alert('La fecha de entrega debe ser posterior a hoy');
+                return;
+            }
+
+            // Crear objeto del proyecto
+            const formData = {
+                id: Date.now().toString(),
+                name: name,
+                type: type,
+                description: description,
+                features: Array.from(form.querySelectorAll('input[name="features"]:checked')).map(cb => cb.value),
+                dueDate: dueDate,
+                budget: budget,
+                userId: currentUser.id,
+                status: 'planning',
+                createdAt: new Date().toISOString(),
+                progress: 0,
+                client: {
+                    id: currentUser.id,
+                    name: currentUser.firstName + ' ' + currentUser.lastName,
+                    email: currentUser.email
+                }
+            };
+
+            try {
+                // Guardar proyecto
+                const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+                projects.push(formData);
+                localStorage.setItem('projects', JSON.stringify(projects));
+
+                // Crear actividad
+                const activities = JSON.parse(localStorage.getItem('activities') || '[]');
+                activities.push({
+                    id: Date.now().toString(),
+                    type: 'project_created',
+                    projectId: formData.id,
+                    projectName: formData.name,
+                    description: `Proyecto "${formData.name}" creado`,
+                    timestamp: new Date().toISOString(),
+                    userId: currentUser.id
+                });
+                localStorage.setItem('activities', JSON.stringify(activities));
+
+                // Crear mensaje de bienvenida
+                const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+                messages.push({
+                    id: Date.now().toString(),
+                    projectId: formData.id,
+                    userId: currentUser.id,
+                    senderName: 'Sistema',
+                    content: `¡Bienvenido a tu nuevo proyecto "${formData.name}"! Nuestro equipo se pondrá en contacto contigo pronto para comenzar.`,
+                    type: 'system',
+                    timestamp: new Date().toISOString(),
+                    unread: true
+                });
+                localStorage.setItem('messages', JSON.stringify(messages));
+
+                // Actualizar UI
+                closeNewProjectModal();
+                showSection('dashboard');
+
+                // Mostrar mensaje de éxito
+                alert('¡Proyecto creado exitosamente!');
+            } catch (error) {
+                console.error('Error al crear el proyecto:', error);
+                alert('Hubo un error al crear el proyecto. Por favor intenta de nuevo.');
+            }
+        }
+
+        // Navigation Functions
+        function activateNavItem(itemId) {
+            // Remove active class from all items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Add active class to clicked item
+            document.getElementById(itemId).classList.add('active');
+        }
+
+        // Add click event to "Nuevo Proyecto" button
+        document.querySelector('.btn-primary').addEventListener('click', openNewProjectModal);
+
+        // Add click events to navigation items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => activateNavItem(item.id));
+        });
+
+        // Update projects grid
+        function updateProjectsGrid() {
+            // Obtener proyectos del localStorage
+            const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+            const userProjects = projects.filter(p => p.userId === currentUser.id);
+
+            // Actualizar contadores
+            document.getElementById('projects-count').textContent = userProjects.length;
+            document.getElementById('projects-status').textContent = 
+                userProjects.filter(p => p.status === 'in_progress').length + ' En Progreso';
+
+            // Actualizar grid de proyectos
+            const projectsContainer = document.querySelector('.grid.md\\:grid-cols-2.gap-6');
+            projectsContainer.innerHTML = userProjects.map(project => `
+                <div class="bg-white p-6 rounded-xl border border-border hover:border-primary/20 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-text-primary">${project.name}</h3>
+                        <span class="px-3 py-1 bg-${getStatusColor(project.status)}-100 text-${getStatusColor(project.status)} rounded-full text-sm">
+                            ${getStatusText(project.status)}
+                        </span>
+                    </div>
+                    <p class="text-text-secondary mb-4">${project.description}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${project.features.map(feature => `
+                            <span class="px-2 py-1 bg-primary-50 text-primary text-xs rounded-full">
+                                ${getFeatureText(feature)}
+                            </span>
+                        `).join('')}
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center text-text-muted">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>Entrega: ${formatDate(project.dueDate)}</span>
+                        </div>
+                        <div class="flex items-center text-${getStatusColor(project.status)}">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            <span>${project.progress}% Completado</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end mt-4 space-x-2">
+                        <button onclick="viewProject('${project.id}')" class="btn-outline text-sm">
+                            <i class="fas fa-eye mr-1"></i>
+                            Ver Detalles
+                        </button>
+                        ${project.status === 'planning' ? `
+                            <button onclick="startProject('${project.id}')" class="btn-primary text-sm">
+                                <i class="fas fa-play mr-1"></i>
+                                Iniciar
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+
+            // Si no hay proyectos, mostrar mensaje
+            if (userProjects.length === 0) {
+                projectsContainer.innerHTML = `
+                    <div class="col-span-2 text-center py-12">
+                        <div class="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-project-diagram text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-text-primary mb-2">No tienes proyectos aún</h3>
+                        <p class="text-text-secondary mb-4">Comienza creando tu primer proyecto</p>
+                        <button onclick="openNewProjectModal()" class="btn-primary">
+                            <i class="fas fa-plus mr-2"></i>
+                            Crear Proyecto
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function getFeatureText(feature) {
+            const texts = {
+                'responsive': 'Diseño Responsivo',
+                'cms': 'Gestión de Contenido',
+                'seo': 'Optimización SEO',
+                'analytics': 'Analytics'
+            };
+            return texts[feature] || feature;
+        }
+
+        function viewProject(projectId) {
+            // Por ahora solo mostraremos un mensaje
+            alert('Funcionalidad de ver detalles en desarrollo');
+        }
+
+        function startProject(projectId) {
+            const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+            const projectIndex = projects.findIndex(p => p.id === projectId);
+            
+            if (projectIndex !== -1) {
+                projects[projectIndex].status = 'in_progress';
+                localStorage.setItem('projects', JSON.stringify(projects));
+
+                // Crear actividad
+                const activities = JSON.parse(localStorage.getItem('activities') || '[]');
+                activities.push({
+                    id: Date.now().toString(),
+                    type: 'project_started',
+                    projectId: projectId,
+                    projectName: projects[projectIndex].name,
+                    description: `Proyecto "${projects[projectIndex].name}" iniciado`,
+                    timestamp: new Date().toISOString(),
+                    userId: currentUser.id
+                });
+                localStorage.setItem('activities', JSON.stringify(activities));
+
+                // Actualizar UI
+                updateProjectsGrid();
+                updateActivitiesList();
+            }
+        }
+
+        // Update activities list
+        function updateActivitiesList() {
+            const activities = JSON.parse(localStorage.getItem('activities') || '[]');
+            const userActivities = activities
+                .filter(a => a.userId === currentUser.id)
+                .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            const activitiesContainer = document.getElementById('activities-list');
+            activitiesContainer.innerHTML = userActivities.slice(0, 5).map(activity => `
+                <div class="p-4 flex items-start space-x-4">
+                    <div class="w-8 h-8 bg-${getActivityColor(activity.type)}-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas ${getActivityIcon(activity.type)} text-${getActivityColor(activity.type)}"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-text-primary">
+                            ${getActivityDescription(activity)}
+                        </p>
+                        <p class="text-sm text-text-muted mt-1">${formatTimeAgo(activity.timestamp)}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Si no hay actividades, mostrar mensaje
+            if (userActivities.length === 0) {
+                activitiesContainer.innerHTML = `
+                    <div class="p-8 text-center">
+                        <div class="w-12 h-12 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-history text-primary text-xl"></i>
+                        </div>
+                        <p class="text-text-secondary">No hay actividad reciente</p>
+                    </div>
+                `;
+            }
+            activitiesContainer.innerHTML = recentActivities.slice(0, 5).map(activity => `
+                <div class="p-4 flex items-start space-x-4">
+                    <div class="w-8 h-8 bg-${getActivityColor(activity.type)}-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas ${getActivityIcon(activity.type)} text-${getActivityColor(activity.type)}"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-text-primary">
+                            ${getActivityDescription(activity)}
+                        </p>
+                        <p class="text-sm text-text-muted mt-1">${formatTimeAgo(activity.date)}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Helper functions
+        function getStatusColor(status) {
+            const colors = {
+                'planning': 'warning',
+                'in_progress': 'primary',
+                'review': 'accent',
+                'completed': 'success'
+            };
+            return colors[status] || 'primary';
+        }
+
+        function getStatusText(status) {
+            const texts = {
+                'planning': 'Planificación',
+                'in_progress': 'En Progreso',
+                'review': 'En Revisión',
+                'completed': 'Completado'
+            };
+            return texts[status] || status;
+        }
+
+        function getActivityColor(type) {
+            const colors = {
+                'project_created': 'success',
+                'project_updated': 'primary',
+                'file_added': 'accent',
+                'message_added': 'warning',
+                'progress_updated': 'secondary'
+            };
+            return colors[type] || 'primary';
+        }
+
+        function getActivityIcon(type) {
+            const icons = {
+                'project_created': 'fa-plus',
+                'project_updated': 'fa-edit',
+                'file_added': 'fa-file',
+                'message_added': 'fa-comment',
+                'progress_updated': 'fa-chart-line'
+            };
+            return icons[type] || 'fa-info';
+        }
+
+        function getActivityDescription(activity) {
+            const descriptions = {
+                'project_created': `Nuevo proyecto creado: ${activity.projectName}`,
+                'project_updated': `Proyecto actualizado: ${activity.projectName}`,
+                'file_added': `Nuevo archivo en: ${activity.projectName}`,
+                'message_added': `Nuevo mensaje en: ${activity.projectName}`,
+                'progress_updated': `Progreso actualizado en: ${activity.projectName}`
+            };
+            return descriptions[activity.type] || activity.description;
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('es-ES', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
+            });
+        }
+
+        function formatTimeAgo(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffMinutes = Math.floor((now - date) / (1000 * 60));
+            
+            if (diffMinutes < 60) return `Hace ${diffMinutes} minutos`;
+            if (diffMinutes < 1440) return `Hace ${Math.floor(diffMinutes/60)} horas`;
+            return `Hace ${Math.floor(diffMinutes/1440)} días`;
+        }
+
+        // Initialize dashboard
+        updateProjectsGrid();
+        updateActivitiesList();
+
+        // Update notification badges
+        if (unreadMessages > 0) {
+            document.querySelector('button i.fa-envelope').parentElement.querySelector('span').style.display = 'block';
+        }
+        if (unreadNotifications > 0) {
+            document.querySelector('button i.fa-bell').parentElement.querySelector('span').style.display = 'block';
+        }
+
+        // User menu toggle
+        document.getElementById('user-menu-button').addEventListener('click', function() {
+            document.getElementById('user-dropdown').classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!document.getElementById('user-menu').contains(e.target)) {
+                document.getElementById('user-dropdown').classList.add('hidden');
+            }
+        });
+
+        // Logout function
+        function logout() {
+            window.authService.logoutUser();
+            window.location.href = 'login.html';
+        }
+
+        // Section Management
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section[id^="section-"]').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show selected section
+            document.getElementById('section-' + sectionId).classList.remove('hidden');
+
+            // Update navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.getElementById('nav-' + sectionId).classList.add('active');
+
+            // Update content based on section
+            switch(sectionId) {
+                case 'dashboard':
+                    updateDashboard();
+                    break;
+                case 'projects':
+                    updateProjectsGrid();
+                    break;
+                case 'messages':
+                    updateMessages();
+                    break;
+                case 'files':
+                    updateFiles();
+                    break;
+                case 'invoices':
+                    updateInvoices();
+                    break;
+                case 'support':
+                    updateSupport();
+                    break;
+            }
+        }
+
+        function updateDashboard() {
+            // Update stats
+            document.getElementById('projects-count').textContent = userProjects.length;
+            document.getElementById('projects-status').textContent = 
+                userProjects.filter(p => p.status === 'in_progress').length + ' En Progreso';
+
+            document.getElementById('messages-count').textContent = unreadMessages;
+            document.getElementById('messages-status').textContent = 'Sin Leer';
+
+            document.getElementById('files-count').textContent = fileStats.totalFiles;
+            document.getElementById('files-status').textContent = 'Archivos';
+
+            document.getElementById('support-count').textContent = userTickets.filter(t => t.status === 'open').length;
+            document.getElementById('support-status').textContent = 
+                ticketStats.resolutionRate.toFixed(0) + '% Resueltos';
+
+            // Update recent activities
+            updateActivitiesList();
+        }
+
+        function updateMessages() {
+            const messagesContainer = document.getElementById('messages-list');
+            messagesContainer.innerHTML = userMessages.map(message => `
+                <div class="bg-white p-6 rounded-xl border border-border mb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://ui-avatars.com/api/?name=${message.senderName}&background=0D8ABC&color=fff" 
+                                alt="Sender avatar" 
+                                class="w-10 h-10 rounded-full" />
+                            <div>
+                                <h3 class="font-medium text-text-primary">${message.senderName}</h3>
+                                <p class="text-sm text-text-muted">${formatTimeAgo(message.timestamp)}</p>
+                            </div>
+                        </div>
+                        ${message.unread ? '<span class="px-2 py-1 bg-accent-100 text-accent rounded-full text-xs">Nuevo</span>' : ''}
+                    </div>
+                    <p class="text-text-secondary">${message.content}</p>
+                    ${message.attachments && message.attachments.length > 0 ? `
+                        <div class="mt-4 flex items-center space-x-2">
+                            <i class="fas fa-paperclip text-text-muted"></i>
+                            <span class="text-sm text-text-muted">${message.attachments.length} archivos adjuntos</span>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function updateFiles() {
+            const filesContainer = document.getElementById('files-list');
+            filesContainer.innerHTML = userFiles.map(file => `
+                <div class="bg-white p-6 rounded-xl border border-border mb-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-${getFileColor(file.type)}-100 rounded-lg flex items-center justify-center">
+                                <i class="fas ${getFileIcon(file.type)} text-${getFileColor(file.type)}"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-text-primary">${file.name}</h3>
+                                <p class="text-sm text-text-muted">${formatFileSize(file.size)} • ${formatDate(file.uploadedAt)}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="btn-outline" onclick="downloadFile('${file.id}')">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button class="btn-outline" onclick="shareFile('${file.id}')">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateInvoices() {
+            const invoicesContainer = document.getElementById('invoices-list');
+            invoicesContainer.innerHTML = userInvoices.map(invoice => `
+                <div class="bg-white p-6 rounded-xl border border-border mb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h3 class="font-medium text-text-primary">Factura #${invoice.number}</h3>
+                            <p class="text-sm text-text-muted">${formatDate(invoice.date)}</p>
+                        </div>
+                        <span class="px-3 py-1 bg-${getInvoiceStatusColor(invoice.status)}-100 text-${getInvoiceStatusColor(invoice.status)} rounded-full text-sm">
+                            ${getInvoiceStatusText(invoice.status)}
+                        </span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="text-text-secondary">
+                            <p>Subtotal: $${invoice.subtotal.toFixed(2)}</p>
+                            <p>IVU (7%): $${invoice.tax.toFixed(2)}</p>
+                            <p class="font-medium">Total: $${invoice.total.toFixed(2)}</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="btn-outline" onclick="viewInvoice('${invoice.id}')">
+                                <i class="fas fa-eye mr-2"></i>Ver
+                            </button>
+                            <button class="btn-primary" onclick="payInvoice('${invoice.id}')" ${invoice.status !== 'pending' ? 'disabled' : ''}>
+                                <i class="fas fa-credit-card mr-2"></i>Pagar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateSupport() {
+            const ticketsContainer = document.getElementById('tickets-list');
+            ticketsContainer.innerHTML = userTickets.map(ticket => `
+                <div class="bg-white p-6 rounded-xl border border-border mb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h3 class="font-medium text-text-primary">${ticket.subject}</h3>
+                            <p class="text-sm text-text-muted">Ticket #${ticket.number} • ${formatTimeAgo(ticket.createdAt)}</p>
+                        </div>
+                        <span class="px-3 py-1 bg-${getTicketStatusColor(ticket.status)}-100 text-${getTicketStatusColor(ticket.status)} rounded-full text-sm">
+                            ${getTicketStatusText(ticket.status)}
+                        </span>
+                    </div>
+                    <p class="text-text-secondary mb-4">${ticket.description}</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-sm text-text-muted">
+                                <i class="fas fa-comments mr-2"></i>${ticket.messages.length} mensajes
+                            </span>
+                            ${ticket.attachments.length > 0 ? `
+                                <span class="text-sm text-text-muted">
+                                    <i class="fas fa-paperclip mr-2"></i>${ticket.attachments.length} archivos
+                                </span>
+                            ` : ''}
+                        </div>
+                        <button class="btn-outline" onclick="viewTicket('${ticket.id}')">
+                            <i class="fas fa-eye mr-2"></i>Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Helper functions for files
+        function getFileColor(type) {
+            const colors = {
+                'image': 'accent',
+                'document': 'primary',
+                'spreadsheet': 'success',
+                'presentation': 'warning',
+                'pdf': 'error',
+                'archive': 'secondary'
+            };
+            return colors[type] || 'primary';
+        }
+
+        function getFileIcon(type) {
+            const icons = {
+                'image': 'fa-image',
+                'document': 'fa-file-word',
+                'spreadsheet': 'fa-file-excel',
+                'presentation': 'fa-file-powerpoint',
+                'pdf': 'fa-file-pdf',
+                'archive': 'fa-file-archive'
+            };
+            return icons[type] || 'fa-file';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Helper functions for invoices
+        function getInvoiceStatusColor(status) {
+            const colors = {
+                'pending': 'warning',
+                'paid': 'success',
+                'overdue': 'error',
+                'cancelled': 'secondary'
+            };
+            return colors[status] || 'primary';
+        }
+
+        function getInvoiceStatusText(status) {
+            const texts = {
+                'pending': 'Pendiente',
+                'paid': 'Pagada',
+                'overdue': 'Vencida',
+                'cancelled': 'Cancelada'
+            };
+            return texts[status] || status;
+        }
+
+        // Helper functions for tickets
+        function getTicketStatusColor(status) {
+            const colors = {
+                'open': 'warning',
+                'in_progress': 'primary',
+                'resolved': 'success',
+                'closed': 'secondary'
+            };
+            return colors[status] || 'primary';
+        }
+
+        function getTicketStatusText(status) {
+            const texts = {
+                'open': 'Abierto',
+                'in_progress': 'En Proceso',
+                'resolved': 'Resuelto',
+                'closed': 'Cerrado'
+            };
+            return texts[status] || status;
+        }
+
+        // Action functions
+        function downloadFile(fileId) {
+            const file = userFiles.find(f => f.id === fileId);
+            if (file) {
+                window.open(file.url, '_blank');
+            }
+        }
+
+        function shareFile(fileId) {
+            alert('Funcionalidad de compartir archivo en desarrollo');
+        }
+
+        function viewInvoice(invoiceId) {
+            alert('Funcionalidad de ver factura en desarrollo');
+        }
+
+        function payInvoice(invoiceId) {
+            alert('Funcionalidad de pago en desarrollo');
+        }
+
+        function viewTicket(ticketId) {
+            alert('Funcionalidad de ver ticket en desarrollo');
+        }
+
+        // Action functions for messages
+        function composeMessage() {
+            alert('Funcionalidad de nuevo mensaje en desarrollo');
+        }
+
+        // Action functions for files
+        function uploadFile() {
+            alert('Funcionalidad de subir archivo en desarrollo');
+        }
+
+        // Action functions for invoices
+        function payAllInvoices() {
+            const pendingInvoices = userInvoices.filter(inv => inv.status === 'pending');
+            if (pendingInvoices.length === 0) {
+                alert('No hay facturas pendientes de pago');
+                return;
+            }
+
+            const total = pendingInvoices.reduce((acc, inv) => acc + inv.total, 0);
+            if (confirm(`¿Deseas pagar todas las facturas pendientes? Total: $${total.toFixed(2)}`)) {
+                pendingInvoices.forEach(inv => {
+                    window.invoicesService.markInvoiceAsPaid(inv.id, {
+                        method: 'bulk_payment',
+                        date: new Date().toISOString()
+                    });
+                });
+                updateInvoices();
+            }
+        }
+
+        // Action functions for support
+        function createTicket() {
+            alert('Funcionalidad de crear ticket en desarrollo');
+        }
+
+        // Initialize dashboard
+        showSection('dashboard');
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - webDevPR | Proyectos Exitosos y Casos de Estudio</title>
+    <meta name="description" content="Descubre nuestro portfolio de proyectos exitosos. Casos de estudio detallados, testimonios de clientes y resultados medibles que demuestran nuestra experiencia en desarrollo web." />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/custom-carousel.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fwebdevprp2754back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-white">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 nav-glass z-50">
+        <nav class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2 glow-on-hover">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-glow">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold tech-heading">webDevPR</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-colors">Inicio</a>
+                    <a href="services_hub.html" class="text-text-secondary hover:text-primary transition-colors">Servicios</a>
+                    <a href="portfolio_showcase.html" class="text-primary font-semibold">Portfolio</a>
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
+                    <a href="contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a>
+                    
+                    <div class="flex items-center space-x-2">
+                        <a href="login.html" class="btn-neon auth-button" style="display: none;">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                        <a href="client_portal.html" class="btn-neon portal-button">
+                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <button class="p-2 rounded-md text-text-secondary hover:text-primary" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Inicio</a>
+                    <a href="services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Servicios</a>
+                    <a href="portfolio_showcase.html" class="block px-3 py-2 text-primary font-semibold">Portfolio</a>
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
+                    <a href="contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Contacto</a>
+                    <div class="flex flex-col space-y-2 px-3 py-2">
+                        <a href="login.html" class="btn-primary text-center auth-button" style="display: none;">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                        <a href="client_portal.html" class="btn-primary text-center portal-button">
+                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 tech-bg overflow-hidden relative">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto fade-in">
+                
+                <h1 class="text-4xl lg:text-6xl font-bold tech-heading mb-6 leading-tight">
+                    Nuestro <span class="text-gradient">Portfolio</span>
+                    <span class="block">de Éxitos</span>
+                </h1>
+                
+                <p class="text-xl tech-subheading mb-8 leading-relaxed">
+                    Descubre cómo hemos transformado la presencia digital de empresas en Puerto Rico y Latinoamérica. 
+                    Cada proyecto cuenta una historia de crecimiento, innovación y resultados medibles.
+                </p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filters -->
+    <section class="py-8 tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-3">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th-large mr-2"></i>
+                        Todos los Proyectos
+                    </button>
+                    <button class="filter-btn" data-filter="ecommerce">
+                        <i class="fas fa-shopping-cart mr-2"></i>
+                        E-commerce
+                    </button>
+                    <button class="filter-btn" data-filter="restaurant">
+                        <i class="fas fa-utensils mr-2"></i>
+                        Restaurantes
+                    </button>
+                    <button class="filter-btn" data-filter="healthcare">
+                        <i class="fas fa-heartbeat mr-2"></i>
+                        Salud
+                    </button>
+                    <button class="filter-btn" data-filter="education">
+                        <i class="fas fa-graduation-cap mr-2"></i>
+                        Educación
+                    </button>
+                </div>
+
+                <!-- Search and Sort -->
+                <div class="flex gap-3">
+                    <div class="relative">
+                        <input type="text" placeholder="Buscar proyectos..." class="input-field pl-10 pr-4 py-2 w-64" id="search-input" />
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted"></i>
+                    </div>
+                    <button class="btn-outline px-4 py-2" id="reset-filters">
+                        <i class="fas fa-undo mr-2"></i>
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                <!-- Project 1 - Healthcare -->
+                <div class="portfolio-item fade-in" data-category="healthcare" data-title="Clínica Salud Total">
+                    <div class="glass-card group overflow-hidden">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img src="../images/SaludTotal/Inicio.jpg" alt="Clínica Salud Total" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="btn-neon" onclick="openCaseStudy('salud-total')">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    Ver Caso de Estudio
+                                </button>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium">Salud</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-semibold text-white">Clínica Salud Total</h3>
+                            <p class="text-text-secondary">Portal de pacientes con sistema de citas, historial médico y telemedicina.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Project 2 - Restaurant -->
+                <div class="portfolio-item fade-in" data-category="restaurant" data-title="Restaurante El Yunque" style="animation-delay: 0.2s;">
+                    <div class="glass-card group overflow-hidden">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img src="../images/RestauranteElYunque/Inicio.jpg" alt="Restaurante El Yunque" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/4F46E5/FFFFFF?text=Restaurante+El+Yunque'; console.log('Error loading project image')" onload="console.log('Project image loaded successfully')" />
+                            <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="btn-neon" onclick="openCaseStudy('restaurante-yunque')">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    Ver Caso de Estudio
+                                </button>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-warning text-white px-2 py-1 rounded text-xs font-medium">Restaurante</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-semibold text-white">Restaurante El Yunque</h3>
+                            <p class="text-text-secondary">Plataforma gastronómica completa con menú digital, reservas online y sistema de pedidos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - E-commerce -->
+                <div class="portfolio-item fade-in" data-category="ecommerce" data-title="Boutique Luna" style="animation-delay: 0.3s;">
+                    <div class="glass-card group overflow-hidden">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img src="../images/BoutiqueLuna/inicio.jpg" alt="Boutique Luna" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/EC4899/FFFFFF?text=Boutique+Luna'; console.log('Error loading project image')" onload="console.log('Project image loaded successfully')" />
+                            <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="btn-neon" onclick="openCaseStudy('boutique-luna')">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    Ver Caso de Estudio
+                                </button>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-pink-500 text-white px-2 py-1 rounded text-xs font-medium">E-commerce</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-semibold text-white">Boutique Luna</h3>
+                            <p class="text-text-secondary">Plataforma de moda femenina con catálogo completo, carrito de compras y sistema de checkout.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Project 4 - Education -->
+                <div class="portfolio-item fade-in" data-category="education" data-title="Academia Digital PR" style="animation-delay: 0.4s;">
+                    <div class="glass-card group overflow-hidden">
+                        <div class="relative overflow-hidden rounded-lg mb-4">
+                            <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Academia Digital PR" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                            <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="btn-secondary" onclick="openCaseStudy('academia-digital')">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    Ver Caso de Estudio
+                                </button>
+                            </div>
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-success text-white px-2 py-1 rounded text-xs font-medium">Educación</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-semibold text-white">Academia Digital PR</h3>
+                            <p class="text-text-secondary">Plataforma de aprendizaje online con cursos interactivos y sistema de certificaciones.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="glass-card px-6 py-3 text-white hover:text-primary transition-colors font-semibold" id="load-more-btn">
+                    <i class="fas fa-plus mr-2"></i>
+                    Cargar Más Proyectos
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Before/After Comparison -->
+    <section class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+                    Transformaciones Impactantes
+                </h2>
+                <p class="text-xl tech-subheading max-w-3xl mx-auto">
+                    Mira cómo hemos transformado la presencia digital de nuestros clientes con resultados medibles
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Before/After Slider -->
+                <div class="fade-in">
+                    <div class="relative bg-surface rounded-2xl p-8">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Boutique Luna</h3>
+                            <p class="text-text-secondary">Transformación completa de e-commerce</p>
+                        </div>
+                        
+                        <div class="relative overflow-hidden rounded-lg mb-6" id="comparison-slider">
+                            <div class="flex transition-transform duration-500" id="slider-container">
+                                <div class="w-full flex-shrink-0">
+                                    <div class="text-center mb-4">
+                                        <span class="bg-error text-white px-3 py-1 rounded-full text-sm font-medium">Antes</span>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Sitio web antes" class="w-full h-64 object-cover rounded-lg" loading="lazy" onerror="this.src='https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                                </div>
+                                <div class="w-full flex-shrink-0">
+                                    <div class="text-center mb-4">
+                                        <span class="bg-success text-white px-3 py-1 rounded-full text-sm font-medium">Después</span>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Sitio web después" class="w-full h-64 object-cover rounded-lg" loading="lazy" onerror="this.src='https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-center space-x-4">
+                            <button class="btn-outline px-4 py-2" onclick="showBefore()">Ver Antes</button>
+                            <button class="btn-primary px-4 py-2" onclick="showAfter()">Ver Después</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Metrics -->
+                <div class="fade-in" style="animation-delay: 0.1s;">
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-6">Resultados Obtenidos</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center p-4 bg-surface rounded-lg">
+                                    <div class="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-shopping-cart text-success text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-white">Ventas Online</div>
+                                        <div class="text-sm text-text-muted">Significativo incremento mensual</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center p-4 bg-surface rounded-lg">
+                                    <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-users text-accent text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-white">Tráfico Web</div>
+                                        <div class="text-sm text-text-muted">Crecimiento notable en visitantes únicos</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center p-4 bg-surface rounded-lg">
+                                    <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-chart-line text-secondary text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-white">Conversión</div>
+                                        <div class="text-sm text-text-muted">Mejora significativa en tasa de conversión</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 bg-gradient-to-r from-primary to-secondary rounded-lg text-white">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-quote-left text-2xl mr-3 opacity-70"></i>
+                                <div class="text-lg font-semibold">Testimonio del Cliente</div>
+                            </div>
+                            <p class="text-primary-100 mb-4">
+                                "En solo 6 meses, webDevPR transformó completamente nuestro negocio. Las ventas online ahora representan el 70% de nuestros ingresos totales."
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" alt="María González" class="w-10 h-10 rounded-full object-cover mr-3" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2017/06/26/02/47/man-2442565_1280.jpg'; this.onerror=null;" />
+                                <div>
+                                    <div class="font-semibold">María González</div>
+                                    <div class="text-sm text-primary-200">Directora, Boutique Luna</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Recognition -->
+    <section class="section-padding tech-bg relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container-max mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+                    Reconocimiento de la Industria
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Nuestro trabajo ha sido reconocido por organizaciones líderes en tecnología y desarrollo web
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center fade-in">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Mejor Agencia Web 2024</h3>
+                    <p class="text-sm text-text-muted">Puerto Rico Tech Awards</p>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-success text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Top 10 Desarrolladores</h3>
+                    <p class="text-sm text-text-muted">Caribbean Business Review</p>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Google Partner</h3>
+                    <p class="text-sm text-text-muted">Certificación Oficial</p>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">98% Satisfacción</h3>
+                    <p class="text-sm text-text-muted">Clientes Recomiendan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container-max mx-auto text-center">
+            <div class="max-w-3xl mx-auto fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                    ¿Listo para Ser Nuestro Próximo Caso de Éxito?
+                </h2>
+                <p class="text-xl text-primary-100 mb-8">
+                    Únete a más de 50 empresas que han transformado su presencia digital con webDevPR. 
+                    Tu proyecto podría ser nuestro próximo caso de estudio destacado.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact_consultation.html" class="btn-neon">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Agendar Consulta Gratuita
+                    </a>
+                    <a href="services_hub.html" class="glass-card text-center px-6 py-3 text-white hover:text-primary transition-colors font-semibold">
+                        <i class="fas fa-eye mr-2"></i>
+                        Ver Nuestros Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-50"></div>
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold">webDevPR</span>
+                    </div>
+                    <p class="text-gray-200 mb-6 font-medium">
+                        Tu socio tecnológico de confianza en Puerto Rico. Desarrollamos más que sitios web, creamos experiencias digitales.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Servicios</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors">Desarrollo Web</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors">E-commerce</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors">SEO & Marketing</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors">Apps Móviles</a></li>
+                        <li><a href="services_hub.html" class="text-gray-200 hover:text-white transition-colors">Mantenimiento</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Empresa</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about_us.html" class="text-gray-200 hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="portfolio_showcase.html" class="text-gray-200 hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="contact_consultation.html" class="text-gray-200 hover:text-white transition-colors">Contacto</a></li>
+                        <li><a href="client_portal.html" class="text-gray-200 hover:text-white transition-colors">Portal Cliente</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contacto</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            San Juan, Puerto Rico
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-phone mr-3"></i>
+                            +1 (787) 555-0123
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-envelope mr-3"></i>
+                            info@webdevpr.com
+                        </li>
+                        <li class="flex items-center text-gray-200 font-medium">
+                            <i class="fas fa-clock mr-3"></i>
+                            Lun - Vie: 9AM - 6PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-200 font-medium">
+                    © 2025 webDevPR. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Case Study Modal -->
+    <div id="case-study-modal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-border flex items-center justify-between">
+                <h3 class="text-2xl font-bold text-white" id="modal-title">Caso de Estudio</h3>
+                <button class="text-text-muted hover:text-white" onclick="closeCaseStudy()">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6" id="modal-content">
+                <!-- Content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- AI Chatbot -->
+    <script src="../js/ai-chatbot.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const searchInput = document.getElementById('search-input');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter items
+                filterPortfolio(filter, searchInput.value);
+            });
+        });
+
+        searchInput.addEventListener('input', function() {
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+            filterPortfolio(activeFilter, this.value);
+        });
+
+        function filterPortfolio(category, searchTerm) {
+            portfolioItems.forEach(item => {
+                const itemCategory = item.dataset.category;
+                const itemTitle = item.dataset.title.toLowerCase();
+                const matchesCategory = category === 'all' || itemCategory === category;
+                const matchesSearch = searchTerm === '' || itemTitle.includes(searchTerm.toLowerCase());
+                
+                if (matchesCategory && matchesSearch) {
+                    item.style.display = 'block';
+                    item.classList.add('fade-in');
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Reset filters
+        document.getElementById('reset-filters').addEventListener('click', function() {
+            document.querySelector('.filter-btn[data-filter="all"]').click();
+            searchInput.value = '';
+        });
+
+        // Case study modal
+        function openCaseStudy(projectId) {
+            const modal = document.getElementById('case-study-modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            // Case study content for each project
+            const caseStudies = {
+                'boutique-luna': {
+                    title: 'Boutique Luna - Plataforma E-commerce',
+                    content: `
+                        <div class="space-y-6">
+                            <!-- Bootstrap Carousel -->
+                            <div id="boutiqueCarousel" class="carousel slide mb-8" data-bs-ride="false" style="height: 500px; background: #f8f9fa; border-radius: 12px; overflow: hidden;">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                                    <button type="button" data-bs-target="#boutiqueCarousel" data-bs-slide-to="9" aria-label="Slide 10"></button>
+                                </div>
+                                <div class="carousel-inner" style="height: 100%;">
+                                    <div class="carousel-item active" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/inicio.jpg" class="d-block w-100" alt="Página de inicio de Boutique Luna" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/EC4899/FFFFFF?text=Página+Principal'; console.log('Error loading inicio.jpg')" onload="console.log('inicio.jpg loaded successfully')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Página Principal</h5>
+                                            <p>Descubre tu estilo con Boutique Luna</p>
+                                        </div>
+                                        </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Tienda.jpg" class="d-block w-100" alt="Catálogo de productos" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/F59E0B/FFFFFF?text=Catálogo+de+Productos'; console.log('Error loading Tienda.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Catálogo de Productos</h5>
+                                            <p>Explora nuestra colección de moda femenina</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Productos Detacados.jpg" class="d-block w-100" alt="Productos destacados" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/10B981/FFFFFF?text=Productos+Destacados'; console.log('Error loading Productos Detacados.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Productos Destacados</h5>
+                                            <p>Nuestra selección cuidadosamente curada</p>
+                                </div>
+                            </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Productos Populares.jpg" class="d-block w-100" alt="Productos populares" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/8B5CF6/FFFFFF?text=Productos+Populares'; console.log('Error loading Productos Populares.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Productos Populares</h5>
+                                            <p>Los favoritos de nuestras clientes</p>
+                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Producto Individual.jpg" class="d-block w-100" alt="Página de producto individual" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/EF4444/FFFFFF?text=Producto+Individual'; console.log('Error loading Producto Individual.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Página de Producto</h5>
+                                            <p>Detalles completos y opciones de compra</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Carrito.jpg" class="d-block w-100" alt="Carrito de compras" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/F97316/FFFFFF?text=Carrito+de+Compras'; console.log('Error loading Carrito.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Carrito de Compras</h5>
+                                            <p>Gestiona tus productos seleccionados</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Checkout.jpg" class="d-block w-100" alt="Proceso de checkout" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/06B6D4/FFFFFF?text=Checkout+1'; console.log('Error loading Checkout.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Checkout - Información</h5>
+                                            <p>Proceso de compra seguro y fácil</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Checkout_2.jpg" class="d-block w-100" alt="Pago y finalización" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/84CC16/FFFFFF?text=Checkout+2'; console.log('Error loading Checkout_2.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Checkout - Pago</h5>
+                                            <p>Múltiples opciones de pago disponibles</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Inciar seccion.jpg" class="d-block w-100" alt="Iniciar sesión" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/A855F7/FFFFFF?text=Iniciar+Sesión'; console.log('Error loading Inciar seccion.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Iniciar Sesión</h5>
+                                            <p>Acceso seguro a tu cuenta</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/BoutiqueLuna/Unete a nuestra familia.jpg" class="d-block w-100" alt="Newsletter y beneficios" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/EC4899/FFFFFF?text=Newsletter'; console.log('Error loading Unete a nuestra familia.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Newsletter</h5>
+                                            <p>Únete a nuestra familia y recibe beneficios exclusivos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#boutiqueCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; background: rgba(0,0,0,0.5); border-radius: 50%; top: 50%; transform: translateY(-50%); left: 20px;">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#boutiqueCarousel" data-bs-slide="next" style="width: 50px; height: 50px; background: rgba(0,0,0,0.5); border-radius: 50%; top: 50%; transform: translateY(-50%); right: 20px;">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-3">El Desafío</h4>
+                                    <p class="text-text-secondary mb-4">Boutique Luna necesitaba una presencia digital moderna para competir en el mercado de moda femenina en Puerto Rico.</p>
+                                    
+                                    <h4 class="text-lg font-semibold mb-3">La Solución</h4>
+                                    <ul class="text-text-secondary space-y-2">
+                                        <li>• Diseño elegante y moderno</li>
+                                        <li>• Catálogo de productos interactivo</li>
+                                        <li>• Sistema de carrito de compras</li>
+                                        <li>• Checkout optimizado</li>
+                                        <li>• Experiencia móvil responsive</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-3">Tecnologías</h4>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">HTML5</span>
+                                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">CSS3</span>
+                                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Bootstrap</span>
+                                    </div>
+                                    
+                                    <h4 class="text-lg font-semibold mb-3">Resultados</h4>
+                                    <ul class="text-text-secondary space-y-2">
+                                        <li>• Aumento del 60% en ventas online</li>
+                                        <li>• Mejora en la experiencia del usuario</li>
+                                        <li>• Proceso de compra simplificado</li>
+                                        <li>• Presencia digital profesional</li>
+                                    </ul>
+                                        </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'salud-total': {
+                    title: 'Clínica Salud Total - Portal de Pacientes',
+                    content: `
+                        <div class="space-y-6">
+                            <!-- Bootstrap Carousel -->
+                            <div id="clinicaCarousel" class="carousel slide mb-8" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#clinicaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#clinicaCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#clinicaCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#clinicaCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#clinicaCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#clinicaCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="../images/SaludTotal/Inicio.jpg" class="d-block w-100" alt="Página de inicio de Clínica Salud Total">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Portal Principal</h5>
+                                            <p>Tu salud en un solo lugar</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/SaludTotal/Agendar Citas.jpg" class="d-block w-100" alt="Sistema de agendamiento de citas">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Sistema de Citas</h5>
+                                            <p>Sistema intuitivo de agendamiento de citas</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/SaludTotal/Nuestro Servicios.jpg" class="d-block w-100" alt="Nuestros Servicios">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Servicios Médicos</h5>
+                                            <p>Servicios médicos integrados</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/SaludTotal/Historial Medico.jpg" class="d-block w-100" alt="Historial Médico">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Historial Médico</h5>
+                                            <p>Acceso seguro al historial médico</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/SaludTotal/Telemedician.jpg" class="d-block w-100" alt="Telemedicina">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Telemedicina</h5>
+                                            <p>Telemedicina avanzada con múltiples opciones de consulta</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/SaludTotal/Porque Elegirnos.jpg" class="d-block w-100" alt="¿Por qué elegirnos?">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Beneficios</h5>
+                                            <p>Beneficios exclusivos para nuestros pacientes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#clinicaCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#clinicaCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-3">El Desafío</h4>
+                                    <p class="text-text-secondary mb-4">Salud Total requería un sistema integral para gestionar citas, historiales médicos y telemedicina de forma segura y eficiente.</p>
+                                    
+                                    <h4 class="text-lg font-semibold mb-3">La Solución</h4>
+                                    <ul class="text-text-secondary space-y-2">
+                                        <li>• Portal seguro para pacientes</li>
+                                        <li>• Sistema de citas online</li>
+                                        <li>• Historial médico digital</li>
+                                        <li>• Plataforma de telemedicina</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-3">Resultados</h4>
+                                    <div class="space-y-4">
+                                        <div class="bg-success-50 p-4 rounded-lg">
+                                            <div class="text-lg font-semibold text-success">Citas</div>
+                                            <div class="text-sm text-success-600">Incremento notable en citas programadas</div>
+                                        </div>
+                                        <div class="bg-accent-50 p-4 rounded-lg">
+                                            <div class="text-lg font-semibold text-accent">Satisfacción</div>
+                                            <div class="text-sm text-accent-600">Mejora significativa en satisfacción del paciente</div>
+                                        </div>
+                                        <div class="bg-secondary-50 p-4 rounded-lg">
+                                            <div class="text-lg font-semibold text-secondary">Eficiencia</div>
+                                            <div class="text-sm text-secondary-600">Optimización de procesos administrativos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'academia-digital': {
+                    title: 'Academia Digital PR - Plataforma de Aprendizaje',
+                    content: `
+                        <div class="space-y-6">
+                            <!-- Bootstrap Carousel -->
+                            <div id="academiaCarousel" class="carousel slide mb-8" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#academiaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#academiaCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#academiaCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#academiaCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="../images/Academia Digital PR/Inicio.jpg" class="d-block w-100" alt="Página de inicio de Academia Digital PR">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Página de Inicio</h5>
+                                            <p>Transforma tu futuro con educación digital</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/Academia Digital PR/Cursos destacados.jpg" class="d-block w-100" alt="Cursos Destacados">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Cursos Destacados</h5>
+                                            <p>Descubre nuestros cursos más populares</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/Academia Digital PR/Catalogos de cursos.jpg" class="d-block w-100" alt="Catálogo de Cursos">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Catálogo de Cursos</h5>
+                                            <p>Explora nuestra amplia oferta educativa</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/Academia Digital PR/Panel de aprendizaje.jpg" class="d-block w-100" alt="Panel de Aprendizaje">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Panel de Aprendizaje</h5>
+                                            <p>Gestiona tu progreso y accede a tus cursos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#academiaCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#academiaCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-3">El Desafío</h4>
+                                    <p class="text-text-secondary mb-4">Academia Digital PR necesitaba una plataforma educativa moderna para ofrecer cursos online interactivos y gestionar certificaciones.</p>
+                                    
+                                    <h4 class="text-lg font-semibold mb-3">La Solución</h4>
+                                    <ul class="text-text-secondary space-y-2">
+                                        <li>• Plataforma de aprendizaje interactiva</li>
+                                        <li>• Sistema de cursos modulares</li>
+                                        <li>• Certificaciones digitales</li>
+                                        <li>• Seguimiento de progreso estudiantil</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-3">Resultados</h4>
+                                    <div class="space-y-4">
+                                        <div class="bg-success-50 p-4 rounded-lg">
+                                            <div class="text-lg font-semibold text-success">Estudiantes</div>
+                                            <div class="text-sm text-success-600">Crecimiento significativo en matrículas</div>
+                                        </div>
+                                        <div class="bg-accent-50 p-4 rounded-lg">
+                                            <div class="text-lg font-semibold text-accent">Completación</div>
+                                            <div class="text-sm text-accent-600">Mejora notable en tasas de finalización</div>
+                                        </div>
+                                        <div class="bg-secondary-50 p-4 rounded-lg">
+                                            <div class="text-lg font-semibold text-secondary">Engagement</div>
+                                            <div class="text-sm text-secondary-600">Mayor participación estudiantil</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'restaurante-yunque': {
+                    title: 'Restaurante El Yunque - Plataforma Gastronómica',
+                    content: `
+                        <div class="space-y-6">
+                            <!-- Simple Image Gallery -->
+                            <div id="yunqueGallery" class="mb-8" style="height: 500px; background: #f8f9fa; border-radius: 12px; overflow: hidden; position: relative;">
+                                <div id="galleryImages" style="display: flex; height: 100%; transition: transform 0.5s ease;">
+                                    <div class="gallery-item" style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: white;">
+                                        <img src="../images/RestauranteElYunque/Inicio.jpg" alt="Página Principal" style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 20px;" onerror="this.src='https://via.placeholder.com/800x500/4F46E5/FFFFFF?text=Página+Principal'">
+                                    </div>
+                                    <div class="gallery-item" style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: white;">
+                                        <img src="../images/RestauranteElYunque/Inicio_2.jpg" alt="Experiencia Gastronómica" style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 20px;" onerror="this.src='https://via.placeholder.com/800x500/059669/FFFFFF?text=Experiencia+Gastronómica'">
+                                    </div>
+                                    <div class="gallery-item" style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: white;">
+                                        <img src="../images/RestauranteElYunque/Menu.jpg" alt="Menú Digital" style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 20px;" onerror="this.src='https://via.placeholder.com/800x500/DC2626/FFFFFF?text=Menú+Digital'">
+                                    </div>
+                                    <div class="gallery-item" style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: white;">
+                                        <img src="../images/RestauranteElYunque/Reserva.jpg" alt="Sistema de Reservas" style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 20px;" onerror="this.src='https://via.placeholder.com/800x500/7C3AED/FFFFFF?text=Sistema+de+Reservas'">
+                                    </div>
+                                    <div class="gallery-item" style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: white;">
+                                        <img src="../images/RestauranteElYunque/Carrito.jpg" alt="Carrito de Compras" style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 20px;" onerror="this.src='https://via.placeholder.com/800x500/EA580C/FFFFFF?text=Carrito+de+Compras'">
+                                    </div>
+                                    <div class="gallery-item" style="min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: white;">
+                                        <img src="../images/RestauranteElYunque/Contacto.jpg" alt="Información de Contacto" style="max-width: 100%; max-height: 100%; object-fit: contain; padding: 20px;" onerror="this.src='https://via.placeholder.com/800x500/0891B2/FFFFFF?text=Información+de+Contacto'">
+                                    </div>
+                                </div>
+                                
+                                <!-- Navigation Buttons -->
+                                <button id="prevBtn" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; color: white; font-size: 20px; cursor: pointer; z-index: 10;">‹</button>
+                                <button id="nextBtn" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; color: white; font-size: 20px; cursor: pointer; z-index: 10;">›</button>
+                                
+                                <!-- Indicators -->
+                                <div id="indicators" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;">
+                                    <span class="indicator active" data-slide="0" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 1;"></span>
+                                    <span class="indicator" data-slide="1" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.5;"></span>
+                                    <span class="indicator" data-slide="2" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.5;"></span>
+                                    <span class="indicator" data-slide="3" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.5;"></span>
+                                    <span class="indicator" data-slide="4" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.5;"></span>
+                                    <span class="indicator" data-slide="5" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.5;"></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Bootstrap Carousel (Backup) -->
+                            <div id="yunqueCarousel" class="carousel slide mb-8" data-bs-ride="false" style="height: 500px; background: #f8f9fa; border-radius: 12px; overflow: hidden; display: none;">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#yunqueCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#yunqueCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#yunqueCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#yunqueCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#yunqueCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#yunqueCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                </div>
+                                <div class="carousel-inner" style="height: 100%;">
+                                    <div class="carousel-item active" style="height: 100%;">
+                                        <img src="../images/RestauranteElYunque/Inicio.jpg" class="d-block w-100" alt="Página de inicio de Restaurante El Yunque" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/4F46E5/FFFFFF?text=Página+Principal'; console.log('Error loading Inicio.jpg')" onload="console.log('Inicio.jpg loaded successfully')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Página Principal</h5>
+                                            <p>El sabor auténtico de la cocina de El Yunque</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/RestauranteElYunque/Inicio_2.jpg" class="d-block w-100" alt="Vista adicional de la página principal" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/059669/FFFFFF?text=Experiencia+Gastronómica'; console.log('Error loading Inicio_2.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Experiencia Gastronómica</h5>
+                                            <p>Una experiencia única donde la tradición se encuentra con la cocina contemporánea</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/RestauranteElYunque/Menu.jpg" class="d-block w-100" alt="Menú del restaurante" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/DC2626/FFFFFF?text=Menú+Digital'; console.log('Error loading Menu.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Menú Digital</h5>
+                                            <p>Sabores auténticos de Puerto Rico con sistema de pedidos integrado</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/RestauranteElYunque/Reserva.jpg" class="d-block w-100" alt="Sistema de reservas" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/7C3AED/FFFFFF?text=Sistema+de+Reservas'; console.log('Error loading Reserva.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Sistema de Reservas</h5>
+                                            <p>Reserva tu mesa de forma fácil y rápida</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/RestauranteElYunque/Carrito.jpg" class="d-block w-100" alt="Carrito de compras" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/EA580C/FFFFFF?text=Carrito+de+Compras'; console.log('Error loading Carrito.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Carrito de Compras</h5>
+                                            <p>Finaliza tu pedido con facilidad y seguridad</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 100%;">
+                                        <img src="../images/RestauranteElYunque/Contacto.jpg" class="d-block w-100" alt="Página de contacto" style="height: 100%; object-fit: contain; object-position: center; padding: 20px; background: white;" onerror="this.src='https://via.placeholder.com/800x500/0891B2/FFFFFF?text=Información+de+Contacto'; console.log('Error loading Contacto.jpg')">
+                                        <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.7); padding: 1rem; border-radius: 8px;">
+                                            <h5>Información de Contacto</h5>
+                                            <p>Conecta con nosotros fácilmente</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#yunqueCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; background: rgba(0,0,0,0.5); border-radius: 50%; top: 50%; transform: translateY(-50%); left: 20px;">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#yunqueCarousel" data-bs-slide="next" style="width: 50px; height: 50px; background: rgba(0,0,0,0.5); border-radius: 50%; top: 50%; transform: translateY(-50%); right: 20px;">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-3">El Desafío</h4>
+                                    <p class="text-text-secondary mb-4">Restaurante El Yunque necesitaba una presencia digital completa que incluyera menú interactivo, sistema de reservas y pedidos online para mejorar la experiencia del cliente.</p>
+                                    
+                                    <h4 class="text-lg font-semibold mb-3">La Solución</h4>
+                                    <ul class="text-text-secondary space-y-2">
+                                        <li>• Menú digital interactivo con categorías</li>
+                                        <li>• Sistema de reservas online</li>
+                                        <li>• Carrito de compras y checkout</li>
+                                        <li>• Información de contacto integrada</li>
+                                        <li>• Diseño responsive y moderno</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-3">Tecnologías</h4>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">HTML5</span>
+                                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">CSS3</span>
+                                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Bootstrap</span>
+                                    </div>
+                                    
+                                    <h4 class="text-lg font-semibold mb-3">Resultados</h4>
+                                    <ul class="text-text-secondary space-y-2">
+                                        <li>• Aumento del 40% en reservas online</li>
+                                        <li>• Mejora en la experiencia del usuario</li>
+                                        <li>• Sistema de pedidos funcional</li>
+                                        <li>• Presencia digital profesional</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            const study = caseStudies[projectId] || caseStudies['boutique-luna'];
+            title.textContent = study.title;
+            // Clear any existing content first
+            content.innerHTML = '';
+            // Add a small delay to ensure DOM is cleared
+            setTimeout(() => {
+            content.innerHTML = study.content;
+            }, 10);
+            
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Initialize custom gallery or Bootstrap carousel
+            setTimeout(() => {
+                const gallery = content.querySelector('#yunqueGallery');
+                if (gallery) {
+                    initCustomGallery();
+                } else {
+                    const carousel = content.querySelector('.carousel');
+                    if (carousel) {
+                        // Destroy existing carousel if it exists
+                        const existingCarousel = bootstrap.Carousel.getInstance(carousel);
+                        if (existingCarousel) {
+                            existingCarousel.dispose();
+                        }
+                        
+                        // Initialize new carousel
+                        const newCarousel = new bootstrap.Carousel(carousel, {
+                            interval: 5000,
+                            wrap: true,
+                            touch: true
+                        });
+                        
+                        // Force show first slide
+                        newCarousel.to(0);
+                    }
+                }
+            }, 600);
+            
+            function initCustomGallery() {
+                const galleryImages = content.querySelector('#galleryImages');
+                const prevBtn = content.querySelector('#prevBtn');
+                const nextBtn = content.querySelector('#nextBtn');
+                const indicators = content.querySelectorAll('.indicator');
+                
+                if (!galleryImages) {
+                    console.log('Gallery images container not found');
+                    return;
+                }
+                
+                let currentSlide = 0;
+                const totalSlides = 6;
+                
+                function updateGallery() {
+                    const translateX = -currentSlide * 100;
+                    galleryImages.style.transform = `translateX(${translateX}%)`;
+                    
+                    // Update indicators
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentSlide) {
+                            indicator.classList.add('active');
+                            indicator.style.opacity = '1';
+                        } else {
+                            indicator.classList.remove('active');
+                            indicator.style.opacity = '0.5';
+                        }
+                    });
+                    
+                    console.log(`Gallery updated to slide ${currentSlide + 1}`);
+                }
+                
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateGallery();
+                }
+                
+                function prevSlide() {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateGallery();
+                }
+                
+                // Event listeners
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', nextSlide);
+                    console.log('Next button event listener added');
+                }
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', prevSlide);
+                    console.log('Previous button event listener added');
+                }
+                
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        currentSlide = index;
+                        updateGallery();
+                    });
+                });
+                
+                // Auto-play
+                const autoPlayInterval = setInterval(nextSlide, 5000);
+                
+                // Initialize first slide
+                updateGallery();
+                
+                console.log('Custom gallery initialized successfully with', totalSlides, 'slides');
+            }
+        }
+
+        function closeCaseStudy() {
+            const modal = document.getElementById('case-study-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+
+        // Before/After comparison
+        function showBefore() {
+            const container = document.getElementById('slider-container');
+            container.style.transform = 'translateX(0%)';
+        }
+
+        function showAfter() {
+            const container = document.getElementById('slider-container');
+            container.style.transform = 'translateX(-50%)';
+        }
+
+        // Load more functionality
+        document.getElementById('load-more-btn').addEventListener('click', function() {
+            alert('Funcionalidad de "Cargar más" - En una implementación real, esto cargaría más proyectos del servidor.');
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Close modals on outside click
+        document.getElementById('case-study-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCaseStudy();
+            }
+        });
+
+        document.getElementById('video-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideo();
+            }
+        });
+
+        // Filter button styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .filter-btn {
+                @apply px-4 py-2 rounded-lg border border-border text-text-secondary hover:text-primary hover:border-primary transition-all duration-300 bg-white;
+            }
+            .filter-btn.active {
+                @apply bg-primary text-white border-primary;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth-manager.js"></script>
+    
+    <script>
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.05);
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top + scrolled;
+                const elementHeight = rect.height;
+                const windowHeight = window.innerHeight;
+                
+                // Only animate if element is in viewport
+                if (rect.bottom >= 0 && rect.top <= windowHeight) {
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+            });
+        });
+
+        // Mouse movement effect for all tech-bg sections
+        document.addEventListener('mousemove', (e) => {
+            const techSections = document.querySelectorAll('.tech-bg');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            techSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isInViewport) {
+                    section.style.background = `
+                        radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at ${(x + y) * 50}% ${(x - y) * 50}%, rgba(249, 115, 22, 0.1) 0%, transparent 50%)
+                    `;
+                }
+            });
+        });
+
+        // Debug script for carousel images
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Portfolio page loaded');
+            
+            // Test image loading
+            const testImage = new Image();
+            testImage.onload = function() {
+                console.log('Test image loaded successfully:', this.src);
+            };
+            testImage.onerror = function() {
+                console.log('Test image failed to load:', this.src);
+            };
+            testImage.src = '../images/RestauranteElYunque/Inicio.jpg';
+            
+            // Test all images
+            const imageFiles = ['Inicio.jpg', 'Inicio_2.jpg', 'Menu.jpg', 'Reserva.jpg', 'Carrito.jpg', 'Contacto.jpg'];
+            imageFiles.forEach((filename, index) => {
+                const img = new Image();
+                img.onload = function() {
+                    console.log(`Image ${index + 1} loaded:`, filename);
+                };
+                img.onerror = function() {
+                    console.log(`Image ${index + 1} failed:`, filename);
+                };
+                img.src = `../images/RestauranteElYunque/${filename}`;
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
