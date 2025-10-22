@@ -18,36 +18,50 @@
         <nav class="container-max mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="homepage.html" class="flex items-center space-x-2 glow-on-hover">
-                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-glow">
-                            <span class="text-white font-bold text-lg">W</span>
+                <div class="flex items-center flex-shrink-0">
+                    <a href="homepage.html" class="flex items-center space-x-2 sm:space-x-3 glow-on-hover">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-glow logo-container">
+                            <span class="text-white font-bold text-lg sm:text-xl">W</span>
                         </div>
-                        <span class="text-xl font-bold tech-heading">webDevPR</span>
+                        <span class="text-xl sm:text-2xl font-bold tech-heading brand-text">
+                            <span class="brand-webdev">webDev</span><span class="brand-pr">PR</span>
+                        </span>
                     </a>
                 </div>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="homepage.html" class="text-primary font-semibold">Inicio</a>
-                    <a href="services_hub.html" class="text-text-secondary hover:text-primary transition-colors">Servicios</a>
-                    <a href="portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors">Portfolio</a>
-                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
-                    <a href="contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="homepage.html" class="text-primary font-semibold hover:text-secondary transition-colors duration-300">Inicio</a>
+                    <a href="services_hub.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Servicios</a>
+                    <a href="portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Portfolio</a>
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Nosotros</a>
+                    <a href="contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Contacto</a>
                     
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-2 ml-4">
                         <a href="login.html" class="btn-neon auth-button">
                             <i class="fas fa-sign-in-alt mr-2"></i>Login
                         </a>
-                        <a href="client_portal.html" class="btn-neon portal-button" style="display: none;">
-                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
+                    </div>
+                </div>
+
+                <!-- Tablet Navigation (Medium screens) -->
+                <div class="hidden md:flex lg:hidden items-center space-x-4">
+                    <a href="homepage.html" class="text-primary font-semibold text-sm">Inicio</a>
+                    <a href="services_hub.html" class="text-text-secondary hover:text-primary transition-colors duration-300 text-sm">Servicios</a>
+                    <a href="portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors duration-300 text-sm">Portfolio</a>
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors duration-300 text-sm">Nosotros</a>
+                    <a href="contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors duration-300 text-sm">Contacto</a>
+                    
+                    <div class="flex items-center ml-2">
+                        <a href="login.html" class="btn-neon auth-button text-sm px-3 py-2">
+                            <i class="fas fa-sign-in-alt mr-1"></i>Login
                         </a>
                     </div>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="flex items-center gap-3 md:hidden">
-                    <button class="p-2 rounded-md text-text-secondary hover:text-primary" id="mobile-menu-btn">
+                <div class="flex items-center md:hidden">
+                    <button class="p-2 rounded-md text-text-secondary hover:text-primary transition-all duration-300" id="mobile-menu-btn" aria-label="Toggle mobile menu">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -55,18 +69,15 @@
 
             <!-- Mobile Navigation -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
-                    <a href="homepage.html" class="block px-3 py-2 text-primary font-semibold">Inicio</a>
-                    <a href="services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Servicios</a>
-                    <a href="portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portfolio</a>
-                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
-                    <a href="contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Contacto</a>
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="homepage.html" class="block px-3 py-2 text-primary font-semibold rounded-lg">Inicio</a>
+                    <a href="services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary rounded-lg">Servicios</a>
+                    <a href="portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary rounded-lg">Portfolio</a>
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary rounded-lg">Nosotros</a>
+                    <a href="contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary rounded-lg">Contacto</a>
                     <div class="flex flex-col space-y-2 px-3 py-2">
                         <a href="login.html" class="btn-primary text-center auth-button">
                             <i class="fas fa-sign-in-alt mr-2"></i>Login
-                        </a>
-                        <a href="client_portal.html" class="btn-primary text-center portal-button" style="display: none;">
-                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
                         </a>
                     </div>
                 </div>
@@ -356,10 +367,13 @@
 
     <!-- AI Chatbot -->
     <script src="../js/ai-chatbot.js"></script>
+    
+    <!-- Enhanced Responsive Navbar -->
+    <script src="../js/navbar-responsive.js"></script>
 
     <!-- JavaScript -->
     <script>
-        // Mobile menu toggle
+        // Legacy mobile menu toggle (kept for compatibility)
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');

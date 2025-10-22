@@ -2269,7 +2269,7 @@ code {
   /* Modern Tech Color Palette - Electric Blue & Green */
   --color-primary: #0EA5E9;
   /* sky-500 - Modern electric blue */
-  --color-primary-50: #F0F9FF;
+  --color-primary-50: #11191f;
   --color-primary-100: #E0F2FE;
   --color-primary-200: #BAE6FD;
   --color-primary-300: #7DD3FC;
@@ -2360,14 +2360,371 @@ code {
   --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Base Styles */
+/* Base Styles - Dark Mode */
 body {
-  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
+  background: #0F0F23 !important;
   background-attachment: fixed;
-  color: var(--color-text-primary);
+  color: #FFFFFF !important;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* Global Dark Mode Styles */
+h1, h2, h3, h4, h5, h6 {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+p {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.text-text-secondary {
+  color: #A1A1AA !important;
+}
+
+.text-text-muted {
+  color: #6B7280 !important;
+}
+
+.text-primary {
+  color: #60A5FA !important;
+}
+
+.text-success {
+  color: #10B981 !important;
+}
+
+.text-warning {
+  color: #F59E0B !important;
+}
+
+.text-error {
+  color: #EF4444 !important;
+}
+
+/* Dark Mode Sections */
+section {
+  background: transparent !important;
+}
+
+.tech-bg {
+  background: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 100%) !important;
+}
+
+.section-padding {
+  background: transparent !important;
+}
+
+.container-max {
+  background: transparent !important;
+}
+
+/* Dark Mode Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(96, 165, 250, 0.3) !important;
+}
+
+/* Dark Mode Buttons */
+.btn-neon {
+  background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Dark Mode Forms */
+.modern-input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+}
+
+.modern-input:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #60A5FA !important;
+}
+
+.modern-input::placeholder {
+  color: #6B7280 !important;
+}
+
+/* Dark Mode Form Fields */
+.input-field {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.input-field:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #60A5FA !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1) !important;
+}
+
+.input-field::placeholder {
+  color: #6B7280 !important;
+}
+
+/* Dark Mode Radio and Checkbox Styling */
+input[type="radio"]:checked + div {
+  border-color: #60A5FA !important;
+  background: rgba(96, 165, 250, 0.1) !important;
+}
+
+input[type="radio"] + div:hover {
+  border-color: #60A5FA !important;
+  background: rgba(96, 165, 250, 0.05) !important;
+}
+
+/* Dark Mode Select Styling */
+select.input-field {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+}
+
+select.input-field:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #60A5FA !important;
+}
+
+/* Dark Mode Textarea Styling */
+textarea.input-field {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+  resize: vertical !important;
+}
+
+textarea.input-field:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #60A5FA !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1) !important;
+}
+
+/* Dark Mode Border Colors */
+.border-border {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.border-primary {
+  border-color: #60A5FA !important;
+}
+
+.border-secondary {
+  border-color: #10B981 !important;
+}
+
+/* Dark Mode Form Step Indicators */
+.step-label {
+  color: #A1A1AA !important;
+}
+
+.step-label.active {
+  color: #60A5FA !important;
+}
+
+/* Dark Mode Form Cards */
+.form-step {
+  background: transparent !important;
+}
+
+/* Dark Mode Error Messages */
+.error-message {
+  color: #EF4444 !important;
+}
+
+/* Dark Mode Success Messages */
+.success-message {
+  color: #10B981 !important;
+}
+
+/* Dark Mode Form Buttons */
+.form-button {
+  background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.form-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+.form-button:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Dark Mode Accent Colors */
+.bg-accent-100 {
+  background: rgba(96, 165, 250, 0.1) !important;
+  border: 1px solid rgba(96, 165, 250, 0.2) !important;
+}
+
+.text-accent-600 {
+  color: #60A5FA !important;
+}
+
+.text-accent {
+  color: #60A5FA !important;
+}
+
+/* Dark Mode Tech Headings */
+.tech-heading {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.tech-subheading {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Dark Mode Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #60A5FA 0%, #10B981 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Dark Mode Badge Styling */
+.inline-flex.items-center.px-3.py-1.rounded-full {
+  background: rgba(96, 165, 250, 0.1) !important;
+  border: 1px solid rgba(96, 165, 250, 0.2) !important;
+  color: #60A5FA !important;
+}
+
+/* Dark Mode Primary Background Hover */
+.group-hover\:bg-primary:hover {
+  background: #60A5FA !important;
+}
+
+.group-hover\:text-white:hover {
+  color: #FFFFFF !important;
+}
+
+/* Dark Mode Primary Background Variants */
+.bg-primary-100 {
+  background: rgba(96, 165, 250, 0.1) !important;
+}
+
+.bg-primary-50 {
+  background: rgba(96, 165, 250, 0.05) !important;
+}
+
+/* Dark Mode Primary Text Variants */
+.text-primary-700 {
+  color: #3B82F6 !important;
+}
+
+.text-primary-600 {
+  color: #60A5FA !important;
+}
+
+/* Dark Mode Secondary Colors */
+.bg-secondary-100 {
+  background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.bg-secondary {
+  background: #10B981 !important;
+}
+
+.text-secondary {
+  color: #10B981 !important;
+}
+
+/* Dark Mode Success Colors */
+.bg-success-100 {
+  background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.bg-success {
+  background: #10B981 !important;
+}
+
+.text-success {
+  color: #10B981 !important;
+}
+
+/* Dark Mode Warning Colors */
+.bg-warning-100 {
+  background: rgba(245, 158, 11, 0.1) !important;
+}
+
+.bg-warning {
+  background: #F59E0B !important;
+}
+
+.text-warning {
+  color: #F59E0B !important;
+}
+
+/* Dark Mode Error Colors */
+.bg-error-100 {
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+.bg-error {
+  background: #EF4444 !important;
+}
+
+.text-error {
+  color: #EF4444 !important;
+}
+
+/* Dark Mode Hover States */
+.hover\:text-primary-700:hover {
+  color: #3B82F6 !important;
+}
+
+.hover\:text-primary:hover {
+  color: #60A5FA !important;
+}
+
+.hover\:text-secondary:hover {
+  color: #10B981 !important;
+}
+
+.hover\:text-success:hover {
+  color: #10B981 !important;
+}
+
+.hover\:text-warning:hover {
+  color: #F59E0B !important;
+}
+
+.hover\:text-error:hover {
+  color: #EF4444 !important;
 }
 
 /* Modern Tech Components */
@@ -2548,25 +2905,258 @@ body {
   transform: scale(1.02);
 }
 
-/* Modern Navigation */
+/* Modern Navigation - Improved Design */
 .nav-glass {
-  background: rgba(15, 15, 35, 0.9);
+  background: #0F0F23 !important;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Mobile Menu Button */
+.nav-glass #mobile-menu-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+  color: #FFFFFF !important;
+  padding: 10px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  backdrop-filter: blur(15px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.nav-glass #mobile-menu-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-glass #mobile-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2) !important;
+}
+
+.nav-glass #mobile-menu-btn:hover::before {
+  opacity: 1;
+}
+
+.nav-glass #mobile-menu-btn i {
+  font-size: 1.3rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.nav-glass #mobile-menu-btn:hover i {
+  transform: rotate(90deg) scale(1.1) !important;
+  color: #60A5FA !important;
+}
+
+.nav-glass #mobile-menu-btn:active {
+  transform: scale(0.95) !important;
+}
+
+/* Enhanced Mobile Menu Dropdown */
+.nav-glass #mobile-menu {
+  background: rgba(15, 15, 35, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 0 0 20px 20px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+  margin-top: 4px !important;
+  animation: slideDown 0.3s ease-out !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.nav-glass #mobile-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+  opacity: 0.8;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-glass #mobile-menu .px-2 {
+  padding: 0 !important;
+}
+
+.nav-glass #mobile-menu a {
+  color: #E5E7EB !important;
+  padding: 14px 20px !important;
+  border-radius: 12px !important;
+  margin: 6px 12px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.025em !important;
+}
+
+.nav-glass #mobile-menu a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: 0 2px 2px 0;
+  transition: height 0.3s ease;
+}
+
+.nav-glass #mobile-menu a:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15) !important;
+}
+
+.nav-glass #mobile-menu a:hover::before {
+  height: 60%;
+}
+
+.nav-glass #mobile-menu .text-primary {
+  color: #60A5FA !important;
+  background: rgba(96, 165, 250, 0.12) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(96, 165, 250, 0.2) !important;
+}
+
+.nav-glass #mobile-menu .text-primary::before {
+  height: 60%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.nav-glass #mobile-menu .btn-primary {
+  background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 16px 20px !important;
+  margin: 12px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.025em !important;
+}
+
+.nav-glass #mobile-menu .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-glass #mobile-menu .btn-primary:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+}
+
+.nav-glass #mobile-menu .btn-primary:hover::before {
+  left: 100%;
 }
 
 .nav-glass a {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .nav-glass .text-text-secondary {
-  color: #D1D5DB !important;
+  color: #A1A1AA !important;
+  font-weight: 500;
 }
 
 .nav-glass .text-primary {
-  color: var(--color-primary) !important;
+  color: #60A5FA !important;
   font-weight: 600;
+}
+
+/* Improved Logo Design */
+.nav-glass .logo-container {
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.nav-glass .logo-container:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Brand Text with Different Colors */
+.nav-glass .brand-text {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+}
+
+.nav-glass .brand-webdev {
+  color: #D1D5DB !important;
+}
+
+.nav-glass .brand-pr {
+  color: #10B981 !important;
+}
+
+/* Improved Login Button */
+.nav-glass .btn-neon {
+  background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.nav-glass .btn-neon:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+.nav-glass .btn-neon i {
+  margin-right: 6px !important;
 }
 
 /* Service Cards with Hover Effects */
@@ -2581,6 +3171,12 @@ body {
   backdrop-filter: blur(10px);
 }
 
+/* All Service Cards - Dark Background */
+.service-card {
+  background: #1A1A2E !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
 .service-card::before {
   content: '';
   position: absolute;
@@ -2593,16 +3189,7 @@ body {
   transition: transform var(--transition-normal);
 }
 
-.service-card:hover::before {
-  transform: scaleX(1);
-}
-
-.service-card:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--color-border-glow);
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-glow), 0 20px 40px rgba(0, 0, 0, 0.2);
-}
+/* Hover effects removed for static cards */
 
 /* Modern Form Elements */
 .modern-input {
@@ -2659,28 +3246,184 @@ body {
 .service-card h3 {
   color: #FFFFFF !important;
   font-weight: 700 !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem !important;
 }
 
 .service-card p {
-  color: #E5E7EB !important;
+  color: #0e121a !important;
   font-weight: 400 !important;
   line-height: 1.6 !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   margin-bottom: 1.5rem !important;
 }
 
 .service-card a {
   font-weight: 600 !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   transition: all var(--transition-normal) !important;
 }
 
-.service-card a:hover {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  transform: translateX(4px);
+/* Link hover effects removed for static cards */
+
+/* Enhanced Service Card List Items */
+.service-card li {
+  color: #131a28 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 500 !important;
 }
+
+.service-card .text-text-secondary {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.service-card .text-text-muted {
+  color: #D1D5DB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Override any conflicting styles with higher specificity */
+section .service-card p,
+section .service-card .text-text-secondary,
+section .service-card li,
+section .service-card .text-text-muted {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 500 !important;
+}
+
+/* Force override for all text elements in service cards */
+.service-card * {
+  color: inherit !important;
+}
+
+.service-card p,
+.service-card .text-text-secondary {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.service-card li {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.service-card .text-text-muted {
+  color: #D1D5DB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Maximum specificity override for service card text */
+body .service-card p,
+body .service-card .text-text-secondary,
+body .service-card li,
+body .service-card .text-text-muted,
+html body .service-card p,
+html body .service-card .text-text-secondary,
+html body .service-card li,
+html body .service-card .text-text-muted {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* Specific override for muted text */
+body .service-card .text-text-muted,
+html body .service-card .text-text-muted {
+  color: #D1D5DB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Enhanced Service Card Pricing and Features */
+.service-card .border-t {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.service-card .text-primary {
+  color: #60A5FA !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 700 !important;
+}
+
+.service-card .text-success {
+  color: #34D399 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Service Card Buttons */
+.service-card .btn-neon {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)) !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 600 !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3) !important;
+}
+
+/* Button hover effects removed for static cards */
+
+.service-card .glass-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Glass card hover effects removed for static cards */
+
+/* All Service Cards - Light Text for Dark Background */
+.service-card h3 {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+  transition: none !important;
+}
+
+.service-card p {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 400 !important;
+  transition: none !important;
+}
+
+.service-card li {
+  color: #E5E7EB !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 400 !important;
+  transition: none !important;
+}
+
+.service-card .fas.fa-check {
+  color: #34D399 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  transition: none !important;
+}
+
+.service-card .border-t {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.service-card .text-text-muted {
+  color: #A1A1AA !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  transition: none !important;
+}
+
+.service-card .text-primary {
+  color: #60A5FA !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  transition: none !important;
+}
+
+.service-card .glass-card {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  transition: none !important;
+}
+
 
 /* Enhanced Icon Visibility */
 .service-card .w-12 {
@@ -3055,4 +3798,306 @@ footer .text-primary {
   .xl\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+/* Enhanced Responsive Navigation */
+@media (max-width: 1023px) {
+  /* Tablet and below - improve spacing */
+  .nav-glass .container-max {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .nav-glass .flex.items-center.space-x-8 {
+    gap: 1.5rem !important;
+  }
+  
+  .nav-glass .flex.items-center.space-x-8 a {
+    font-size: 0.9rem !important;
+    padding: 8px 12px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile - optimize for small screens */
+  .nav-glass .h-16 {
+    height: 3.5rem !important;
+    min-height: 3.5rem !important;
+  }
+  
+  .nav-glass .w-10.h-10 {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  
+  .nav-glass .text-xl {
+    font-size: 1.1rem !important;
+  }
+  
+  .nav-glass .btn-neon {
+    padding: 6px 12px !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .nav-glass .btn-neon i {
+    margin-right: 4px !important;
+  }
+  
+  /* Mobile menu improvements */
+  .nav-glass #mobile-menu {
+    border-radius: 0 0 12px 12px !important;
+    margin-top: 2px !important;
+  }
+  
+  .nav-glass #mobile-menu a {
+    padding: 10px 14px !important;
+    margin: 2px 6px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .nav-glass #mobile-menu .btn-primary {
+    padding: 10px 14px !important;
+    margin: 6px !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small mobile - further optimizations */
+  .nav-glass .container-max {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .nav-glass .w-10.h-10 {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+  
+  .nav-glass .text-xl {
+    font-size: 1rem !important;
+  }
+  
+  .nav-glass .btn-neon {
+    padding: 5px 10px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .nav-glass #mobile-menu-btn {
+    padding: 8px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  
+  .nav-glass #mobile-menu-btn i {
+    font-size: 1.2rem !important;
+  }
+  
+  .nav-glass #mobile-menu {
+    border-radius: 0 0 16px 16px !important;
+    margin-top: 2px !important;
+  }
+  
+  .nav-glass #mobile-menu a {
+    padding: 12px 16px !important;
+    margin: 4px 8px !important;
+    font-size: 0.9rem !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .nav-glass #mobile-menu .btn-primary {
+    padding: 14px 16px !important;
+    margin: 8px !important;
+    font-size: 0.9rem !important;
+    min-height: 48px !important;
+  }
+}
+
+/* Improved logo responsiveness */
+@media (max-width: 640px) {
+  .nav-glass .flex.items-center.space-x-2 {
+    gap: 0.5rem !important;
+  }
+  
+  .nav-glass .tech-heading {
+    font-size: 1rem !important;
+  }
+}
+
+/* Better tablet landscape support */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-glass .flex.items-center.space-x-8 {
+    gap: 2rem !important;
+  }
+  
+  .nav-glass .flex.items-center.space-x-8 a {
+    font-size: 0.95rem !important;
+  }
+  
+  .nav-glass .btn-neon {
+    padding: 8px 16px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Enhanced hover states for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .nav-glass #mobile-menu-btn:hover {
+    transform: none !important;
+  }
+  
+  .nav-glass #mobile-menu-btn:hover i {
+    transform: none !important;
+  }
+  
+  .nav-glass #mobile-menu a:hover {
+    transform: none !important;
+  }
+  
+  .nav-glass #mobile-menu .btn-primary:hover {
+    transform: none !important;
+  }
+  
+  .nav-glass .btn-neon:hover {
+    transform: none !important;
+  }
+}
+
+/* Additional responsive improvements */
+@media (min-width: 1024px) {
+  .nav-glass .hidden.lg\:flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-glass .hidden.md\:flex.lg\:hidden {
+    display: flex !important;
+  }
+}
+
+/* Improved brand text responsiveness */
+.nav-glass .brand-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 360px) {
+  .nav-glass .brand-text {
+    font-size: 0.9rem !important;
+  }
+  
+  .nav-glass .brand-webdev {
+    display: none;
+  }
+  
+  .nav-glass .brand-pr {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Enhanced mobile menu close animation */
+.nav-glass #mobile-menu.closing {
+  animation: slideUp 0.3s ease-in forwards !important;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Improved focus states for accessibility */
+.nav-glass #mobile-menu-btn:focus {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+.nav-glass #mobile-menu a:focus {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+  background: rgba(96, 165, 250, 0.1) !important;
+}
+
+/* Better tablet navigation spacing */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-glass .hidden.md\:flex.lg\:hidden a {
+    padding: 8px 6px !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .nav-glass .hidden.md\:flex.lg\:hidden .btn-neon {
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Enhanced touch targets for mobile */
+@media (max-width: 768px) {
+  .nav-glass #mobile-menu-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .nav-glass #mobile-menu a {
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+  
+  .nav-glass #mobile-menu .btn-primary {
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Improved focus states for better accessibility */
+.nav-glass #mobile-menu-btn:focus-visible {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important;
+}
+
+.nav-glass #mobile-menu a:focus-visible {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+  background: rgba(96, 165, 250, 0.1) !important;
+}
+
+.nav-glass #mobile-menu .btn-primary:focus-visible {
+  outline: 2px solid #FFFFFF !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Smooth transitions for all interactive elements */
+.nav-glass * {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Improved mobile menu spacing */
+.nav-glass #mobile-menu .px-2 {
+  padding: 8px 0 !important;
+}
+
+.nav-glass #mobile-menu .space-y-1 > * + * {
+  margin-top: 4px !important;
+}
+
+.nav-glass #mobile-menu .space-y-2 > * + * {
+  margin-top: 8px !important;
 }
