@@ -57,6 +57,7 @@
                     <a href="pages/portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors">Portfolio</a>
                     <a href="pages/about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
                     <a href="pages/contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a>
+                    <a href="pages/client_portal.html" class="text-text-secondary hover:text-primary transition-colors">Portal Cliente</a>
                     
                     <div class="flex items-center space-x-2">
                         <a href="pages/login.html" class="btn-neon auth-button" style="display: none;">
@@ -81,6 +82,7 @@
                     <a href="pages/portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portfolio</a>
                     <a href="pages/about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
                     <a href="pages/contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Contacto</a>
+                    <a href="pages/client_portal.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portal Cliente</a>
                     <div class="flex flex-col space-y-2 px-3 py-2">
                         <a href="pages/login.html" class="btn-primary text-center auth-button" style="display: none;">
                             <i class="fas fa-sign-in-alt mr-2"></i>Login
@@ -202,6 +204,8 @@
                         <li><a href="pages/portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors">Portfolio</a></li>
                         <li><a href="pages/about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a></li>
                         <li><a href="pages/contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a></li>
+                        <li><a href="pages/client_portal.html" class="text-text-secondary hover:text-primary transition-colors">Portal Cliente</a></li>
+                        <li><a href="pages/case-study-salud-total.html" class="text-text-secondary hover:text-primary transition-colors">Caso de Estudio</a></li>
                     </ul>
                 </div>
                 
@@ -224,11 +228,11 @@
 
     <!-- Scripts -->
     <script src="js/navbar-responsive.js"></script>
+    <script src="js/ai-chatbot.js"></script>
+    <script src="js/auth-manager.js"></script>
     <script>
-        // Auto-redirect to homepage after 3 seconds (optional)
-        // setTimeout(() => {
-        //     window.location.href = 'pages/homepage.html';
-        // }, 3000);
+        // Auto-redirect to homepage immediately
+        window.location.href = 'pages/homepage.html';
         
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -241,6 +245,59 @@
                 });
             }
         });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.05);
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top + scrolled;
+                const elementHeight = rect.height;
+                const windowHeight = window.innerHeight;
+                
+                // Only animate if element is in viewport
+                if (rect.bottom >= 0 && rect.top <= windowHeight) {
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+            });
+        });
+
+        // Mouse movement effect for hero section
+        document.addEventListener('mousemove', (e) => {
+            const heroSection = document.querySelector('.tech-bg');
+            if (heroSection) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                heroSection.style.background = `
+                    radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at ${(x + y) * 50}% ${(x - y) * 50}%, rgba(249, 115, 22, 0.1) 0%, transparent 50%)
+                `;
+            }
+        });
     </script>
+    <script id="dhws-dataInjector" src="public/dhws-data-injector.js"></script>
 </body>
 </html>
