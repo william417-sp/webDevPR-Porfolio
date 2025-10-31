@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
 
@@ -1692,7 +1692,7 @@ code {
 
 .bg-background{
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  background-color: var(--color-background, rgb(255 255 255 / var(--tw-bg-opacity, 1)));
 }
 
 .bg-black{
@@ -1792,17 +1792,17 @@ code {
 
 .bg-surface{
   --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
+  background-color: var(--color-surface, rgb(248 250 252 / var(--tw-bg-opacity, 1)));
 }
 
 .bg-surface-100{
   --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+  background-color: var(--color-surface-100, rgb(241 245 249 / var(--tw-bg-opacity, 1)));
 }
 
 .bg-surface-200{
   --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
+  background-color: var(--color-surface-200, rgb(226 232 240 / var(--tw-bg-opacity, 1)));
 }
 
 .bg-text-primary{
@@ -2570,6 +2570,7 @@ body {
 }
 
 /* Service Cards with Hover Effects */
+/* Service Cards - Dark Mode as Default */
 .service-card {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -2579,6 +2580,7 @@ body {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .service-card::before {
@@ -2601,7 +2603,23 @@ body {
   background: rgba(255, 255, 255, 0.12);
   border-color: var(--color-border-glow);
   transform: translateY(-8px);
-  box-shadow: var(--shadow-glow), 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-glow), 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Service Cards - Light Mode (removed for dark default) */
+[data-theme="light"] .service-card,
+html[data-theme="light"] .service-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  backdrop-filter: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .service-card:hover,
+html[data-theme="light"] .service-card:hover {
+  background: #F9FAFB;
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Modern Form Elements */
@@ -2655,7 +2673,7 @@ body {
   transform: translateY(0);
 }
 
-/* Enhanced Text Visibility for Service Cards */
+/* Enhanced Text Visibility for Service Cards - Dark Mode Default */
 .service-card h3 {
   color: #FFFFFF !important;
   font-weight: 700 !important;
@@ -2682,10 +2700,197 @@ body {
   transform: translateX(4px);
 }
 
+/* Service Cards Text - Light Mode */
+[data-theme="light"] .service-card h3,
+html[data-theme="light"] .service-card h3 {
+  color: var(--color-text-dark, #1F2937) !important;
+  text-shadow: none;
+}
+
+[data-theme="light"] .service-card p,
+html[data-theme="light"] .service-card p {
+  color: var(--color-text-secondary, #6B7280) !important;
+  text-shadow: none;
+}
+
+[data-theme="light"] .service-card a,
+html[data-theme="light"] .service-card a {
+  text-shadow: none;
+}
+
+[data-theme="light"] .service-card a:hover,
+html[data-theme="light"] .service-card a:hover {
+  text-shadow: none;
+}
+
 /* Enhanced Icon Visibility */
 .service-card .w-12 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Icon Colors and Hover Effects */
+.service-card .bg-primary {
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+}
+
+.service-card .group:hover .bg-primary {
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.6);
+}
+
+.service-card .bg-secondary {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+.service-card .group:hover .bg-secondary {
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+}
+
+.service-card .bg-accent {
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+}
+
+.service-card .group:hover .bg-accent {
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.6);
+}
+
+.service-card .bg-success {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+.service-card .group:hover .bg-success {
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+}
+
+.service-card .bg-warning {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.service-card .group:hover .bg-warning {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.6);
+}
+
+.service-card .bg-error {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+.service-card .group:hover .bg-error {
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
+}
+
+/* Service Card Prices and List Items - Dark Mode Default */
+.service-card .text-text-secondary,
+.service-card .text-text-muted {
+  color: #E5E7EB !important;
+}
+
+.service-card .text-primary {
+  color: #0EA5E9 !important;
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+}
+
+.service-card ul li {
+  color: #E5E7EB !important;
+}
+
+.service-card .border-border {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Override text-white for dark mode service cards */
+.service-card .text-white {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Service Card Prices and List Items - Light Mode Override */
+[data-theme="light"] .service-card .text-text-secondary,
+[data-theme="light"] .service-card .text-text-muted,
+html[data-theme="light"] .service-card .text-text-secondary,
+html[data-theme="light"] .service-card .text-text-muted {
+  color: #6B7280 !important;
+}
+
+[data-theme="light"] .service-card .text-primary,
+html[data-theme="light"] .service-card .text-primary {
+  color: #1E3A8A !important;
+  text-shadow: none;
+}
+
+[data-theme="light"] .service-card ul li,
+html[data-theme="light"] .service-card ul li {
+  color: #6B7280 !important;
+}
+
+[data-theme="light"] .service-card .border-border,
+html[data-theme="light"] .service-card .border-border {
+  border-color: #E5E7EB !important;
+}
+
+[data-theme="light"] .service-card .text-white,
+html[data-theme="light"] .service-card .text-white {
+  color: #1F2937 !important;
+  text-shadow: none;
+}
+
+/* Service Card Icon Backgrounds - Dark Mode Default */
+.service-card .bg-primary-100,
+.service-card .bg-accent-100 {
+  background-color: rgba(14, 165, 233, 0.2) !important;
+}
+
+.service-card .bg-secondary-100,
+.service-card .bg-success-100 {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+.service-card .bg-warning-100,
+.service-card .bg-error-100 {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Service Card Icon Backgrounds - Light Mode Override */
+[data-theme="light"] .service-card .bg-primary-100,
+[data-theme="light"] .service-card .bg-accent-100,
+html[data-theme="light"] .service-card .bg-primary-100,
+html[data-theme="light"] .service-card .bg-accent-100 {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+[data-theme="light"] .service-card .bg-secondary-100,
+[data-theme="light"] .service-card .bg-success-100,
+html[data-theme="light"] .service-card .bg-secondary-100,
+html[data-theme="light"] .service-card .bg-success-100 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+[data-theme="light"] .service-card .bg-warning-100,
+[data-theme="light"] .service-card .bg-error-100,
+html[data-theme="light"] .service-card .bg-warning-100,
+html[data-theme="light"] .service-card .bg-error-100 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+/* Service Card Badges - Light Mode */
+.service-card .bg-success {
+  background-color: #10B981 !important;
+  color: #FFFFFF !important;
+}
+
+/* Service Card Badges - Dark Mode Default */
+[data-theme="dark"] .service-card .bg-success,
+html[data-theme="dark"] .service-card .bg-success {
+  background-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+/* Service Card Badges - Light Mode Override */
+[data-theme="light"] .service-card .bg-success,
+html[data-theme="light"] .service-card .bg-success {
+  background-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: none;
 }
 
 /* Enhanced Footer Text Visibility */
@@ -3055,4 +3260,178 @@ footer .text-primary {
   .xl\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+/* Dark Mode Overrides for Tailwind Classes */
+[data-theme="dark"] .bg-background,
+html[data-theme="dark"] .bg-background {
+  background-color: var(--color-background) !important;
+}
+
+[data-theme="dark"] .bg-surface,
+html[data-theme="dark"] .bg-surface {
+  background-color: var(--color-surface) !important;
+}
+
+[data-theme="dark"] .bg-surface-100,
+html[data-theme="dark"] .bg-surface-100 {
+  background-color: var(--color-surface-100) !important;
+}
+
+[data-theme="dark"] .bg-surface-200,
+html[data-theme="dark"] .bg-surface-200 {
+  background-color: var(--color-surface-200) !important;
+}
+
+/* Ensure body and html use dark backgrounds */
+[data-theme="dark"],
+html[data-theme="dark"] {
+  background-color: var(--color-background) !important;
+}
+
+[data-theme="dark"] body,
+html[data-theme="dark"] body {
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Dark mode text colors */
+[data-theme="dark"] .text-text-primary,
+html[data-theme="dark"] .text-text-primary {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .text-text-secondary,
+html[data-theme="dark"] .text-text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .text-text-muted,
+html[data-theme="dark"] .text-text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+/* Dark mode accent badge */
+[data-theme="dark"] .bg-accent-100,
+html[data-theme="dark"] .bg-accent-100 {
+  background-color: rgba(249, 115, 22, 0.2) !important;
+}
+
+[data-theme="dark"] .text-accent-600,
+html[data-theme="dark"] .text-accent-600 {
+  color: #FB923C !important;
+}
+
+/* Ensure all sections use dark backgrounds */
+[data-theme="dark"] section,
+html[data-theme="dark"] section {
+  background-color: transparent !important;
+}
+
+/* Dark mode border colors */
+[data-theme="dark"] .border-border,
+html[data-theme="dark"] .border-border {
+  border-color: var(--color-border) !important;
+}
+
+/* Mobile/Tablet dark mode fixes */
+@media (max-width: 1024px) {
+  [data-theme="dark"] *,
+  html[data-theme="dark"] * {
+    color-scheme: dark;
+  }
+  
+  [data-theme="dark"] input,
+  [data-theme="dark"] textarea,
+  [data-theme="dark"] select,
+  html[data-theme="dark"] input,
+  html[data-theme="dark"] textarea,
+  html[data-theme="dark"] select {
+    background-color: var(--color-surface) !important;
+    color: var(--color-text-primary) !important;
+    border-color: var(--color-border) !important;
+  }
+  
+  [data-theme="dark"] input::placeholder,
+  [data-theme="dark"] textarea::placeholder,
+  html[data-theme="dark"] input::placeholder,
+  html[data-theme="dark"] textarea::placeholder {
+    color: var(--color-text-muted) !important;
+  }
+}
+
+html[data-theme="light"] .service-card .bg-warning-100,
+html[data-theme="light"] .service-card .bg-error-100 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+/* Service Card Badges - Dark Mode Default */
+.service-card .bg-success {
+  background-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+/* Service Card Badges - Light Mode Override */
+[data-theme="light"] .service-card .bg-success,
+html[data-theme="light"] .service-card .bg-success {
+  background-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: none;
+}
+
+.bg-primary{
+  background-color: var(--color-primary);
+}
+
+.bg-primary-100{
+  background-color: var(--color-primary-100);
+}
+
+.bg-primary-50{
+  background-color: var(--color-primary-50);
+}
+
+.bg-primary\/80{
+  background-color: rgba(var(--color-primary), 0.8);
+}
+
+.bg-secondary{
+  background-color: var(--color-secondary);
+}
+
+.bg-secondary-100{
+  background-color: var(--color-secondary-100);
+}
+
+.bg-secondary-50{
+  background-color: var(--color-secondary-50);
+}
+
+.bg-success{
+  background-color: var(--color-success);
+}
+
+.bg-success-100{
+  background-color: var(--color-success-100);
+}
+
+.bg-success-50{
+  background-color: var(--color-success-50);
+}
+
+.bg-warning{
+  background-color: var(--color-warning);
+}
+
+.bg-warning-100{
+  background-color: var(--color-warning-100);
+}
+
+.bg-error{
+  background-color: var(--color-error);
+}
+
+.bg-error-100{
+  background-color: var(--color-error-100);
 }

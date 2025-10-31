@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,14 +35,7 @@
                     <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
                     <a href="contact_consultation.html" class="text-primary font-semibold">Contacto</a>
                     
-                    <div class="flex items-center space-x-2">
-                        <a href="login.html" class="btn-neon auth-button" style="display: none;">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login
-                        </a>
-                        <a href="client_portal.html" class="btn-neon portal-button">
-                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
-                        </a>
-                    </div>
+                    <!-- Login y Portal temporalmente deshabilitados -->
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -55,20 +48,13 @@
 
             <!-- Mobile Navigation -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border">
                     <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Inicio</a>
                     <a href="services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Servicios</a>
                     <a href="portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portfolio</a>
                     <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
                     <a href="contact_consultation.html" class="block px-3 py-2 text-primary font-semibold">Contacto</a>
-                    <div class="flex flex-col space-y-2 px-3 py-2">
-                        <a href="login.html" class="btn-primary text-center auth-button" style="display: none;">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login
-                        </a>
-                        <a href="client_portal.html" class="btn-primary text-center portal-button">
-                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
-                        </a>
-                    </div>
+                    <!-- Login y Portal temporalmente deshabilitados -->
                 </div>
             </div>
         </nav>
@@ -145,69 +131,54 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-20">
                 <!-- Phone Contact -->
-                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in">
-                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                        <i class="fas fa-phone text-primary group-hover:text-white text-2xl"></i>
+                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in p-8">
+                    <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i class="fas fa-phone text-primary group-hover:text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Teléfono</h3>
-                    <p class="text-text-secondary mb-4">Llámanos directamente para consultas urgentes</p>
-                    <a href="tel:+17875550123" class="text-primary font-semibold hover:text-primary-700 transition-colors">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Teléfono</h3>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Llámanos directamente para consultas urgentes</p>
+                    <a href="tel:+17875550123" class="text-primary font-semibold hover:text-primary-700 transition-colors text-lg block mb-4">
                         +1 (787) 555-0123
                     </a>
-                    <div class="mt-2 text-sm text-text-muted">
-                        <i class="fas fa-clock mr-1"></i>
+                    <div class="mt-4 text-sm text-text-muted">
+                        <i class="fas fa-clock mr-2"></i>
                         Lun - Vie: 9AM - 6PM AST
                     </div>
                 </div>
 
                 <!-- Email Contact -->
-                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in" style="animation-delay: 0.1s;">
-                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary group-hover:text-white transition-colors">
-                        <i class="fas fa-envelope text-secondary group-hover:text-white text-2xl"></i>
+                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in p-8" style="animation-delay: 0.1s;">
+                    <div class="w-20 h-20 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-secondary group-hover:text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Email</h3>
-                    <p class="text-text-secondary mb-4">Envíanos un email detallado sobre tu proyecto</p>
-                    <a href="mailto:info@webdevpr.com" class="text-secondary font-semibold hover:text-secondary-600 transition-colors">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Email</h3>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Envíanos un email detallado sobre tu proyecto</p>
+                    <a href="mailto:info@webdevpr.com" class="text-secondary font-semibold hover:text-secondary-600 transition-colors text-lg block mb-4">
                         info@webdevpr.com
                     </a>
-                    <div class="mt-2 text-sm text-text-muted">
-                        <i class="fas fa-reply mr-1"></i>
+                    <div class="mt-4 text-sm text-text-muted">
+                        <i class="fas fa-reply mr-2"></i>
                         Respuesta en 24h
                     </div>
                 </div>
 
                 <!-- WhatsApp Contact -->
-                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in" style="animation-delay: 0.2s;">
-                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-success group-hover:text-white transition-colors">
-                        <i class="fab fa-whatsapp text-success group-hover:text-white text-2xl"></i>
+                <div class="glass-card text-center group hover:shadow-card-hover transition-all duration-300 fade-in p-8" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-success group-hover:text-white transition-colors">
+                        <i class="fab fa-whatsapp text-success group-hover:text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">WhatsApp</h3>
-                    <p class="text-text-secondary mb-4">Chat directo para consultas rápidas</p>
-                    <a href="https://wa.me/17875550123" class="text-success font-semibold hover:text-success transition-colors">
+                    <h3 class="text-2xl font-semibold text-white mb-4">WhatsApp</h3>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Chat directo para consultas rápidas</p>
+                    <a href="https://wa.me/17875550123" class="text-success font-semibold hover:text-success transition-colors text-lg block mb-4">
                         Iniciar Chat
                     </a>
-                    <div class="mt-2 text-sm text-text-muted">
-                        <i class="fas fa-circle text-success mr-1"></i>
+                    <div class="mt-4 text-sm text-text-muted">
+                        <i class="fas fa-circle text-success mr-2"></i>
                         En línea ahora
                     </div>
                 </div>
-            </div>
-
-            <!-- Emergency Contact -->
-            <div class="bg-error-50 border border-error-100 rounded-lg p-6 text-center fade-in">
-                <div class="flex items-center justify-center mb-4">
-                    <i class="fas fa-exclamation-triangle text-error text-2xl mr-3"></i>
-                    <h3 class="text-xl font-semibold text-error">Soporte de Emergencia</h3>
-                </div>
-                <p class="text-text-secondary mb-4">
-                    ¿Tu sitio web está caído? Contacta nuestro soporte de emergencia 24/7
-                </p>
-                <a href="tel:+17875550124" class="btn-neon bg-error hover:bg-error">
-                    <i class="fas fa-phone mr-2"></i>
-                    Emergencia: +1 (787) 555-0124
-                </a>
             </div>
         </div>
     </section>
@@ -218,83 +189,83 @@
         <div class="floating-element"></div>
         <div class="floating-element"></div>
         <div class="container-max mx-auto relative z-10">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12 fade-in">
-                    <h2 class="text-3xl lg:text-4xl font-bold tech-heading mb-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-20 fade-in">
+                    <h2 class="text-4xl lg:text-6xl font-bold tech-heading mb-8">
                         Programa tu Consulta Gratuita
                     </h2>
-                    <p class="text-xl tech-subheading">
+                    <p class="text-xl lg:text-2xl tech-subheading max-w-3xl mx-auto leading-relaxed">
                         Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
                     </p>
                 </div>
 
-                <div class="glass-card fade-in">
-                    <form id="consultation-form-element" class="space-y-8">
+                <div class="glass-card fade-in p-16 lg:p-20">
+                    <form id="consultation-form-element" class="space-y-14">
                         <!-- Step Indicator -->
-                        <div class="flex items-center justify-center mb-8">
-                            <div class="flex items-center space-x-4">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold step-indicator active" data-step="1">1</div>
-                                    <span class="ml-2 text-sm font-medium text-primary step-label active">Información Básica</span>
+                        <div class="flex items-center justify-center mb-16 px-4">
+                            <div class="flex items-center space-x-8 w-full max-w-3xl">
+                                <div class="flex items-center flex-1">
+                                    <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-base font-bold step-indicator active" data-step="1">1</div>
+                                    <span class="ml-4 text-base font-medium text-primary step-label active">Información</span>
                                 </div>
-                                <div class="w-8 h-1 bg-border"></div>
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-border text-text-muted rounded-full flex items-center justify-center text-sm font-semibold step-indicator" data-step="2">2</div>
-                                    <span class="ml-2 text-sm font-medium text-text-muted step-label">Proyecto</span>
+                                <div class="w-16 h-2 bg-border"></div>
+                                <div class="flex items-center flex-1">
+                                    <div class="w-12 h-12 bg-border text-text-muted rounded-full flex items-center justify-center text-base font-bold step-indicator" data-step="2">2</div>
+                                    <span class="ml-4 text-base font-medium text-text-muted step-label">Proyecto</span>
                                 </div>
-                                <div class="w-8 h-1 bg-border"></div>
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-border text-text-muted rounded-full flex items-center justify-center text-sm font-semibold step-indicator" data-step="3">3</div>
-                                    <span class="ml-2 text-sm font-medium text-text-muted step-label">Preferencias</span>
+                                <div class="w-16 h-2 bg-border"></div>
+                                <div class="flex items-center flex-1">
+                                    <div class="w-12 h-12 bg-border text-text-muted rounded-full flex items-center justify-center text-base font-bold step-indicator" data-step="3">3</div>
+                                    <span class="ml-4 text-base font-medium text-text-muted step-label">Preferencias</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Step 1: Basic Information -->
-                        <div class="form-step active" data-step="1">
-                            <h3 class="text-2xl font-semibold text-white mb-6">Información de Contacto</h3>
+                        <div class="form-step active" data-step="1" class="py-6">
+                            <h3 class="text-3xl lg:text-4xl font-semibold text-white mb-12">Información de Contacto</h3>
                             
-                            <div class="grid md:grid-cols-2 gap-6">
+                            <div class="grid md:grid-cols-2 gap-12">
                                 <div>
-                                    <label for="firstName" class="block text-sm font-medium text-white mb-2">
+                                    <label for="firstName" class="block text-base font-medium text-white mb-4">
                                         Nombre *
                                     </label>
-                                    <input type="text" id="firstName" name="firstName" class="input-field" placeholder="Tu nombre" required />
-                                    <div class="error-message hidden text-error text-sm mt-1"></div>
+                                    <input type="text" id="firstName" name="firstName" class="input-field w-full px-6 py-4 text-base" placeholder="Tu nombre" required />
+                                    <div class="error-message hidden text-error text-sm mt-3"></div>
                                 </div>
                                 
                                 <div>
-                                    <label for="lastName" class="block text-sm font-medium text-white mb-2">
+                                    <label for="lastName" class="block text-base font-medium text-white mb-4">
                                         Apellido *
                                     </label>
-                                    <input type="text" id="lastName" name="lastName" class="input-field" placeholder="Tu apellido" required />
-                                    <div class="error-message hidden text-error text-sm mt-1"></div>
+                                    <input type="text" id="lastName" name="lastName" class="input-field w-full px-6 py-4 text-base" placeholder="Tu apellido" required />
+                                    <div class="error-message hidden text-error text-sm mt-3"></div>
                                 </div>
                             </div>
 
-                            <div class="grid md:grid-cols-2 gap-6">
+                            <div class="grid md:grid-cols-2 gap-12 mt-12">
                                 <div>
-                                    <label for="email" class="block text-sm font-medium text-white mb-2">
+                                    <label for="email" class="block text-base font-medium text-white mb-4">
                                         Email *
                                     </label>
-                                    <input type="email" id="email" name="email" class="input-field" placeholder="tu@email.com" required />
-                                    <div class="error-message hidden text-error text-sm mt-1"></div>
+                                    <input type="email" id="email" name="email" class="input-field w-full px-6 py-4 text-base" placeholder="tu@email.com" required />
+                                    <div class="error-message hidden text-error text-sm mt-3"></div>
                                 </div>
                                 
                                 <div>
-                                    <label for="phone" class="block text-sm font-medium text-white mb-2">
+                                    <label for="phone" class="block text-base font-medium text-white mb-4">
                                         Teléfono *
                                     </label>
-                                    <input type="tel" id="phone" name="phone" class="input-field" placeholder="+1 (787) 555-0123" required />
-                                    <div class="error-message hidden text-error text-sm mt-1"></div>
+                                    <input type="tel" id="phone" name="phone" class="input-field w-full px-6 py-4 text-base" placeholder="+1 (787) 555-0123" required />
+                                    <div class="error-message hidden text-error text-sm mt-3"></div>
                                 </div>
                             </div>
 
-                            <div>
-                                <label for="company" class="block text-sm font-medium text-white mb-2">
+                            <div class="mt-12">
+                                <label for="company" class="block text-base font-medium text-white mb-4">
                                     Empresa/Organización
                                 </label>
-                                <input type="text" id="company" name="company" class="input-field" placeholder="Nombre de tu empresa (opcional)" />
+                                <input type="text" id="company" name="company" class="input-field w-full px-6 py-4 text-base" placeholder="Nombre de tu empresa (opcional)" />
                             </div>
                         </div>
 
@@ -698,7 +669,9 @@
                         <li><a href="about_us.html" class="text-gray-200 font-medium hover:text-white transition-colors">Nosotros</a></li>
                         <li><a href="portfolio_showcase.html" class="text-gray-200 font-medium hover:text-white transition-colors">Portfolio</a></li>
                         <li><a href="contact_consultation.html" class="text-gray-200 font-medium hover:text-white transition-colors">Contacto</a></li>
+                        <!-- Temporalmente deshabilitado
                         <li><a href="client_portal.html" class="text-gray-200 font-medium hover:text-white transition-colors">Portal Cliente</a></li>
+                        -->
                         <li><a href="javascript:void(0)" class="text-gray-200 font-medium hover:text-white transition-colors">Blog</a></li>
                     </ul>
                 </div>
@@ -1040,6 +1013,7 @@
         showStep(currentStep);
     </script>
     <script src="../js/auth-manager.js"></script>
+    <script src="../js/theme-toggle.js"></script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 </html>

@@ -10,19 +10,15 @@
     const THEME_DARK = 'dark';
     const THEME_LIGHT = 'light';
 
-    // Get saved theme from localStorage or system preference
+    // Get saved theme from localStorage or default to dark
     function getSavedTheme() {
         const savedTheme = localStorage.getItem(THEME_KEY);
         if (savedTheme) {
             return savedTheme;
         }
         
-        // Check system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return THEME_DARK;
-        }
-        
-        return THEME_LIGHT;
+        // Default to dark mode
+        return THEME_DARK;
     }
 
     // Apply theme to document

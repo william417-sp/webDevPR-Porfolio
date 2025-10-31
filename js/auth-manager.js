@@ -30,23 +30,14 @@ class AuthManager {
         const loginButtons = document.querySelectorAll('.auth-button');
         const portalButtons = document.querySelectorAll('.portal-button');
         
-        if (this.isLoggedIn) {
-            // Usuario logueado - mostrar Portal de Cliente
-            loginButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-            portalButtons.forEach(button => {
-                button.style.display = 'inline-block';
-            });
-        } else {
-            // Usuario no logueado - mostrar Login
-            loginButtons.forEach(button => {
-                button.style.display = 'inline-block';
-            });
-            portalButtons.forEach(button => {
-                button.style.display = 'none';
-            });
-        }
+        // Temporalmente deshabilitado - Login y Portal pausados
+        // Siempre mantener ambos ocultos
+        loginButtons.forEach(button => {
+            button.style.display = 'none';
+        });
+        portalButtons.forEach(button => {
+            button.style.display = 'none';
+        });
     }
 
     // Configura los event listeners

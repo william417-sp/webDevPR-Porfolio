@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,14 +37,7 @@
                     <a href="about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
                     <a href="contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a>
                     
-                    <div class="flex items-center space-x-2">
-                        <a href="login.html" class="btn-neon auth-button" style="display: none;">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login
-                        </a>
-                        <a href="client_portal.html" class="btn-neon portal-button">
-                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
-                        </a>
-                    </div>
+                    <!-- Login y Portal temporalmente deshabilitados -->
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -57,20 +50,13 @@
 
             <!-- Mobile Navigation -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border">
                     <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Inicio</a>
                     <a href="services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Servicios</a>
                     <a href="portfolio_showcase.html" class="block px-3 py-2 text-primary font-semibold">Portfolio</a>
                     <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
                     <a href="contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Contacto</a>
-                    <div class="flex flex-col space-y-2 px-3 py-2">
-                        <a href="login.html" class="btn-primary text-center auth-button" style="display: none;">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login
-                        </a>
-                        <a href="client_portal.html" class="btn-primary text-center portal-button">
-                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
-                        </a>
-                    </div>
+                    <!-- Login y Portal temporalmente deshabilitados -->
                 </div>
             </div>
         </nav>
@@ -155,9 +141,9 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
                 <!-- Project 1 - Healthcare -->
                 <div class="portfolio-item fade-in" data-category="healthcare" data-title="Clínica Salud Total">
-                    <div class="glass-card group overflow-hidden">
-                        <div class="relative overflow-hidden rounded-lg mb-4">
-                            <img src="../images/SaludTotal/Inicio.jpg" alt="Clínica Salud Total" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                    <div class="glass-card group overflow-hidden p-8">
+                        <div class="relative overflow-hidden rounded-lg mb-8">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Clínica Salud Total" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
                             <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <button class="btn-neon" onclick="openCaseStudy('salud-total')">
                                     <i class="fas fa-eye mr-2"></i>
@@ -168,9 +154,9 @@
                                 <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium">Salud</span>
                             </div>
                         </div>
-                        <div class="space-y-3">
-                            <h3 class="text-xl font-semibold text-white">Clínica Salud Total</h3>
-                            <p class="text-text-secondary">Portal de pacientes con sistema de citas, historial médico y telemedicina.</p>
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-semibold text-white leading-tight">Clínica Salud Total</h3>
+                            <p class="text-text-secondary leading-relaxed text-base">Portal de pacientes con sistema de citas, historial médico y telemedicina.</p>
                         </div>
                     </div>
                 </div>
@@ -178,9 +164,9 @@
 
                 <!-- Project 2 - Restaurant -->
                 <div class="portfolio-item fade-in" data-category="restaurant" data-title="Restaurante El Yunque" style="animation-delay: 0.2s;">
-                    <div class="glass-card group overflow-hidden">
-                        <div class="relative overflow-hidden rounded-lg mb-4">
-                            <img src="../images/RestauranteElYunque/Inicio.jpg" alt="Restaurante El Yunque" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/4F46E5/FFFFFF?text=Restaurante+El+Yunque'; console.log('Error loading project image')" onload="console.log('Project image loaded successfully')" />
+                    <div class="glass-card group overflow-hidden p-8">
+                        <div class="relative overflow-hidden rounded-lg mb-8">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4d71bcdd2d59?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Restaurante El Yunque" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
                             <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <button class="btn-neon" onclick="openCaseStudy('restaurante-yunque')">
                                     <i class="fas fa-eye mr-2"></i>
@@ -191,18 +177,25 @@
                                 <span class="bg-warning text-white px-2 py-1 rounded text-xs font-medium">Restaurante</span>
                             </div>
                         </div>
-                        <div class="space-y-3">
-                            <h3 class="text-xl font-semibold text-white">Restaurante El Yunque</h3>
-                            <p class="text-text-secondary">Plataforma gastronómica completa con menú digital, reservas online y sistema de pedidos.</p>
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-semibold text-white leading-tight">Restaurante El Yunque</h3>
+                            <p class="text-text-secondary leading-relaxed text-base">Plataforma gastronómica completa con menú digital, reservas online y sistema de pedidos.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 - E-commerce -->
                 <div class="portfolio-item fade-in" data-category="ecommerce" data-title="Boutique Luna" style="animation-delay: 0.3s;">
-                    <div class="glass-card group overflow-hidden">
-                        <div class="relative overflow-hidden rounded-lg mb-4">
-                            <img src="../images/BoutiqueLuna/inicio.jpg" alt="Boutique Luna" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/EC4899/FFFFFF?text=Boutique+Luna'; console.log('Error loading project image')" onload="console.log('Project image loaded successfully')" />
+                    <div class="glass-card group overflow-hidden p-8">
+                        <div class="relative overflow-hidden rounded-lg mb-8" style="background: linear-gradient(135deg, #f3e5f5 0%, #f8bbd0 100%); display: flex; align-items: center; justify-content: center; min-height: 192px; flex-direction: column; gap: 1rem;">
+                            <div style="text-align: center; color: #1a1a1a; width: 100%;">
+                                <div style="font-family: 'Brush Script MT', cursive, 'Great Vibes', serif; font-size: 4rem; font-weight: 400; margin-bottom: 1.5rem; letter-spacing: 0.02em; line-height: 1.2;">Boutique Luna</div>
+                                <svg width="50" height="50" viewBox="0 0 50 50" style="margin: 0 auto; display: block; opacity: 0.7;" fill="none" stroke="#1a1a1a" stroke-width="1.2">
+                                    <path d="M15 25 Q25 12, 35 25 Q25 38, 15 25" fill="none"/>
+                                    <path d="M12 25 L38 25" stroke-width="0.8"/>
+                                    <circle cx="25" cy="40" r="2.5" fill="#1a1a1a"/>
+                                </svg>
+                            </div>
                             <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <button class="btn-neon" onclick="openCaseStudy('boutique-luna')">
                                     <i class="fas fa-eye mr-2"></i>
@@ -213,9 +206,9 @@
                                 <span class="bg-pink-500 text-white px-2 py-1 rounded text-xs font-medium">E-commerce</span>
                             </div>
                         </div>
-                        <div class="space-y-3">
-                            <h3 class="text-xl font-semibold text-white">Boutique Luna</h3>
-                            <p class="text-text-secondary">Plataforma de moda femenina con catálogo completo, carrito de compras y sistema de checkout.</p>
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-semibold text-white leading-tight">Boutique Luna</h3>
+                            <p class="text-text-secondary leading-relaxed text-base">Plataforma de moda femenina con catálogo completo, carrito de compras y sistema de checkout.</p>
                         </div>
                     </div>
                 </div>
@@ -223,8 +216,8 @@
 
                 <!-- Project 4 - Education -->
                 <div class="portfolio-item fade-in" data-category="education" data-title="Academia Digital PR" style="animation-delay: 0.4s;">
-                    <div class="glass-card group overflow-hidden">
-                        <div class="relative overflow-hidden rounded-lg mb-4">
+                    <div class="glass-card group overflow-hidden p-8">
+                        <div class="relative overflow-hidden rounded-lg mb-8">
                             <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Academia Digital PR" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
                             <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <button class="btn-secondary" onclick="openCaseStudy('academia-digital')">
@@ -236,9 +229,9 @@
                                 <span class="bg-success text-white px-2 py-1 rounded text-xs font-medium">Educación</span>
                             </div>
                         </div>
-                        <div class="space-y-3">
-                            <h3 class="text-xl font-semibold text-white">Academia Digital PR</h3>
-                            <p class="text-text-secondary">Plataforma de aprendizaje online con cursos interactivos y sistema de certificaciones.</p>
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-semibold text-white leading-tight">Academia Digital PR</h3>
+                            <p class="text-text-secondary leading-relaxed text-base">Plataforma de aprendizaje online con cursos interactivos y sistema de certificaciones.</p>
                         </div>
                     </div>
                 </div>
@@ -493,7 +486,9 @@
                         <li><a href="about_us.html" class="text-gray-200 hover:text-white transition-colors">Nosotros</a></li>
                         <li><a href="portfolio_showcase.html" class="text-gray-200 hover:text-white transition-colors">Portfolio</a></li>
                         <li><a href="contact_consultation.html" class="text-gray-200 hover:text-white transition-colors">Contacto</a></li>
+                        <!-- Temporalmente deshabilitado
                         <li><a href="client_portal.html" class="text-gray-200 hover:text-white transition-colors">Portal Cliente</a></li>
+                        -->
                         <li><a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors">Blog</a></li>
                     </ul>
                 </div>
@@ -532,7 +527,7 @@
 
     <!-- Case Study Modal -->
     <div id="case-study-modal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="bg-surface rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div class="p-6 border-b border-border flex items-center justify-between">
                 <h3 class="text-2xl font-bold text-white" id="modal-title">Caso de Estudio</h3>
                 <button class="text-text-muted hover:text-white" onclick="closeCaseStudy()">
@@ -1245,7 +1240,7 @@
         const style = document.createElement('style');
         style.textContent = `
             .filter-btn {
-                @apply px-4 py-2 rounded-lg border border-border text-text-secondary hover:text-primary hover:border-primary transition-all duration-300 bg-white;
+                @apply px-4 py-2 rounded-lg border border-border text-text-secondary hover:text-primary hover:border-primary transition-all duration-300 bg-surface;
             }
             .filter-btn.active {
                 @apply bg-primary text-white border-primary;
@@ -1342,6 +1337,7 @@
             });
         });
     </script>
+    <script src="../js/theme-toggle.js"></script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 </html>

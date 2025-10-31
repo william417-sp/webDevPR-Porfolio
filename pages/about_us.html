@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,14 +35,7 @@
                     <a href="about_us.html" class="text-primary font-semibold">Nosotros</a>
                     <a href="contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a>
                     
-                    <div class="flex items-center space-x-2">
-                        <a href="login.html" class="btn-neon auth-button" style="display: none;">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login
-                        </a>
-                        <a href="client_portal.html" class="btn-neon portal-button">
-                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
-                        </a>
-                    </div>
+                    <!-- Login y Portal temporalmente deshabilitados -->
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -55,20 +48,13 @@
 
             <!-- Mobile Navigation -->
             <div class="md:hidden hidden" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border">
                     <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Inicio</a>
                     <a href="services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Servicios</a>
                     <a href="portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portfolio</a>
                     <a href="about_us.html" class="block px-3 py-2 text-primary font-semibold">Nosotros</a>
                     <a href="contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Contacto</a>
-                    <div class="flex flex-col space-y-2 px-3 py-2">
-                        <a href="login.html" class="btn-primary text-center auth-button" style="display: none;">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login
-                        </a>
-                        <a href="client_portal.html" class="btn-primary text-center portal-button">
-                            <i class="fas fa-user-circle mr-2"></i>Portal de Cliente
-                        </a>
-                    </div>
+                    <!-- Login y Portal temporalmente deshabilitados -->
                 </div>
             </div>
         </nav>
@@ -387,7 +373,9 @@
                         <li><a href="about_us.html" class="text-gray-200 hover:text-white transition-colors font-medium">Nosotros</a></li>
                         <li><a href="portfolio_showcase.html" class="text-gray-200 hover:text-white transition-colors font-medium">Portfolio</a></li>
                         <li><a href="contact_consultation.html" class="text-gray-200 hover:text-white transition-colors font-medium">Contacto</a></li>
+                        <!-- Temporalmente deshabilitado
                         <li><a href="client_portal.html" class="text-gray-200 hover:text-white transition-colors font-medium">Portal Cliente</a></li>
+                        -->
                         <li><a href="javascript:void(0)" class="text-gray-200 hover:text-white transition-colors font-medium">Blog</a></li>
                     </ul>
                 </div>
@@ -420,6 +408,7 @@
                 <p class="text-gray-200 font-medium">
                     © 2025 webDevPR. Todos los derechos reservados.
                 </p>
+                <!-- Temporalmente deshabilitado
                 <p class="text-gray-300 text-sm mt-2">
                     <a href="../admin-panel.html" class="hover:text-white transition-colors font-medium" title="Panel de Administración" style="margin: 0 5px;">
                         <i class="fas fa-shield-alt"></i> Admin
@@ -429,6 +418,7 @@
                         <i class="fas fa-robot"></i> Chatbot
                     </a>
                 </p>
+                -->
             </div>
         </div>
     </footer>
@@ -517,6 +507,7 @@
 
     </script>
     <script src="../js/auth-manager.js"></script>
+    <script src="../js/theme-toggle.js"></script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 </html>

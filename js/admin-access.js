@@ -171,11 +171,12 @@
         }
     }
 
+    // Temporalmente deshabilitado - Admin pausado
     // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', createAdminButton);
-    } else {
-        createAdminButton();
-    }
+    // if (document.readyState === 'loading') {
+    //     document.addEventListener('DOMContentLoaded', createAdminButton);
+    // } else {
+    //     createAdminButton();
+    // }
 })();
 
