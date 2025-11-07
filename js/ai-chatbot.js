@@ -4,6 +4,88 @@
     
     console.log('🤖 Cargando chatbot...');
 
+    // ============================================
+    // CONFIGURACIÓN DE OLLAMA LOCAL (Llama 3.2)
+    // ============================================
+    // Para usar Llama 3.2 con Ollama local:
+    // 1. Asegúrate de tener Ollama corriendo en http://localhost:11434
+    // 2. Instala el modelo: ollama pull llama3.2
+    // 3. Cambia 'enabled: false' a 'enabled: true'
+    // 4. El chatbot usará Llama 3.2 localmente (más rápido y privado)
+    // 5. Si Ollama no está disponible, usará respuestas predefinidas como fallback
+    
+    const OLLAMA_CONFIG = {
+        enabled: true, // Cambia a 'true' para habilitar Ollama local
+        endpoint: 'http://localhost:11434/api/chat', // API de Ollama local
+        model: 'llama3.2:latest', // Modelo Llama 3.2 (usa el nombre exacto de tu modelo instalado)
+        // model: 'llama3.1', // Alternativa si tienes Llama 3.1 instalado
+        // model: 'llama3', // Si tienes Llama 3 instalado
+        temperature: 0.7,
+        num_predict: 500 // Máximo de tokens a generar
+    };
+
+    // ============================================
+    // Función para obtener respuesta de Ollama API Local
+    // ============================================
+    async function getOllamaResponse(userMessage) {
+        // Verificar si Ollama está habilitado
+        if (!OLLAMA_CONFIG.enabled) {
+            return null; // Usar fallback
+        }
+
+        try {
+            // System prompt personalizado para webDevPR
+            const systemPrompt = `Eres un asistente virtual amigable y profesional de webDevPR, una empresa de desarrollo web en Puerto Rico. 
+Tu misión es ayudar a los clientes con información sobre servicios, precios, tiempos y agendar consultas.
+Mantén respuestas breves, claras y en español. Si no sabes algo, dirige a contactar directamente.
+Información clave sobre webDevPR:
+- Sitios web desde $1,500
+- E-commerce desde $3,000
+- Apps móviles desde $10,000
+- SEO desde $500/mes
+- Mantenimiento desde $99/mes
+- Consultas gratuitas disponibles
+- Contacto: +1 (787) 555-0123, info@webdevpr.com`;
+
+            const response = await fetch(OLLAMA_CONFIG.endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: OLLAMA_CONFIG.model,
+                    messages: [
+                        { role: 'system', content: systemPrompt },
+                        { role: 'user', content: userMessage }
+                    ],
+                    stream: false,
+                    options: {
+                        temperature: OLLAMA_CONFIG.temperature,
+                        num_predict: OLLAMA_CONFIG.num_predict
+                    }
+                })
+            });
+
+            if (!response.ok) {
+                console.error('Error en Ollama API:', response.status, response.statusText);
+                console.log('💡 Asegúrate de que Ollama esté corriendo en http://localhost:11434');
+                return null; // Usar fallback
+            }
+
+            const data = await response.json();
+            
+            if (data.message && data.message.content) {
+                return data.message.content.trim();
+            }
+
+            return null; // Usar fallback
+        } catch (error) {
+            console.error('Error llamando a Ollama API local:', error);
+            console.log('💡 Asegúrate de que Ollama esté corriendo: ollama serve');
+            return null; // Usar fallback
+        }
+    }
+
     // Esperar a que el DOM esté listo
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initChatbot);
@@ -385,17 +467,29 @@
         ];
     }
 
-    function handleUserMessage(message) {
+    async function handleUserMessage(message) {
         addMessage('user', message, false);
         
         // Guardar conversación en localStorage para el panel admin
         saveConversation(message, 'user');
         
-        setTimeout(function() {
-            var response = findResponse(message.toLowerCase());
-            addMessage('bot', response, true);
-            saveConversation(response, 'bot');
-        }, 500 + Math.random() * 1000);
+        // Intentar usar Ollama local primero
+        var ollamaResponse = await getOllamaResponse(message);
+        
+        if (ollamaResponse) {
+            // Usar respuesta de Ollama (Llama 3.2 local)
+            setTimeout(function() {
+                addMessage('bot', ollamaResponse, true);
+                saveConversation(ollamaResponse, 'bot');
+            }, 300);
+        } else {
+            // Usar respuestas predefinidas como fallback
+            setTimeout(function() {
+                var response = findResponse(message.toLowerCase());
+                addMessage('bot', response, true);
+                saveConversation(response, 'bot');
+            }, 500 + Math.random() * 1000);
+        }
     }
 
     function saveConversation(message, sender) {

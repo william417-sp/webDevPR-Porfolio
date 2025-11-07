@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webDevPR | Tu Socio Tecnológico de Confianza</title>
+    <meta name="description" content="webDevPR - Desarrollo web profesional en Puerto Rico. Soluciones digitales innovadoras, sitios web modernos y servicios tecnológicos de calidad." />
+    <meta name="keywords" content="desarrollo web, Puerto Rico, sitios web, aplicaciones web, diseño web, programación" />
+    <meta name="author" content="webDevPR" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="webDevPR | Tu Socio Tecnológico de Confianza" />
+    <meta property="og:description" content="Desarrollo web profesional en Puerto Rico. Soluciones digitales innovadoras y servicios tecnológicos de calidad." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webdevpr.com" />
+    <meta property="og:image" content="https://webdevpr.com/images/og-image.jpg" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="webDevPR | Tu Socio Tecnológico de Confianza" />
+    <meta name="twitter:description" content="Desarrollo web profesional en Puerto Rico. Soluciones digitales innovadoras y servicios tecnológicos de calidad." />
+    <meta name="twitter:image" content="https://webdevpr.com/images/og-image.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="pubic/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="pubic/favicon.ico" />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Rocket.new Integration -->
+    <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fwebdevprp2754back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-white">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 nav-glass z-50">
+        <nav class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="pages/homepage.html" class="flex items-center space-x-2 glow-on-hover">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-glow">
+                            <span class="text-white font-bold text-lg">W</span>
+                        </div>
+                        <span class="text-xl font-bold tech-heading">webDevPR</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="pages/homepage.html" class="text-text-secondary hover:text-primary transition-colors">Inicio</a>
+                    <a href="pages/services_hub.html" class="text-text-secondary hover:text-primary transition-colors">Servicios</a>
+                    <a href="pages/portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors">Portfolio</a>
+                    <a href="pages/about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a>
+                    <a href="pages/contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a>
+                    <a href="pages/client_portal.html" class="text-text-secondary hover:text-primary transition-colors">Portal Cliente</a>
+                    
+                    <div class="flex items-center space-x-2">
+                        <a href="pages/login.html" class="btn-neon auth-button" style="display: none;">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <button class="p-2 rounded-md text-text-secondary hover:text-primary" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-border">
+                    <a href="pages/homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Inicio</a>
+                    <a href="pages/services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Servicios</a>
+                    <a href="pages/portfolio_showcase.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portfolio</a>
+                    <a href="pages/about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Nosotros</a>
+                    <a href="pages/contact_consultation.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Contacto</a>
+                    <a href="pages/client_portal.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Portal Cliente</a>
+                    <div class="flex flex-col space-y-2 px-3 py-2">
+                        <a href="pages/login.html" class="btn-primary text-center auth-button" style="display: none;">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center">
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Hero Section -->
+            <section class="pt-24 pb-16 tech-bg overflow-hidden relative">
+                <!-- Floating Elements -->
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                
+                <div class="max-w-4xl mx-auto fade-in">
+                    <div class="mb-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent-100 text-accent-600">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Bienvenido a webDevPR
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-4xl lg:text-6xl font-bold tech-heading mb-6 leading-tight">
+                        <span class="block">Tu Socio Tecnológico</span>
+                        <span class="text-gradient">de Confianza</span>
+                    </h1>
+                    
+                    <p class="text-xl tech-subheading mb-8 leading-relaxed">
+                        Soluciones web innovadoras y personalizadas para impulsar tu negocio en Puerto Rico. 
+                        Desarrollo profesional, diseño moderno y tecnología de vanguardia.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                        <a href="pages/homepage.html" class="btn-neon text-center">
+                            <i class="fas fa-home mr-2"></i>
+                            Explorar Sitio
+                        </a>
+                        <a href="pages/contact_consultation.html" class="glass-card text-center px-6 py-3 text-white hover:text-primary transition-colors font-semibold">
+                            <i class="fas fa-phone mr-2"></i>
+                            Contactar Ahora
+                        </a>
+                    </div>
+                    
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                        <div class="glass-card text-center">
+                            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-code text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Desarrollo Web</h3>
+                            <p class="text-text-secondary">Sitios web modernos y responsivos</p>
+                        </div>
+                        
+                        <div class="glass-card text-center">
+                            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-mobile-alt text-secondary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Aplicaciones</h3>
+                            <p class="text-text-secondary">Apps web y móviles personalizadas</p>
+                        </div>
+                        
+                        <div class="glass-card text-center">
+                            <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chart-line text-success text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Optimización</h3>
+                            <p class="text-text-secondary">SEO y rendimiento web</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="tech-bg border-t border-border">
+        <div class="container-max mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">W</span>
+                        </div>
+                        <span class="text-lg font-bold tech-heading">webDevPR</span>
+                    </div>
+                    <p class="text-text-secondary mb-4">
+                        Tu socio tecnológico de confianza en Puerto Rico. 
+                        Soluciones web innovadoras para impulsar tu negocio.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="pages/homepage.html" class="text-text-secondary hover:text-primary transition-colors">Inicio</a></li>
+                        <li><a href="pages/services_hub.html" class="text-text-secondary hover:text-primary transition-colors">Servicios</a></li>
+                        <li><a href="pages/portfolio_showcase.html" class="text-text-secondary hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="pages/about_us.html" class="text-text-secondary hover:text-primary transition-colors">Nosotros</a></li>
+                        <li><a href="pages/contact_consultation.html" class="text-text-secondary hover:text-primary transition-colors">Contacto</a></li>
+                        <li><a href="pages/client_portal.html" class="text-text-secondary hover:text-primary transition-colors">Portal Cliente</a></li>
+                        <li><a href="pages/case-study-salud-total.html" class="text-text-secondary hover:text-primary transition-colors">Caso de Estudio</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contacto</h3>
+                    <div class="space-y-2 text-text-secondary">
+                        <p><i class="fas fa-phone mr-2"></i>+1 (787) 555-0123</p>
+                        <p><i class="fas fa-envelope mr-2"></i>info@webdevpr.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>Puerto Rico</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-border mt-8 pt-8 text-center text-text-secondary">
+                <p>&copy; 2024 webDevPR. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/navbar-responsive.js"></script>
+    <script src="js/ai-chatbot.js"></script>
+    <script src="js/auth-manager.js"></script>
+    <script>
+        // Auto-redirect to homepage immediately
+        window.location.href = 'pages/homepage.html';
+        
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.05);
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top + scrolled;
+                const elementHeight = rect.height;
+                const windowHeight = window.innerHeight;
+                
+                // Only animate if element is in viewport
+                if (rect.bottom >= 0 && rect.top <= windowHeight) {
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+            });
+        });
+
+        // Mouse movement effect for hero section
+        document.addEventListener('mousemove', (e) => {
+            const heroSection = document.querySelector('.tech-bg');
+            if (heroSection) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                heroSection.style.background = `
+                    radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at ${(1-x) * 100}% ${(1-y) * 100}%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at ${(x + y) * 50}% ${(x - y) * 50}%, rgba(249, 115, 22, 0.1) 0%, transparent 50%)
+                `;
+            }
+        });
+    </script>
+    <script id="dhws-dataInjector" src="public/dhws-data-injector.js"></script>
+</body>
+</html>
