@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Conexión con Ollama</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a2332;
+            color: #e0e0e0;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #357abd;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .info { color: #60a5fa; }
+        h1 { color: #4a90e2; }
+        h2 { color: #60a5fa; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Prueba de Conexión con Ollama</h1>
+    
+    <div class="test-section">
+        <h2>1. Verificar que Ollama esté corriendo</h2>
+        <button onclick="testOllamaConnection()">Probar Conexión</button>
+        <div id="connection-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Verificar modelos disponibles</h2>
+        <button onclick="listModels()">Listar Modelos</button>
+        <div id="models-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Probar Chat API</h2>
+        <input type="text" id="test-message" placeholder="Escribe un mensaje de prueba..." 
+               style="width: 70%; padding: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 5px; color: white; margin-right: 10px;">
+        <button onclick="testChat()">Enviar Mensaje</button>
+        <div id="chat-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Información de Configuración</h2>
+        <div id="config-info" class="result info"></div>
+    </div>
+
+    <script>
+        const OLLAMA_BASE = 'http://localhost:11434';
+        const MODEL_NAME = 'llama3.2:latest'; // Ajusta según tu modelo
+
+        // Mostrar configuración
+        document.getElementById('config-info').textContent = 
+            `Endpoint: ${OLLAMA_BASE}/api/chat\n` +
+            `Modelo configurado: ${MODEL_NAME}\n` +
+            `Asegúrate de que el modelo esté instalado: ollama pull ${MODEL_NAME.split(':')[0]}`;
+
+        async function testOllamaConnection() {
+            const resultDiv = document.getElementById('connection-result');
+            resultDiv.textContent = '🔄 Probando conexión...';
+            resultDiv.className = 'result info';
+
+            try {
+                const response = await fetch(`${OLLAMA_BASE}/api/tags`);
+                if (response.ok) {
+                    const data = await response.json();
+                    resultDiv.textContent = '✅ Ollama está corriendo correctamente!\n\n' +
+                        `Modelos disponibles: ${data.models ? data.models.length : 0}`;
+                    resultDiv.className = 'result success';
+                } else {
+                    resultDiv.textContent = `❌ Error: ${response.status} ${response.statusText}`;
+                    resultDiv.className = 'result error';
+                }
+            } catch (error) {
+                resultDiv.textContent = `❌ Error de conexión:\n${error.message}\n\n` +
+                    '💡 Asegúrate de que Ollama esté corriendo:\n' +
+                    '   ollama serve';
+                resultDiv.className = 'result error';
+            }
+        }
+
+        async function listModels() {
+            const resultDiv = document.getElementById('models-result');
+            resultDiv.textContent = '🔄 Obteniendo lista de modelos...';
+            resultDiv.className = 'result info';
+
+            try {
+                const response = await fetch(`${OLLAMA_BASE}/api/tags`);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.models && data.models.length > 0) {
+                        const modelList = data.models.map(m => 
+                            `  - ${m.name} (${(m.size / 1024 / 1024 / 1024).toFixed(2)} GB)`
+                        ).join('\n');
+                        resultDiv.textContent = `✅ Modelos instalados:\n\n${modelList}\n\n` +
+                            `💡 Modelo configurado: ${MODEL_NAME}\n` +
+                            `💡 Si no coincide, ajusta MODEL_NAME en este archivo.`;
+                        resultDiv.className = 'result success';
+                    } else {
+                        resultDiv.textContent = '⚠️ No hay modelos instalados.\n\n' +
+                            `Ejecuta: ollama pull ${MODEL_NAME.split(':')[0]}`;
+                        resultDiv.className = 'result error';
+                    }
+                } else {
+                    resultDiv.textContent = `❌ Error: ${response.status} ${response.statusText}`;
+                    resultDiv.className = 'result error';
+                }
+            } catch (error) {
+                resultDiv.textContent = `❌ Error: ${error.message}`;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        async function testChat() {
+            const message = document.getElementById('test-message').value || 'Hola, ¿cómo estás?';
+            const resultDiv = document.getElementById('chat-result');
+            resultDiv.textContent = '🔄 Enviando mensaje...';
+            resultDiv.className = 'result info';
+
+            try {
+                const systemPrompt = `Eres un asistente virtual amigable de webDevPR. Responde brevemente en español.`;
+                
+                const response = await fetch(`${OLLAMA_BASE}/api/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: MODEL_NAME,
+                        messages: [
+                            { role: 'system', content: systemPrompt },
+                            { role: 'user', content: message }
+                        ],
+                        stream: false,
+                        options: {
+                            temperature: 0.7,
+                            num_predict: 200
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    resultDiv.textContent = `❌ Error ${response.status}:\n${errorText}\n\n` +
+                        `💡 Verifica que:\n` +
+                        `   1. El modelo "${MODEL_NAME}" esté instalado\n` +
+                        `   2. El nombre del modelo sea correcto\n` +
+                        `   3. Ollama esté corriendo`;
+                    resultDiv.className = 'result error';
+                    return;
+                }
+
+                const data = await response.json();
+                console.log('Respuesta completa:', data);
+                
+                let responseText = '';
+                if (data.message && data.message.content) {
+                    responseText = data.message.content;
+                } else if (data.response) {
+                    responseText = data.response;
+                } else {
+                    responseText = JSON.stringify(data, null, 2);
+                }
+
+                resultDiv.textContent = `✅ Respuesta recibida:\n\n${responseText}\n\n` +
+                    `📋 Datos completos:\n${JSON.stringify(data, null, 2)}`;
+                resultDiv.className = 'result success';
+            } catch (error) {
+                resultDiv.textContent = `❌ Error:\n${error.message}\n\n` +
+                    `💡 Posibles causas:\n` +
+                    `   - Ollama no está corriendo\n` +
+                    `   - Problema de CORS (usa un servidor local, no file://)\n` +
+                    `   - El modelo no está instalado`;
+                resultDiv.className = 'result error';
+                console.error('Error completo:', error);
+            }
+        }
+
+        // Auto-probar conexión al cargar
+        window.addEventListener('load', () => {
+            setTimeout(testOllamaConnection, 500);
+        });
+    </script>
+</body>
+</html>
